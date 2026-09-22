@@ -389,7 +389,7 @@
             window.location.href = "index.html";
             return;
         } else if ((usuarioDigitado === "gestor de conteúdo" || usuarioDigitado === "gestor") && senhaDigitada === "1234567") {
-            window.location.href = "gestor.html";
+            window.location.href = "Gestor.html";
             return;
         } else if (usuarioDigitado === "administrador" && senhaDigitada === "12345678") {
             window.location.href = "Admnistrador.html";
@@ -405,9 +405,9 @@
             localStorage.setItem("usuarioLogado", JSON.stringify(usuarioEncontrado));
 
             if (usuarioEncontrado.perfil === "gestor") {
-                window.location.href = "gestor.html";
+                window.location.href = "Gestor.html";
             } else if (usuarioEncontrado.perfil === "administrador") {
-                window.location.href = "administrador.html";
+                window.location.href = "Admnistrador.html";
             } else {
                 window.location.href = "index.html";
             }
