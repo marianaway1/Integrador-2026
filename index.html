@@ -209,7 +209,6 @@
     .nav-arrow.left { left: -15px; }
     .nav-arrow.right { right: -15px; }
 
-    /* ITEMS DO CARROSSEL (MÚSICAS / BANDAS) */
     .card-item {
       flex: 0 0 160px;
       display: flex;
@@ -217,31 +216,80 @@
       align-items: center;
     }
 
-    .card-cover {
+  
+    .card-media {
+      position: relative;
       width: 100%;
       aspect-ratio: 1;
       border-radius: 16px;
-      object-fit: cover;
-      cursor: pointer;
+      overflow: hidden;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .card-item:hover .card-cover {
+    .card-item:hover .card-media {
       transform: scale(1.05);
       box-shadow: 0 0 18px #26BD8A, 0 0 30px rgba(38, 189, 138, 0.6);
+    }
+
+    .card-cover {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    .card-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 5px;
+      padding: 10px 8px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(15,15,128,0) 35%, rgba(15,15,128,0.9) 100%);
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      pointer-events: none;
+    }
+
+    .card-item:hover .card-overlay {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 13px;
+      line-height: 1.25;
+      color: #ffffff;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.4);
     }
 
     .rating {
       display: flex;
       gap: 3px;
       justify-content: center;
-      margin-top: 8px;
     }
 
     .rating svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .rating svg.filled {
       fill: #26BD8A;
-      width: 16px;
-      height: 16px;
+      stroke: none;
+    }
+
+    .rating svg.empty {
+      fill: none;
+      stroke: #26BD8A;
+      stroke-width: 1.5;
     }
 
     .more-card {
@@ -439,35 +487,117 @@
 
         <div class="carousel-track" id="track-bandas">
           <div class="card-item">
-            <img src="29484572557448473.jpg" alt="Sepultura" class="card-cover">
-            <div class="rating">
-            
+            <div class="card-media">
+              <img src="29484572557448473.jpg" alt="Sepultura" class="card-cover">
+              <div class="card-overlay">
+                <span class="card-title">Sepultura</span>
+                <div class="rating">
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                </div>
+              </div>
             </div>
           </div>
 
           <div class="card-item">
-            <img src="Legião Urbana.jpg" alt="Legião Urbana" class="card-cover">
+            <div class="card-media">
+              <img src="Legião Urbana.jpg" alt="Legião Urbana" class="card-cover">
+              <div class="card-overlay">
+                <span class="card-title">Legião Urbana</span>
+                <div class="rating">
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="card-item">
-            <img src="charliebrownjr.jpg" alt="Charlie Brown Jr" class="card-cover">
+            <div class="card-media">
+              <img src="charliebrownjr.jpg" alt="Charlie Brown Jr" class="card-cover">
+              <div class="card-overlay">
+                <span class="card-title">Charlie Brown Jr</span>
+                <div class="rating">
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="empty" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="card-item">
-            <img src="Venere vai Venus.jpg" alt="Venere vai venus" class="card-cover">
+            <div class="card-media">
+              <img src="Venere vai Venus.jpg" alt="Venere vai venus" class="card-cover">
+              <div class="card-overlay">
+                <span class="card-title">Venere vai Venus</span>
+                <div class="rating">
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="empty" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="card-item">
-            <img src="hermanos.jpg" alt="Los Hermanos" class="card-cover">
-          </div>
-
-   <div class="card-item">
-            <img src="Angra.jpg" alt="Angra" class="card-cover">
+            <div class="card-media">
+              <img src="hermanos.jpg" alt="Los Hermanos" class="card-cover">
+              <div class="card-overlay">
+                <span class="card-title">Los Hermanos</span>
+                <div class="rating">
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="card-item">
-            <img src="Os Mamonas Assassinas.jpg" alt="Mamonas Assassinas" class="card-cover">
+            <div class="card-media">
+              <img src="Angra.jpg" alt="Angra" class="card-cover">
+              <div class="card-overlay">
+                <span class="card-title">Angra</span>
+                <div class="rating">
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="empty" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                </div>
+              </div>
+            </div>
           </div>
+
+          <div class="card-item">
+            <div class="card-media">
+              <img src="Os Mamonas Assassinas.jpg" alt="Mamonas Assassinas" class="card-cover">
+              <div class="card-overlay">
+                <span class="card-title">Mamonas Assassinas</span>
+                <div class="rating">
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <a href="bandas.html" class="more-card">
             <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
             <span>Mais Bandas</span>
@@ -491,35 +621,115 @@
 
         <div class="carousel-track" id="track-musicas">
           <div class="card-item">
-            <img src="mayhem.jfif" alt="Álbum Sepultura" class="card-cover">
-            <div class="rating">
-            
+            <div class="card-media">
+              <img src="mayhem.jfif" alt="Mayhem-Sepultura" class="card-cover">
+              <div class="card-overlay">
+                <span class="card-title">Mayhem-Sepultura</span>
+                <div class="rating">
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                </div>
+              </div>
             </div>
           </div>
 
           <div class="card-item">
-            <img src="vento.jfif" alt="Vento no Litoral" class="card-cover">
-          </div>
-
-             <div class="card-item">
-            <img src="mamonas.jpg" alt="Pelados em Santos" class="card-cover">
-          </div>
-
-          <div class="card-item">
-            <img src="fingi.jfif" alt="Fingi na hora rir" class="card-cover">
-          </div>
-
-
-          <div class="card-item">
-            <img src="cbjr.jfif" alt="Proibida Pra Mim" class="card-cover">
-          </div>
-
-          <div class="card-item">
-            <img src="loshermanos.jfif" alt="Ventura" class="card-cover">
+            <div class="card-media">
+              <img src="vento.jfif" alt="Vento no Litoral- Legião Urbana" class="card-cover">
+              <div class="card-overlay">
+                <span class="card-title">Vento no Litoral- Legião Urbana</span>
+                <div class="rating">
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="card-item">
-            <img src="anjos.jfif" alt="Anjos" class="card-cover">
+            <div class="card-media">
+              <img src="mamonas.jpg" alt="Pelados em Santos" class="card-cover">
+              <div class="card-overlay">
+                <span class="card-title">Pelados em Santos- Mamonas Assassinas</span>
+                <div class="rating">
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="empty" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-item">
+            <div class="card-media">
+              <img src="fingi.jfif" alt="Fingi na hora rir" class="card-cover">
+              <div class="card-overlay">
+                <span class="card-title">Fingi na hora rir- Los Hermanos</span>
+                <div class="rating">
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="empty" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-item">
+            <div class="card-media">
+              <img src="cbjr.jfif" alt="Proibida Pra Mim" class="card-cover">
+              <div class="card-overlay">
+                <span class="card-title">Proibida Pra Mim- CBJR</span>
+                <div class="rating">
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="empty" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-item">
+            <div class="card-media">
+              <img src="loshermanos.jfif" alt="Último Romance" class="card-cover">
+              <div class="card-overlay">
+                <span class="card-title">Último Romance- Los Hermanos</span>
+                <div class="rating">
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-item">
+            <div class="card-media">
+              <img src="anjos.jfif" alt="Anjos" class="card-cover">
+              <div class="card-overlay">
+                <span class="card-title">Anjos- Venere Vai Venus</span>
+                <div class="rating">
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="filled" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                  <svg class="empty" viewBox="0 0 24 24"><path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/></svg>
+                </div>
+              </div>
+            </div>
           </div>
 
           <a href="musicas.html" class="more-card">
