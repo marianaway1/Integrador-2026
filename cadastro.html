@@ -6,214 +6,328 @@
   <title>Cadastro - EUfonia</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet" />
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-    body{
-        background-color:#0F0F80;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
-        min-height: 100vh;
-    }
-    .c{
-        width: 100%;
-        max-width: 1000px;
-        min-height: 600px;
-        background-color: #26BD8A;
-        border-radius: 20px;
-        display: flex;
-        overflow: hidden;
-        box-shadow: 5px 5px 10px 2px #FF8559;
-    }
-    .esquerda{
-        width: 40%;
-        background-color:#E85200 ;
-        display: flex;
-        justify-content: center;
-        text-align: center;
-        align-items: center;
-        padding: 30px;
-        overflow:hidden;
-    }
-    .logo{
-        max-width: 360px;
-        animation: float 3s ease-in-out infinite;
-        margin-right:5px;
-    }
-    @keyframes float{
-      0%,100%{ transform:translateY(0px); }
-      50%{ transform:translateY(-20px); }
+
+    body {
+      background-color: #0F0F80;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      font-family: 'DM Sans', sans-serif;
     }
 
-    .direita{
-        width: 60%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 40px;
+    /* BARRAS LATERAIS VERDES */
+    .side-panel {
+      display: none;
+      flex: 1 1 0;
+      min-width: 40px;
+      background-color: #26BD8A;
     }
 
-    .cadastro{
-        width: 100%;
-        max-width: 360px;
+    @media (min-width: 1000px) {
+      .side-panel { display: block; }
     }
 
-    .cadastro h2{
-        font-family: 'Comfortaa', sans-serif;
-        font-size: 38px;
-        margin-bottom: 8px;
-        color:#E85200;
-    }
-    .cadastro p{
-        color:#ffffff;
-        margin-bottom:25px;
-        font-family: 'DM Sans', sans-serif;
-    }
-    .input-group{
-      margin-bottom:15px;
+    /* COLUNA CENTRAL */
+    .page-content {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 20px 0 20px;
+      gap: 20px;
+      min-height: 100vh;
     }
 
-    .input-group label{
-      display:block;
-      margin-bottom:6px;
-      color:#ffffff;
-      font-family:'DM Sans', sans-serif;
+    main.container {
+      flex: 1 0 auto;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 0;
+    }
+
+    /* CARD DE CADASTRO */
+    .c {
+      width: 100%;
+      max-width: 1000px;
+      min-height: 580px;
+      background-color: #26BD8A;
+      border-radius: 20px;
+      display: flex;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    .esquerda {
+      width: 40%;
+      background-color: #E85200;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+      padding: 30px;
+      overflow: hidden;
+    }
+
+    .logo-peixe {
+      max-width: 280px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+    }
+
+    .direita {
+      width: 60%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+    }
+
+    .cadastro {
+      width: 100%;
+      max-width: 360px;
+    }
+
+    .cadastro h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 38px;
+      margin-bottom: 8px;
+      color: #E85200;
+    }
+
+    .cadastro p {
+      color: #ffffff;
+      margin-bottom: 20px;
+    }
+
+    .input-group {
+      margin-bottom: 14px;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: #ffffff;
       font-size: 14px;
     }
 
-    .input-group input, .input-group select{
-      width:100%;
-      padding:12px 14px;
-      border:none;
-      border-radius:10px;
-      outline:none;
-      font-family:'DM Sans', sans-serif;
-      font-size:15px;
-      transition:0.3s;
+    .input-group input, .input-group select {
+      width: 100%;
+      padding: 12px 14px;
+      border: none;
+      border-radius: 10px;
+      outline: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      transition: 0.3s;
       background-color: #ffffff;
       color: #333333;
     }
 
-    .input-group input:focus, .input-group select:focus{
-      box-shadow:0 0 10px #E85200;
+    .input-group input:focus, .input-group select:focus {
+      box-shadow: 0 0 10px #E85200;
     }
 
-    button{
-      width:100%;
-      padding:14px;
-      border:none;
-      border-radius:10px;
-      background:#E85200;
-      color:white;
-      font-size:16px;
-      font-family:'DM Sans', sans-serif;
+    button {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      background: #E85200;
+      color: white;
+      font-size: 16px;
+      font-family: 'DM Sans', sans-serif;
       font-weight: bold;
-      cursor:pointer;
-      transition:0.3s;
+      cursor: pointer;
+      transition: 0.3s;
       margin-top: 10px;
     }
 
-    button:hover{
-      background:#cc4700;
-      transform:scale(1.02);
-      box-shadow:0 0 10px rgba(232, 82, 0, 0.5);
+    button:hover {
+      background: #cc4700;
+      transform: scale(1.02);
+      box-shadow: 0 0 10px rgba(232, 82, 0, 0.5);
     }
 
-    .register{
-      text-align:center;
-      margin-top:20px;
-      font-size:14px;
-      color:white;
-      font-family:'DM Sans', sans-serif;
+    .register {
+      text-align: center;
+      margin-top: 18px;
+      font-size: 14px;
+      color: white;
     }
 
-    .register a{
-      color:#E85200;
-      text-decoration:none;
-      font-weight:bold;
+    .register a {
+      color: #E85200;
+      text-decoration: none;
+      font-weight: bold;
     }
 
-    #mensagem{
+    #mensagem {
       margin-top: 15px;
       text-align: center;
       color: #0F0F80;
       font-weight: bold;
-      font-family: 'DM Sans', sans-serif;
       font-size: 14px;
     }
 
-    @media(max-width:800px){
-      body{ padding:10px; }
-      .c{ flex-direction:column; min-height:auto; }
-      .esquerda, .direita{ width:100%; }
-      .esquerda{ min-height:200px; overflow:hidden; }
-      .direita{ padding:30px 20px; }
-      .cadastro{ max-width:100%; }
-      .logo{ max-width:220px; }
-      .cadastro h2{ font-size:32px; text-align:center; }
-      .cadastro p{ text-align:center; }
+    /* FOOTER */
+    .footer {
+      width: 100%;
+      background-color: #26BD8A;
+      border-radius: 18px 18px 0 0;
+      padding: 20px 30px;
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-brand img {
+      height: 32px;
+      width: 32px;
+      border-radius: 50%;
+      background: #ffffff;
+      padding: 2px;
+    }
+
+    .footer-brand span {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      color: #ffffff;
+      font-size: 18px;
+    }
+
+    .footer-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 14px;
+      margin-left: 15px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      padding-top: 12px;
+      text-align: center;
+      color: #ffffff;
+      font-size: 12px;
+    }
+
+    @media(max-width:850px) {
+      .c { flex-direction: column; }
+      .esquerda, .direita { width: 100%; }
+      .esquerda { min-height: 180px; }
+      .direita { padding: 30px 20px; }
     }
   </style>
 </head>
-
 <body>
 
-  <div class="c">
-    <div class="esquerda">
-      <img src="logopeixinho.png" class="logo" alt="Logo EUfonia">
-    </div>
+  <!-- BARRA LATERAL ESQUERDA -->
+  <div class="side-panel"></div>
 
-    <div class="direita">
-      <div class="cadastro">
-        <h2>Criar Conta</h2>
-        <p>Cadastre-se para aproveitar o EUfonia.</p>
+  <div class="page-content">
 
-        <div class="input-group">
-          <label for="nome">Nome Completo</label>
-          <input type="text" id="nome" placeholder="Digite seu nome">
+    <!-- CONTEÚDO PRINCIPAL (SEM HEADER NO CADASTRO) -->
+    <main class="container">
+      <div class="c">
+        <div class="esquerda">
+          <img src="logopeixinho.png" class="logo-peixe" alt="Logo EUfonia">
         </div>
 
-        <div class="input-group">
-          <label for="email">E-mail</label>
-          <input type="email" id="email" placeholder="Digite seu email">
+        <div class="direita">
+          <div class="cadastro">
+            <h2>Criar Conta</h2>
+            <p>Cadastre-se para aproveitar o EUfonia.</p>
+
+            <div class="input-group">
+              <label for="nome">Nome Completo</label>
+              <input type="text" id="nome" placeholder="Digite seu nome">
+            </div>
+
+            <div class="input-group">
+              <label for="email">E-mail</label>
+              <input type="email" id="email" placeholder="Digite seu email">
+            </div>
+
+            <div class="input-group">
+              <label for="usuario">Nome de Usuário (Nickname)</label>
+              <input type="text" id="usuario" placeholder="Crie um usuário">
+            </div>
+
+            <div class="input-group">
+              <label for="perfil">Tipo de Perfil</label>
+              <select id="perfil">
+                <option value="usuario">Usuário / Ouvinte</option>
+                <option value="gestor">Gestor de Conteúdo</option>
+                <option value="administrador">Administrador</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label for="senha">Senha</label>
+              <input type="password" id="senha" placeholder="Crie uma senha">
+            </div>
+
+            <button onclick="cadastrar()">Cadastrar</button>
+
+            <div class="register">
+              Já tem uma conta?
+              <a href="login.html">Faça Login</a>
+            </div>
+
+            <div id="mensagem"></div>
+          </div>
         </div>
-
-        <div class="input-group">
-          <label for="usuario">Nome de Usuário</label>
-          <input type="text" id="usuario" placeholder="Crie um usuário">
-        </div>
-
-        <div class="input-group">
-          <label for="perfil">Tipo de Perfil</label>
-          <select id="perfil">
-            <option value="usuario">Usuário Comum</option>
-            <option value="gestor">Gestor de Conteúdo</option>
-            <option value="administrador">Administrador</option>
-          </select>
-        </div>
-
-        <div class="input-group">
-          <label for="senha">Senha</label>
-          <input type="password" id="senha" placeholder="Crie uma senha">
-        </div>
-
-        <button onclick="cadastrar()">Cadastrar</button>
-
-        <div class="register">
-          Já tem uma conta?
-          <a href="login.html">Faça Login</a>
-        </div>
-
-        <div id="mensagem"></div>
       </div>
-    </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <img src="logopeixinho.png" alt="Logo EUfonia">
+          <span>EUfonia</span>
+        </div>
+        <div class="footer-links">
+          <a href="#">Sobre nós</a>
+          <a href="#">Termos de Uso</a>
+        </div>
+      </div>
+      <div class="footer-bottom">&copy; 2026 EUfonia. Todos os direitos reservados.</div>
+    </footer>
+
   </div>
+
+  <!-- BARRA LATERAL DIREITA -->
+  <div class="side-panel"></div>
 
   <script>
     function cadastrar() {
@@ -240,7 +354,6 @@
         return;
       }
 
-      // Registo baseado no ator do diagrama
       let novoUsuario = { nome, email, usuario, perfil, senha };
       usuariosSalvos.push(novoUsuario);
       localStorage.setItem("usuarios", JSON.stringify(usuariosSalvos));
