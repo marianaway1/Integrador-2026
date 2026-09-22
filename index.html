@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Início - Eufonia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #0F0F80;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .side-panel {
+      display: none;
+      flex: 1 1 0;
+      min-width: 40px;
+      background-color: #26BD8A;
+    }
+
+    @media (min-width: 1000px) {
+      .side-panel { display: block; }
+    }
+
+
+    .page-content {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 20px 0 20px;
+      gap: 20px;
+      min-height: 100vh;
+    }
+
+    main.container {
+      flex: 1 0 auto;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+ 
+    .header {
+      width: 100%;
+      background: linear-gradient(180deg, #32D29A 0%, #26BD8A 50%, #1DA375 100%);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 12px 24px;
+      min-height: 70px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3), inset 0 2px 3px rgba(255,255,255,0.6);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      position: relative;
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .header-logo img {
+      height: 44px;
+      width: 44px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: #ffffff;
+      padding: 2px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .header-logo span {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      color: #ffffff;
+      font-size: 22px;
+      letter-spacing: -0.5px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .header-search-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 1 1 240px;
+      max-width: 420px;
+      margin: 0 20px;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 8px 16px;
+      width: 100%;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.15);
+    }
+
+    .search-box input {
+      border: none;
+      outline: none;
+      width: 100%;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .filter-btn {
+      background: #ffffff;
+      border: none;
+      border-radius: 20px;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: #555;
+      cursor: pointer;
+      flex-shrink: 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover {
+      background: #f0f0f0;
+      transform: translateY(-1px);
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-shrink: 0;
+    }
+
+    .header-nav a {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      color: #ffffff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      transition: 0.2s;
+      opacity: 0.9;
+    }
+
+    .header-nav a:hover,
+    .header-nav a.active {
+      opacity: 1;
+      color: #ffffff;
+      text-shadow: 0 0 8px rgba(255,255,255,0.6);
+    }
+
+    .header-nav a svg {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+
+    .section-carousel {
+      position: relative;
+      width: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding: 10px 5px;
+      scrollbar-width: none; /* Firefox */
+      width: 100%;
+    }
+
+    .carousel-track::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
+    }
+
+    /* SETAS NAVEGAÇÃO PEQUENAS */
+    .nav-arrow {
+      background: rgba(38, 189, 138, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      color: #ffffff;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: absolute;
+      z-index: 10;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .nav-arrow:hover {
+      background: #32D29A;
+      transform: scale(1.1);
+    }
+
+    .nav-arrow.left { left: -15px; }
+    .nav-arrow.right { right: -15px; }
+
+    /* ITEMS DO CARROSSEL (MÚSICAS / BANDAS) */
+    .card-item {
+      flex: 0 0 160px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .card-cover {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 16px;
+      object-fit: cover;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card-item:hover .card-cover {
+      transform: scale(1.05);
+      box-shadow: 0 0 18px #26BD8A, 0 0 30px rgba(38, 189, 138, 0.6);
+    }
+
+    .rating {
+      display: flex;
+      gap: 3px;
+      justify-content: center;
+      margin-top: 8px;
+    }
+
+    .rating svg {
+      fill: #26BD8A;
+      width: 16px;
+      height: 16px;
+    }
+
+    .more-card {
+      flex: 0 0 160px;
+      aspect-ratio: 1;
+      border-radius: 16px;
+      border: 3px solid #26BD8A;
+      background: transparent;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: #ffffff;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 16px;
+      gap: 8px;
+      transition: all 0.3s ease;
+      box-shadow: inset 0 0 12px rgba(38, 189, 138, 0.2);
+    }
+
+    .more-card:hover {
+      background: rgba(38, 189, 138, 0.15);
+      border-color: #32D29A;
+      box-shadow: 0 0 20px #26BD8A, inset 0 0 15px rgba(38, 189, 138, 0.4);
+      transform: scale(1.03);
+    }
+
+    .more-card svg {
+      width: 28px;
+      height: 28px;
+      fill: none;
+      stroke: #26BD8A;
+      stroke-width: 2.5;
+    }
+
+    .quote-banner {
+      width: 100%;
+      background: #FF8353;
+      border-radius: 18px;
+      padding: 22px 30px;
+      text-align: center;
+      color: #0F0F80;
+      border: 2px solid #26BD8A;
+      box-shadow: 0 0 20px #26BD8A, 0 0 35px rgba(38, 189, 138, 0.7), inset 0 0 10px rgba(255, 255, 255, 0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin: 10px 0;
+    }
+
+    .quote-text {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.4;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .quote-author {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      color: #ffffff;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      transition: opacity 0.5s ease-in-out;
+    }
+    .footer {
+      width: 100%;
+      background-color: #26BD8A;
+      border-radius: 18px 18px 0 0;
+      padding: 20px 30px;
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-brand img {
+      height: 32px;
+      width: 32px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: #ffffff;
+      padding: 2px;
+    }
+
+    .footer-brand span {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      color: #ffffff;
+      font-size: 18px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: #0F0F80;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      padding-top: 12px;
+      text-align: center;
+      color: #ffffff;
+      font-size: 12px;
+      opacity: 0.9;
+    }
+    @media (max-width: 850px) {
+      .page-content { padding: 10px 10px 0 10px; }
+      .header-search-container { order: 3; max-width: 100%; flex-basis: 100%; margin: 0; }
+      .header-nav { order: 2; margin-left: auto; gap: 12px; }
+      .quote-text { font-size: 14px; }
+    }
+
+    @media (max-width: 480px) {
+      .header-logo span { font-size: 17px; }
+      .header-nav { width: 100%; justify-content: space-around; order: 3; }
+      .nav-arrow { display: none; } /* Em telas mobile, usa apenas o touch/swipe */
+    }
+  </style>
+</head>
+<body>
+
+  <div class="side-panel"></div>
+
+  <div class="page-content">
+    <header class="header">
+      <a href="index.html" class="header-logo">
+        <img src="logopeixinho.png" alt="Logo Eufonia">
+        <span>Eufonia</span>
+      </a>
+
+      <div class="header-search-container">
+        <div class="search-box">
+          <input type="text" placeholder="Pesquisar" />
+        </div>
+        <button class="filter-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+          </svg>
+          Filtrar
+        </button>
+      </div>
+
+      <nav class="header-nav">
+        <a href="index.html" class="active">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          <span>Início</span>
+        </a>
+        <a href="planos.html">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 12L2 9z"></path><path d="M11 3v18"></path><path d="M4 9h16"></path></svg>
+          <span>Planos</span>
+        </a>
+        <a href="#">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z"></path><path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
+          <span>Histórico</span>
+        </a>
+        <a href="perfil.html">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          <span>Perfil</span>
+        </a>
+      </nav>
+    </header>
+
+
+    <main class="container">
+      <section class="section-carousel">
+        <button class="nav-arrow left" onclick="scrollCarousel('track-bandas', -220)" aria-label="Anterior">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+
+        <div class="carousel-track" id="track-bandas">
+          <div class="card-item">
+            <img src="29484572557448473.jpg" alt="Sepultura" class="card-cover">
+            <div class="rating">
+            
+            </div>
+          </div>
+
+          <div class="card-item">
+            <img src="Legião Urbana.jpg" alt="Legião Urbana" class="card-cover">
+          </div>
+
+          <div class="card-item">
+            <img src="charliebrownjr.jpg" alt="Charlie Brown Jr" class="card-cover">
+          </div>
+
+          <div class="card-item">
+            <img src="Venere vai Venus.jpg" alt="Venere vai venus" class="card-cover">
+          </div>
+
+          <div class="card-item">
+            <img src="hermanos.jpg" alt="Los Hermanos" class="card-cover">
+          </div>
+
+   <div class="card-item">
+            <img src="Angra.jpg" alt="Angra" class="card-cover">
+          </div>
+
+          <div class="card-item">
+            <img src="Os Mamonas Assassinas.jpg" alt="Mamonas Assassinas" class="card-cover">
+          </div>
+          <a href="bandas.html" class="more-card">
+            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            <span>Mais Bandas</span>
+          </a>
+        </div>
+
+        <button class="nav-arrow right" onclick="scrollCarousel('track-bandas', 220)" aria-label="Próximo">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </section>
+
+      <section class="quote-banner">
+        <p class="quote-text" id="quote-text">“O tempo às vezes é alheio à nossa vontade, mas só o que é bom dura tempo o bastante pra se tornar inesquecível.”</p>
+        <span class="quote-author" id="quote-author">- Charlie Brown Jr</span>
+      </section>
+
+      <section class="section-carousel">
+        <button class="nav-arrow left" onclick="scrollCarousel('track-musicas', -220)" aria-label="Anterior">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+
+        <div class="carousel-track" id="track-musicas">
+          <div class="card-item">
+            <img src="mayhem.jfif" alt="Álbum Sepultura" class="card-cover">
+            <div class="rating">
+            
+            </div>
+          </div>
+
+          <div class="card-item">
+            <img src="vento.jfif" alt="Vento no Litoral" class="card-cover">
+          </div>
+
+             <div class="card-item">
+            <img src="mamonas.jpg" alt="Pelados em Santos" class="card-cover">
+          </div>
+
+          <div class="card-item">
+            <img src="fingi.jfif" alt="Fingi na hora rir" class="card-cover">
+          </div>
+
+
+          <div class="card-item">
+            <img src="cbjr.jfif" alt="Proibida Pra Mim" class="card-cover">
+          </div>
+
+          <div class="card-item">
+            <img src="loshermanos.jfif" alt="Ventura" class="card-cover">
+          </div>
+
+          <div class="card-item">
+            <img src="anjos.jfif" alt="Anjos" class="card-cover">
+          </div>
+
+          <a href="teste.html" class="more-card">
+            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            <span>Mais Músicas</span>
+          </a>
+        </div>
+
+        <button class="nav-arrow right" onclick="scrollCarousel('track-musicas', 220)" aria-label="Próximo">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </section>
+
+    </main>
+
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <img src="logopeixinho.png" alt="Logo Eufonia">
+          <span>Eufonia</span>
+        </div>
+
+        <div class="footer-links">
+          <a href="#">Sobre nós</a>
+          <a href="#">Termos de Uso</a>
+          <a href="#">Privacidade</a>
+          <a href="#">Contato</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        &copy; 2026 Eufonia. Todos os direitos reservados.
+      </div>
+    </footer>
+
+  </div>
+
+
+  <div class="side-panel"></div>
+
+<script>
+  function scrollCarousel(id, amount) {
+    document.getElementById(id).scrollBy({ left: amount, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>

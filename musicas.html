@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recomendações - Eufonia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #0F0F80;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    /* --- BARRAS LATERAIS VERDES --- */
+    .side-panel {
+      display: none;
+      flex: 1 1 0;
+      min-width: 40px;
+      background-color: #26BD8A;
+    }
+
+    @media (min-width: 1000px) {
+      .side-panel { display: block; }
+    }
+
+    /* --- COLUNA CENTRAL --- */
+    .page-content {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 20px 0 20px;
+      gap: 20px;
+      min-height: 100vh;
+    }
+
+    main.container {
+      flex: 1 0 auto;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .header {
+      width: 100%;
+      background: linear-gradient(180deg, #32D29A 0%, #26BD8A 50%, #1DA375 100%);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 12px 24px;
+      min-height: 70px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3), inset 0 2px 3px rgba(255,255,255,0.6);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      position: relative;
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .header-logo img {
+      height: 44px;
+      width: 44px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: #ffffff;
+      padding: 2px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .header-logo span {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      color: #ffffff;
+      font-size: 22px;
+      letter-spacing: -0.5px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .header-search-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 1 1 240px;
+      max-width: 420px;
+      margin: 0 20px;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 8px 16px;
+      width: 100%;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.15);
+    }
+
+    .search-box input {
+      border: none;
+      outline: none;
+      width: 100%;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .filter-btn {
+      background: #ffffff;
+      border: none;
+      border-radius: 20px;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: #555;
+      cursor: pointer;
+      flex-shrink: 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover {
+      background: #f0f0f0;
+      transform: translateY(-1px);
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-shrink: 0;
+    }
+
+    .header-nav a {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      color: #ffffff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      transition: 0.2s;
+      opacity: 0.9;
+    }
+
+    .header-nav a:hover,
+    .header-nav a.active {
+      opacity: 1;
+      color: #ffffff;
+      text-shadow: 0 0 8px rgba(255,255,255,0.6);
+    }
+
+    .header-nav a svg {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* --- BOTAO VOLTAR --- */
+    .back-btn {
+      color: #ffffff;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 20px;
+      margin-bottom: 5px;
+      transition: transform 0.2s;
+      width: fit-content;
+    }
+
+    .back-btn:hover {
+      transform: translateX(-4px);
+    }
+
+    /* --- GRID DE MÚSICAS --- */
+    .grid-music {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 25px 20px;
+      width: 100%;
+    }
+
+    /* Item individual (música solta na tela) */
+    .music-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    .music-cover-wrapper {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 16px;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+    }
+
+    .music-cover-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 16px;
+      display: block;
+    }
+
+    /* HOVER: Brilho reluzente ao redor de toda a capa */
+    .music-item:hover .music-cover-wrapper {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #26BD8A, 0 0 35px rgba(38, 189, 138, 0.8), 0 0 50px rgba(38, 189, 138, 0.4);
+    }
+
+    .music-title {
+      font-family: 'Syne', sans-serif;
+      color: #E85200;
+      font-size: 15px;
+      text-align: center;
+      margin-top: 10px;
+      margin-bottom: 4px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .rating {
+      display: flex;
+      gap: 3px;
+      justify-content: center;
+    }
+
+    .rating svg {
+      fill: #26BD8A;
+      width: 17px;
+      height: 17px;
+      filter: drop-shadow(0 0 2px rgba(38, 189, 138, 0.5));
+    }
+
+    /* --- PAINEL DE RESENHA (Aparece ao passar o mouse) --- */
+    .review-tooltip {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(8px);
+      width: 190px;
+      background: rgba(15, 15, 128, 0.95);
+      border: 1.5px solid #26BD8A;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 12px rgba(38, 189, 138, 0.3);
+      border-radius: 12px;
+      padding: 10px;
+      z-index: 50;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      pointer-events: none;
+      text-align: center;
+    }
+
+    /* Triângulo indicador do tooltip */
+    .review-tooltip::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 0 6px 6px 6px;
+      border-style: solid;
+      border-color: transparent transparent #26BD8A transparent;
+    }
+
+    .music-item:hover .review-tooltip {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(2px);
+      pointer-events: auto;
+    }
+
+    .review-text {
+      color: #ffffff;
+      font-size: 11px;
+      line-height: 1.35;
+      margin-bottom: 6px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .read-more-link {
+      color: #26BD8A;
+      font-weight: 700;
+      font-size: 12px;
+      text-decoration: none;
+      transition: color 0.2s;
+      display: inline-block;
+    }
+
+    .read-more-link:hover {
+      color: #32D29A;
+      text-decoration: underline;
+    }
+
+    /* --- FOOTER --- */
+    .footer {
+      width: 100%;
+      background-color: #26BD8A;
+      border-radius: 18px 18px 0 0;
+      padding: 20px 30px;
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-brand img {
+      height: 32px;
+      width: 32px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: #ffffff;
+      padding: 2px;
+    }
+
+    .footer-brand span {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      color: #ffffff;
+      font-size: 18px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: #0F0F80;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      padding-top: 12px;
+      text-align: center;
+      color: #ffffff;
+      font-size: 12px;
+      opacity: 0.9;
+    }
+
+    /* --- RESPONSIVIDADE --- */
+    @media (max-width: 850px) {
+      .page-content { padding: 10px 10px 0 10px; }
+      .header-search-container { order: 3; max-width: 100%; flex-basis: 100%; margin: 0; }
+      .header-nav { order: 2; margin-left: auto; gap: 12px; }
+      .grid-music { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 18px 12px; }
+    }
+
+    @media (max-width: 480px) {
+      .header-logo span { font-size: 17px; }
+      .header-nav { width: 100%; justify-content: space-around; order: 3; }
+      .grid-music { grid-template-columns: repeat(auto-fill, minmax(105px, 1fr)); gap: 15px 10px; }
+      .music-title { font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA LATERAL ESQUERDA -->
+  <div class="side-panel"></div>
+
+  <div class="page-content">
+
+    <header class="header">
+      <a href="index.html" class="header-logo">
+        <img src="logopeixinho.png" alt="Logo Eufonia">
+        <span>Eufonia</span>
+      </a>
+
+      <div class="header-search-container">
+        <div class="search-box">
+          <input type="text" placeholder="Pesquisar" />
+        </div>
+        <button class="filter-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+          </svg>
+    
+        </button>
+      </div>
+
+      <nav class="header-nav">
+        <a href="index.html" class="active">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          <span>Início</span>
+        </a>
+        <a href="planos.html">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 12L2 9z"></path><path d="M11 3v18"></path><path d="M4 9h16"></path></svg>
+          <span>Planos</span>
+        </a>
+        <a href="#">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z"></path><path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
+          <span>Histórico</span>
+        </a>
+        <a href="perfil.html">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          <span>Perfil</span>
+        </a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <a href="index.html" class="back-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+      </a>
+
+      <div class="grid-music">
+
+        <div class="music-item">
+          <div class="music-cover-wrapper">
+            <img src="mayhem.jfif" alt="Mayhem - Sepultura">
+          </div>
+          <div class="music-title">Mayhem</div>
+          <div class="rating">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <div class="review-tooltip">
+            <p class="review-text">“O Sepultura tem uma carreira histórica, mesmo em meio a mudanças de formação ao longo dos anos...”</p>
+            <a href="resenhas.html" class="read-more-link">ler mais...</a>
+          </div>
+        </div>
+
+        <div class="music-item">
+          <div class="music-cover-wrapper">
+            <img src="vento.jfif" alt="Vento no Litoral">
+          </div>
+          <div class="music-title">Vento no Litoral</div>
+          <div class="rating">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <div class="review-tooltip">
+            <p class="review-text">“Uma verdadeira obra-prima poética do Legião Urbana que emociona do início ao fim...”</p>
+            <a href="resenhas.html" class="read-more-link">ler mais...</a>
+          </div>
+        </div>
+
+        
+        <div class="music-item">
+          <div class="music-cover-wrapper">
+            <img src="cbjr.jfif" alt="Proibida Pra Mim">
+          </div>
+          <div class="music-title">Proibida Pra Mim</div>
+          <div class="rating">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <div class="review-tooltip">
+            <p class="review-text">“Clássico atemporal do skate punk nacional com a voz e atitude inesquecíveis do Chorão...”</p>
+            <a href="resenhas.html" class="read-more-link">ler mais...</a>
+          </div>
+        </div>
+
+        <!-- MÚSICA 4 -->
+        <div class="music-item">
+          <div class="music-cover-wrapper">
+            <img src="loshermanos.jfif" alt="Último Romance">
+          </div>
+          <div class="music-title">Último Romance</div>
+          <div class="rating">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <div class="review-tooltip">
+            <p class="review-text">“Sutil, romântica e perfeita no álbum Ventura. Uma das composições mais bonitas dos Hermanos...”</p>
+            <a href="resenhas.html" class="read-more-link">ler mais...</a>
+          </div>
+        </div>
+
+        <!-- MÚSICA 5 -->
+        <div class="music-item">
+          <div class="music-cover-wrapper">
+            <img src="anjos.jfif" alt="Anjos">
+          </div>
+          <div class="music-title">Anjos</div>
+          <div class="rating">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <div class="review-tooltip">
+            <p class="review-text">“O Rappa em sua forma mais inspirada, unindo melodia marcante e letras profundas...”</p>
+            <a href="resenhas.html" class="read-more-link">ler mais...</a>
+          </div>
+        </div>
+
+        <!-- MÚSICA 6 -->
+        <div class="music-item">
+          <div class="music-cover-wrapper">
+            <img src="aonde.jpg" alt="Aonde Quer Que Eu Vá">
+          </div>
+          <div class="music-title">Aonde Quer Que Eu Vá</div>
+          <div class="rating">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <div class="review-tooltip">
+            <p class="review-text">“Balada inesquecível dos Paralamas do Sucesso, arranjo rico e vocal emocionante...”</p>
+            <a href="resenhas.html" class="read-more-link">ler mais...</a>
+          </div>
+        </div>
+
+        <!-- MÚSICA 7 -->
+        <div class="music-item">
+          <div class="music-cover-wrapper">
+            <img src="culpa.jfif" alt="Culpa">
+          </div>
+          <div class="music-title">Culpa</div>
+          <div class="rating">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <div class="review-tooltip">
+            <p class="review-text">“O Terno com um som indie marcante e letras sarcásticas com tom de confissão...”</p>
+            <a href="resenhas.html" class="read-more-link">ler mais...</a>
+          </div>
+        </div>
+
+        <!-- MÚSICA 8 -->
+        <div class="music-item">
+          <div class="music-cover-wrapper">
+            <img src="mamonas.jpg" alt="Pelados em Santos">
+          </div>
+          <div class="music-title">Pelados em Santos</div>
+          <div class="rating">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <div class="review-tooltip">
+            <p class="review-text">“Energia, humor e irreverência dos Mamonas Assassinas que marcaram gerações...”</p>
+            <a href="resenhas.html" class="read-more-link">ler mais...</a>
+          </div>
+        </div>
+
+        <!-- MÚSICA 9 -->
+        <div class="music-item">
+          <div class="music-cover-wrapper">
+            <img src="pose.jfif" alt="Pose">
+          </div>
+          <div class="music-title">Pose</div>
+          <div class="rating">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <div class="review-tooltip">
+            <p class="review-text">“Engenheiros do Hawaii trazendo crítica social refinada e acordes inconfundíveis...”</p>
+            <a href="resenhas.html" class="read-more-link">ler mais...</a>
+          </div>
+        </div>
+
+        <!-- MÚSICA 10 -->
+        <div class="music-item">
+          <div class="music-cover-wrapper">
+            <img src="maneira.avif" alt="À sua maneira">
+          </div>
+          <div class="music-title">À sua maneira</div>
+          <div class="rating">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <div class="review-tooltip">
+            <p class="review-text">“Um dos maiores hits do Capital Inicial, hino do rock nacional dos anos 2000...”</p>
+            <a href="resenhas.html" class="read-more-link">ler mais...</a>
+          </div>
+        </div>
+
+        <!-- MÚSICA 11 -->
+        <div class="music-item">
+          <div class="music-cover-wrapper">
+            <img src="fingi.jfif" alt="Fingi na Hora Rir">
+          </div>
+          <div class="music-title">Fingi na Hora Rir</div>
+          <div class="rating">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <div class="review-tooltip">
+            <p class="review-text">“Faixa memorável com a essência e sonoridade alternativa do Los Hermanos...”</p>
+            <a href="resenhas.html" class="read-more-link">ler mais...</a>
+          </div>
+        </div>
+
+        <!-- MÚSICA 12 -->
+        <div class="music-item">
+          <div class="music-cover-wrapper">
+            <img src="dois.jfif" alt="Tempo Perdido">
+          </div>
+          <div class="music-title">Tempo Perdido</div>
+          <div class="rating">
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <div class="review-tooltip">
+            <p class="review-text">“'Temos nosso próprio tempo' — uma das composições mais icônicas da música brasileira...”</p>
+            <a href="resenhas.html" class="read-more-link">ler mais...</a>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <img src="logopeixinho.png" alt="Logo Eufonia">
+          <span>Eufonia</span>
+        </div>
+
+        <div class="footer-links">
+          <a href="#">Sobre nós</a>
+          <a href="#">Termos de Uso</a>
+          <a href="#">Privacidade</a>
+          <a href="#">Contato</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        &copy; 2026 Eufonia. Todos os direitos reservados.
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- BARRA LATERAL DIREITA -->
+  <div class="side-panel"></div>
+
+</body>
+</html>
