@@ -21,7 +21,7 @@
       font-family: 'DM Sans', sans-serif;
     }
 
-    /* --- BARRAS LATERAIS VERDES --- */
+
     .side-panel {
       display: none;
       flex: 1 1 0;
@@ -33,7 +33,6 @@
       .side-panel { display: block; }
     }
 
-    /* --- COLUNA CENTRAL --- */
     .page-content {
       width: 100%;
       max-width: 1200px;
@@ -182,7 +181,7 @@
       stroke-linejoin: round;
     }
 
-    /* --- BOTAO VOLTAR --- */
+
     .back-btn {
       color: #ffffff;
       text-decoration: none;
@@ -199,7 +198,7 @@
       transform: translateX(-4px);
     }
 
-    /* --- GRID DE MÚSICAS --- */
+
     .grid-music {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -207,7 +206,7 @@
       width: 100%;
     }
 
-    /* Item individual (música solta na tela) */
+  
     .music-item {
       display: flex;
       flex-direction: column;
@@ -232,7 +231,7 @@
       display: block;
     }
 
-    /* HOVER: Brilho reluzente ao redor de toda a capa */
+  
     .music-item:hover .music-cover-wrapper {
       transform: scale(1.05);
       box-shadow: 0 0 20px #26BD8A, 0 0 35px rgba(38, 189, 138, 0.8), 0 0 50px rgba(38, 189, 138, 0.4);
@@ -262,7 +261,7 @@
       filter: drop-shadow(0 0 2px rgba(38, 189, 138, 0.5));
     }
 
-    /* --- PAINEL DE RESENHA (Aparece ao passar o mouse) --- */
+   
     .review-tooltip {
       position: absolute;
       top: 100%;
@@ -282,7 +281,7 @@
       text-align: center;
     }
 
-    /* Triângulo indicador do tooltip */
+
     .review-tooltip::before {
       content: '';
       position: absolute;
@@ -326,7 +325,7 @@
       text-decoration: underline;
     }
 
-    /* --- FOOTER --- */
+
     .footer {
       width: 100%;
       background-color: #26BD8A;
@@ -395,7 +394,6 @@
       opacity: 0.9;
     }
 
-    /* --- RESPONSIVIDADE --- */
     @media (max-width: 850px) {
       .page-content { padding: 10px 10px 0 10px; }
       .header-search-container { order: 3; max-width: 100%; flex-basis: 100%; margin: 0; }
@@ -413,7 +411,7 @@
 </head>
 <body>
 
-  <!-- BARRA LATERAL ESQUERDA -->
+
   <div class="side-panel"></div>
 
   <div class="page-content">
@@ -521,7 +519,6 @@
           </div>
         </div>
 
-        <!-- MÚSICA 4 -->
         <div class="music-item">
           <div class="music-cover-wrapper">
             <img src="loshermanos.jfif" alt="Último Romance">
@@ -540,7 +537,7 @@
           </div>
         </div>
 
-        <!-- MÚSICA 5 -->
+  
         <div class="music-item">
           <div class="music-cover-wrapper">
             <img src="anjos.jfif" alt="Anjos">
@@ -559,7 +556,6 @@
           </div>
         </div>
 
-        <!-- MÚSICA 6 -->
         <div class="music-item">
           <div class="music-cover-wrapper">
             <img src="aonde.jpg" alt="Aonde Quer Que Eu Vá">
@@ -578,7 +574,7 @@
           </div>
         </div>
 
-        <!-- MÚSICA 7 -->
+    
         <div class="music-item">
           <div class="music-cover-wrapper">
             <img src="culpa.jfif" alt="Culpa">
@@ -597,7 +593,7 @@
           </div>
         </div>
 
-        <!-- MÚSICA 8 -->
+     
         <div class="music-item">
           <div class="music-cover-wrapper">
             <img src="mamonas.jpg" alt="Pelados em Santos">
@@ -616,7 +612,6 @@
           </div>
         </div>
 
-        <!-- MÚSICA 9 -->
         <div class="music-item">
           <div class="music-cover-wrapper">
             <img src="pose.jfif" alt="Pose">
@@ -635,7 +630,7 @@
           </div>
         </div>
 
-        <!-- MÚSICA 10 -->
+      
         <div class="music-item">
           <div class="music-cover-wrapper">
             <img src="maneira.avif" alt="À sua maneira">
@@ -654,7 +649,7 @@
           </div>
         </div>
 
-        <!-- MÚSICA 11 -->
+       
         <div class="music-item">
           <div class="music-cover-wrapper">
             <img src="fingi.jfif" alt="Fingi na Hora Rir">
@@ -673,7 +668,7 @@
           </div>
         </div>
 
-        <!-- MÚSICA 12 -->
+     
         <div class="music-item">
           <div class="music-cover-wrapper">
             <img src="dois.jfif" alt="Tempo Perdido">
@@ -695,7 +690,7 @@
       </div>
     </main>
 
-    <!-- RODAPÉ -->
+  
     <footer class="footer">
       <div class="footer-content">
         <div class="footer-brand">
