@@ -383,9 +383,8 @@
         if ((usuarioDigitado === senhaDigitada )) {
             mensagem.style.color = "#0F0F80";
             mensagem.innerHTML = "Pronto! Sua senha foi modificada.";
-           setTimeout(function() {
+           window.alert("Pronto! Sua senha foi modificada");
             window.location.href = "login.html";
-        }, 5000); 
             return;
         } else {
             mensagem.style.color = "#0F0F80";
