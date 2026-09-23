@@ -364,7 +364,7 @@
   <div class="page-content">
 
     <header class="topo">
-      <a href="index.html" class="voltar" aria-label="Voltar">
+      <a href="musica.html" class="voltar" aria-label="Voltar">
         <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
       </a>
       <h1>Nome_música</h1>
@@ -469,6 +469,7 @@
 
   </div>
 
+  <!-- BARRA LATERAL DIREITA -->
   <div class="side-panel"></div>
 
 </body>
