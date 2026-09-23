@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resenha - EUfonia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #0F0F80;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .side-panel {
+      display: none;
+      flex: 1 1 0;
+      min-width: 40px;
+      background-color: #26BD8A;
+    }
+
+    @media (min-width: 1000px) {
+      .side-panel { display: block; }
+    }
+
+    .page-content {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 20px 0 20px;
+      gap: 20px;
+      min-height: 100vh;
+    }
+
+    /* HEADER */
+    header.topo {
+      width: 100%;
+      background-color: #26BD8A;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 26px;
+    }
+
+    .voltar {
+      color: #ffffff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      transition: 0.3s;
+      flex-shrink: 0;
+    }
+
+    .voltar:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      transform: translateX(-3px);
+    }
+
+    .voltar svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: #ffffff;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    header.topo h1 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 26px;
+      color: #E85200;
+    }
+
+    main.container {
+      flex: 1 0 auto;
+      width: 100%;
+      display: flex;
+      padding: 0 0 20px 0;
+    }
+
+     .back-btn {
+      color: #ffffff;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 20px;
+      margin-bottom: 5px;
+      transition: transform 0.2s;
+      width: fit-content;
+    }
+
+    .back-btn:hover {
+      transform: translateX(-4px);
+    }
+
+    .c {
+      width: 100%;
+      min-height: 560px;
+      border-radius: 20px;
+      display: flex;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    .principal {
+      width: 60%;
+      background-color: #0F0F80;
+      padding: 36px;
+      display: flex;
+    }
+
+    .card-principal {
+      width: 100%;
+      background-color: #3737A6;
+      border-radius: 16px;
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .usuario-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .avatar {
+      width: 34px;
+      height: 34px;
+      min-width: 34px;
+      border-radius: 50%;
+      background-color: #26BD8A;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .avatar svg {
+      width: 18px;
+      height: 18px;
+      fill: #ffffff;
+    }
+
+    .nome-usuario {
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .estrelas {
+      color: #26BD8A;
+      font-size: 18px;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+
+    .estrelas .vazia {
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    .texto-resenha {
+      color: #E7E7FA;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .texto-resenha p + p {
+      margin-top: 12px;
+    }
+
+    .rodape-card {
+      display: flex;
+      gap: 22px;
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .rodape-card span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #ffffff;
+      font-size: 14px;
+    }
+
+    .rodape-card svg {
+      width: 17px;
+      height: 17px;
+      fill: none;
+      stroke: #ffffff;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .lista-resenhas {
+      width: 40%;
+      background-color: #E85200;
+      padding: 30px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      overflow-y: auto;
+    }
+
+    .lista-resenhas::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .lista-resenhas::-webkit-scrollbar-thumb {
+      background-color: rgba(255,255,255,0.4);
+      border-radius: 10px;
+    }
+
+    .mini-card {
+      background-color: #F1794A;
+      border-radius: 14px;
+      padding: 16px 18px;
+      transition: 0.25s;
+    }
+
+    .mini-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+    }
+
+    .mini-usuario {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .mini-avatar {
+      width: 24px;
+      height: 24px;
+      min-width: 24px;
+      border-radius: 50%;
+      background-color: #26BD8A;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mini-avatar svg {
+      width: 13px;
+      height: 13px;
+      fill: #ffffff;
+    }
+
+    .mini-usuario span {
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .mini-estrelas {
+      color: #26BD8A;
+      font-size: 14px;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .mini-estrelas .vazia {
+      color: rgba(255,255,255,0.4);
+    }
+
+    .mini-texto {
+      color: #FFE7DA;
+      font-size: 13.5px;
+      line-height: 1.55;
+    }
+
+    .footer {
+      width: 100%;
+      background-color: #26BD8A;
+      border-radius: 18px 18px 0 0;
+      padding: 20px 30px;
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-brand img {
+      height: 32px;
+      width: 32px;
+      border-radius: 50%;
+      background: #ffffff;
+      padding: 2px;
+    }
+
+    .footer-brand span {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      color: #ffffff;
+      font-size: 18px;
+    }
+
+    .footer-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 14px;
+      margin-left: 15px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      padding-top: 12px;
+      text-align: center;
+      color: #ffffff;
+      font-size: 12px;
+    }
+
+    @media (max-width: 850px) {
+      .c { flex-direction: column; }
+      .principal, .lista-resenhas { width: 100%; }
+      .principal { padding: 24px; }
+      .lista-resenhas { padding: 24px 20px; max-height: 480px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="side-panel"></div>
+
+  <div class="page-content">
+
+    <header class="topo">
+      <a href="index.html" class="voltar" aria-label="Voltar">
+        <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+      </a>
+      <h1>Nome_música</h1>
+    </header>
+
+    <main class="container">
+      <div class="c">
+
+        <div class="principal">
+          <div class="card-principal">
+            <div class="usuario-info">
+              <div class="avatar">
+                <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.9-2.2 4.9-4.9S14.7 2.2 12 2.2 7.1 4.4 7.1 7.1 9.3 12 12 12zm0 2.5c-3.5 0-10.5 1.8-10.5 5.3v2h21v-2c0-3.5-7-5.3-10.5-5.3z"/></svg>
+              </div>
+              <span class="nome-usuario">Fulano-de-tal</span>
+            </div>
+
+            <div class="estrelas">★★★★<span class="vazia">★</span></div>
+
+            <div class="texto-resenha">
+              <p></p>
+              <p></p>
+            </div>
+
+            <div class="rodape-card">
+              <span>
+                <svg viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>
+                150
+              </span>
+              <span>
+                <svg viewBox="0 0 24 24"><path d="M7 22V11m0 11h11.5a2 2 0 0 0 2-1.7l1.2-7A2 2 0 0 0 19.7 11H14l1-5.5A2 2 0 0 0 13 3L7 11"/></svg>
+                100
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lista-resenhas">
+
+          <div class="mini-card">
+            <div class="mini-usuario">
+              <div class="mini-avatar">
+                <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.9-2.2 4.9-4.9S14.7 2.2 12 2.2 7.1 4.4 7.1 7.1 9.3 12 12 12zm0 2.5c-3.5 0-10.5 1.8-10.5 5.3v2h21v-2c0-3.5-7-5.3-10.5-5.3z"/></svg>
+              </div>
+              <span>Ciclaninho</span>
+            </div>
+            <div class="mini-estrelas">★★★★<span class="vazia">★</span></div>
+            <div class="mini-texto">pipipipopopo</div>
+          </div>
+
+          <div class="mini-card">
+            <div class="mini-usuario">
+              <div class="mini-avatar">
+                <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.9-2.2 4.9-4.9S14.7 2.2 12 2.2 7.1 4.4 7.1 7.1 9.3 12 12 12zm0 2.5c-3.5 0-10.5 1.8-10.5 5.3v2h21v-2c0-3.5-7-5.3-10.5-5.3z"/></svg>
+              </div>
+              <span>Amo_música</span>
+            </div>
+            <div class="mini-estrelas">★★★★<span class="vazia">★</span></div>
+            <div class="mini-texto"></div>
+          </div>
+
+          <div class="mini-card">
+            <div class="mini-usuario">
+              <div class="mini-avatar">
+                <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.9-2.2 4.9-4.9S14.7 2.2 12 2.2 7.1 4.4 7.1 7.1 9.3 12 12 12zm0 2.5c-3.5 0-10.5 1.8-10.5 5.3v2h21v-2c0-3.5-7-5.3-10.5-5.3z"/></svg>
+              </div>
+              <span>SuperVinil</span>
+            </div>
+            <div class="mini-estrelas">★★★★<span class="vazia">★</span></div>
+            <div class="mini-texto"></div>
+          </div>
+
+          <div class="mini-card">
+            <div class="mini-usuario">
+              <div class="mini-avatar">
+                <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.9-2.2 4.9-4.9S14.7 2.2 12 2.2 7.1 4.4 7.1 7.1 9.3 12 12 12zm0 2.5c-3.5 0-10.5 1.8-10.5 5.3v2h21v-2c0-3.5-7-5.3-10.5-5.3z"/></svg>
+              </div>
+              <span>MariaJosé</span>
+            </div>
+            <div class="mini-estrelas">★★★★★</div>
+            <div class="mini-texto"></div>
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <img src="logopeixinho.png" alt="Logo EUfonia">
+          <span>EUfonia</span>
+        </div>
+        <div class="footer-links">
+          <a href="#">Sobre nós</a>
+          <a href="#">Termos de Uso</a>
+        </div>
+      </div>
+      <div class="footer-bottom">&copy; 2026 EUfonia. Todos os direitos reservados.</div>
+    </footer>
+
+  </div>
+
+  <div class="side-panel"></div>
+
+</body>
+</html>
