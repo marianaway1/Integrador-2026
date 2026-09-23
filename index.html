@@ -798,6 +798,33 @@
   function scrollCarousel(id, amount) {
     document.getElementById(id).scrollBy({ left: amount, behavior: 'smooth' });
   }
+
+
+  const quotes = [
+    { text: "“O tempo às vezes é alheio à nossa vontade, mas só o que é bom dura tempo o bastante pra se tornar inesquecível.”", author: "- Charlie Brown Jr" },
+    { text: "“Dou muita volta e volta e meia ainda volto pra você”", author: "- O Terno" },
+    { text: "“Se eu tivesse a força que você pensa que eu tenho, eu gravaria no metal da minha pele o teu desenho”", author: "- Engenheiros do Hawaii" }
+  ];
+
+  let currentQuote = 0;
+  const quoteTextEl = document.getElementById('quote-text');
+  const quoteAuthorEl = document.getElementById('quote-author');
+
+  function changeQuote() {
+    quoteTextEl.style.opacity = 0;
+    quoteAuthorEl.style.opacity = 0;
+
+    setTimeout(() => {
+      currentQuote = (currentQuote + 1) % quotes.length;
+      quoteTextEl.textContent = quotes[currentQuote].text;
+      quoteAuthorEl.textContent = quotes[currentQuote].author;
+      quoteTextEl.style.opacity = 1;
+      quoteAuthorEl.style.opacity = 1;
+    }, 500); 
+  }
+
+  setInterval(changeQuote, 5000);
 </script>
+
 </body>
 </html>
