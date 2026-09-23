@@ -379,14 +379,18 @@
         let usuarioDigitado = document.getElementById("usuario").value;
         let senhaDigitada = document.getElementById("senha").value;
         let mensagem = document.getElementById("mensagem");
+        let regexSenha = /^(?=.*[A-Z])(?=.*[0-9]).{6,}$/;
 
-        if ((usuarioDigitado === senhaDigitada )) {
-           window.alert("Pronto! Sua senha foi modificada.");
+        if ((usuarioDigitado === senhaDigitada && regexSenha.test(senhaDigitada) && regexSenha.test(usuarioDigitado))) {
+            mensagem.style.color = "#0F0F80";
+            mensagem.innerHTML = "Pronto! Sua senha foi modificada.";
+           window.alert("Pronto! Sua senha foi modificada");
             window.location.href = "login.html";
+            
             return;
         } else {
             mensagem.style.color = "#0F0F80";
-            mensagem.innerHTML = "As senhas não são iguais.";
+            mensagem.innerHTML = "A senha não é válida.";
             return;
         }
 
