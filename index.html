@@ -50,7 +50,7 @@
       display: flex;
       flex-direction: column;
       gap: 30px;
-      
+      justify-content: center;
     }
 
  
@@ -168,6 +168,17 @@
       display: flex;
       align-items: center;
     }
+
+    .section-title {
+  width: 100%;
+  text-align: center;
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  margin-bottom: -10px;
+}
 
     .carousel-track {
       display: flex;
@@ -478,6 +489,9 @@
         </a>
       </nav>
     </header>
+        <h2 class="section-title">Bandas</h2>
+<section class="section-carousel">
+  <button class="nav-arrow left" onclick="scrollCarousel('track-bandas', -220)" aria-label="Anterior">
 
 
     <main class="container">
@@ -485,6 +499,8 @@
         <button class="nav-arrow left" onclick="scrollCarousel('track-bandas', -220)" aria-label="Anterior">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="15 18 9 12 15 6"></polyline></svg>
         </button>
+
+
 
         <div class="carousel-track" id="track-bandas">
           <div class="card-item">
@@ -614,6 +630,12 @@
         <p class="quote-text" id="quote-text">“O tempo às vezes é alheio à nossa vontade, mas só o que é bom dura tempo o bastante pra se tornar inesquecível.”</p>
         <span class="quote-author" id="quote-author">- Charlie Brown Jr</span>
       </section>
+
+      <h2 class="section-title">Músicas</h2>
+<section class="section-carousel">
+  <button class="nav-arrow left" onclick="scrollCarousel('track-musicas', -220)" aria-label="Anterior">
+
+
 
       <section class="section-carousel">
         <button class="nav-arrow left" onclick="scrollCarousel('track-musicas', -220)" aria-label="Anterior">
