@@ -41,16 +41,16 @@
       align-items: center;
       padding: 20px 20px 0 20px;
       gap: 20px;
-        min-height: 100vh
+      min-height: 100vh;
     }
 
     main.container {
       flex: 1 0 auto;
-      width: 500px;
+      width: 100%;
       display: flex;
       flex-direction: column;
       gap: 30px;
-       justify-content: center; 
+      
     }
 
  
@@ -168,7 +168,6 @@
       display: flex;
       align-items: center;
     }
-
 
     .carousel-track {
       display: flex;
@@ -366,6 +365,7 @@
       background-color: #26BD8A;
       border-radius: 18px 18px 0 0;
       padding: 20px 30px;
+      margin-top: auto;
       display: flex;
       flex-direction: column;
       gap: 15px;
@@ -485,7 +485,6 @@
         <button class="nav-arrow left" onclick="scrollCarousel('track-bandas', -220)" aria-label="Anterior">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="15 18 9 12 15 6"></polyline></svg>
         </button>
-
 
         <div class="carousel-track" id="track-bandas">
           <div class="card-item">
