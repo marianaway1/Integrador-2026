@@ -13,7 +13,7 @@
       margin: 0;
       padding: 0;
     }
-
+ 
     body {
       background-color: #0F0F80;
       min-height: 100vh;
@@ -22,18 +22,18 @@
       align-items: stretch;
       font-family: 'DM Sans', sans-serif;
     }
-
+ 
     .side-panel {
       display: none;
       flex: 1 1 0;
       min-width: 40px;
       background-color: #26BD8A;
     }
-
+ 
     @media (min-width: 1000px) {
       .side-panel { display: block; }
     }
-
+ 
     .page-content {
       width: 100%;
       max-width: 1200px;
@@ -44,60 +44,128 @@
       gap: 20px;
       min-height: 100vh;
     }
-
+ 
     /* HEADER */
-    header.topo {
+    .header {
       width: 100%;
-      background-color: #26BD8A;
+      background: linear-gradient(180deg, #32D29A 0%, #26BD8A 50%, #1DA375 100%);
       border-radius: 20px;
       display: flex;
       align-items: center;
-      gap: 16px;
-      padding: 18px 26px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 18px 36px;
+      min-height: 90px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3), inset 0 2px 3px rgba(255,255,255,0.6);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      position: relative;
+      position: sticky;
+      top: 20px;
+      z-index: 100;
     }
-
-    .voltar {
-      color: #ffffff;
-      text-decoration: none;
+ 
+    .header-logo {
       display: flex;
       align-items: center;
-      justify-content: center;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      transition: 0.3s;
+      gap: 12px;
+      text-decoration: none;
       flex-shrink: 0;
     }
-
-    .voltar:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-      transform: translateX(-3px);
+ 
+    .header-logo img {
+      height: 58px;
+      width: 58px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: #ffffff;
+      padding: 3px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
-
-    .voltar svg {
-      width: 20px;
-      height: 20px;
-      fill: none;
-      stroke: #ffffff;
-      stroke-width: 2.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    header.topo h1 {
+ 
+    .header-logo span {
       font-family: 'Syne', sans-serif;
       font-weight: 800;
-      font-size: 26px;
-      color: #E85200;
+      color: #ffffff;
+      font-size: 28px;
+      letter-spacing: -0.5px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
-
+ 
+    .header-search-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 1 1 240px;
+      max-width: 460px;
+      margin: 0 20px;
+    }
+ 
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: #ffffff;
+      border-radius: 22px;
+      padding: 10px 18px;
+      width: 100%;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.15);
+    }
+ 
+    .search-box input {
+      border: none;
+      outline: none;
+      width: 100%;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      color: #333;
+    }
+ 
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-shrink: 0;
+    }
+ 
+    .header-nav a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: #ffffff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      transition: 0.2s;
+      opacity: 0.95;
+    }
+ 
+    .header-nav a:hover,
+    .header-nav a.active {
+      opacity: 1;
+      color: #ff6c17;
+      text-shadow: 0 0 8px rgba(255,255,255,0.6);
+    }
+ 
+    .header-nav a svg {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      width: 22px;
+      height: 22px;
+    }
+ 
     main.container {
       flex: 1 0 auto;
       width: 100%;
       display: flex;
+      flex-direction: column;
+      gap: 16px;
       padding: 0 0 20px 0;
     }
-
+ 
      .back-btn {
       color: #ffffff;
       text-decoration: none;
@@ -109,11 +177,11 @@
       transition: transform 0.2s;
       width: fit-content;
     }
-
+ 
     .back-btn:hover {
       transform: translateX(-4px);
     }
-
+ 
     .c {
       width: 100%;
       min-height: 560px;
@@ -122,14 +190,14 @@
       overflow: hidden;
       box-shadow: 0 10px 25px rgba(0,0,0,0.3);
     }
-
+ 
     .principal {
       width: 60%;
       background-color: #0F0F80;
       padding: 36px;
       display: flex;
     }
-
+ 
     .card-principal {
       width: 100%;
       background-color: #3737A6;
@@ -138,14 +206,14 @@
       display: flex;
       flex-direction: column;
     }
-
+ 
     .usuario-info {
       display: flex;
       align-items: center;
       gap: 10px;
       margin-bottom: 12px;
     }
-
+ 
     .avatar {
       width: 34px;
       height: 34px;
@@ -156,40 +224,40 @@
       align-items: center;
       justify-content: center;
     }
-
+ 
     .avatar svg {
       width: 18px;
       height: 18px;
       fill: #ffffff;
     }
-
+ 
     .nome-usuario {
       color: #ffffff;
       font-weight: 700;
       font-size: 15px;
     }
-
+ 
     .estrelas {
       color: #26BD8A;
       font-size: 18px;
       letter-spacing: 2px;
       margin-bottom: 16px;
     }
-
+ 
     .estrelas .vazia {
       color: rgba(255, 255, 255, 0.35);
     }
-
+ 
     .texto-resenha {
       color: #E7E7FA;
       font-size: 15px;
       line-height: 1.7;
     }
-
+ 
     .texto-resenha p + p {
       margin-top: 12px;
     }
-
+ 
     .rodape-card {
       display: flex;
       gap: 22px;
@@ -197,7 +265,7 @@
       padding-top: 16px;
       border-top: 1px solid rgba(255,255,255,0.15);
     }
-
+ 
     .rodape-card span {
       display: flex;
       align-items: center;
@@ -205,7 +273,7 @@
       color: #ffffff;
       font-size: 14px;
     }
-
+ 
     .rodape-card svg {
       width: 17px;
       height: 17px;
@@ -215,7 +283,7 @@
       stroke-linecap: round;
       stroke-linejoin: round;
     }
-
+ 
     .lista-resenhas {
       width: 40%;
       background-color: #E85200;
@@ -225,35 +293,35 @@
       gap: 16px;
       overflow-y: auto;
     }
-
+ 
     .lista-resenhas::-webkit-scrollbar {
       width: 6px;
     }
-
+ 
     .lista-resenhas::-webkit-scrollbar-thumb {
       background-color: rgba(255,255,255,0.4);
       border-radius: 10px;
     }
-
+ 
     .mini-card {
       background-color: #F1794A;
       border-radius: 14px;
       padding: 16px 18px;
       transition: 0.25s;
     }
-
+ 
     .mini-card:hover {
       transform: translateY(-2px);
       box-shadow: 0 6px 14px rgba(0,0,0,0.2);
     }
-
+ 
     .mini-usuario {
       display: flex;
       align-items: center;
       gap: 8px;
       margin-bottom: 6px;
     }
-
+ 
     .mini-avatar {
       width: 24px;
       height: 24px;
@@ -264,36 +332,36 @@
       align-items: center;
       justify-content: center;
     }
-
+ 
     .mini-avatar svg {
       width: 13px;
       height: 13px;
       fill: #ffffff;
     }
-
+ 
     .mini-usuario span {
       color: #ffffff;
       font-weight: 700;
       font-size: 14px;
     }
-
+ 
     .mini-estrelas {
       color: #26BD8A;
       font-size: 14px;
       letter-spacing: 1px;
       margin-bottom: 8px;
     }
-
+ 
     .mini-estrelas .vazia {
       color: rgba(255,255,255,0.4);
     }
-
+ 
     .mini-texto {
       color: #FFE7DA;
       font-size: 13.5px;
       line-height: 1.55;
     }
-
+ 
     .footer {
       width: 100%;
       background-color: #26BD8A;
@@ -304,7 +372,7 @@
       flex-direction: column;
       gap: 15px;
     }
-
+ 
     .footer-content {
       display: flex;
       justify-content: space-between;
@@ -312,13 +380,13 @@
       flex-wrap: wrap;
       gap: 15px;
     }
-
+ 
     .footer-brand {
       display: flex;
       align-items: center;
       gap: 10px;
     }
-
+ 
     .footer-brand img {
       height: 32px;
       width: 32px;
@@ -326,21 +394,21 @@
       background: #ffffff;
       padding: 2px;
     }
-
+ 
     .footer-brand span {
       font-family: 'Syne', sans-serif;
       font-weight: 800;
       color: #ffffff;
       font-size: 18px;
     }
-
+ 
     .footer-links a {
       color: #ffffff;
       text-decoration: none;
       font-size: 14px;
       margin-left: 15px;
     }
-
+ 
     .footer-bottom {
       border-top: 1px solid rgba(255, 255, 255, 0.2);
       padding-top: 12px;
@@ -348,7 +416,7 @@
       color: #ffffff;
       font-size: 12px;
     }
-
+ 
     @media (max-width: 850px) {
       .c { flex-direction: column; }
       .principal, .lista-resenhas { width: 100%; }
@@ -358,21 +426,54 @@
   </style>
 </head>
 <body>
-
+ 
   <div class="side-panel"></div>
-
+ 
   <div class="page-content">
-
-    <header class="topo">
-      <a href="musicas.html" class="voltar" aria-label="Voltar">
-        <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+ 
+    <header class="header">
+      <a href="index.html" class="header-logo">
+        <img src="logopeixinho.png" alt="Logo Eufonia">
+        <span>Eufonia</span>
       </a>
-      <h1>Nome_música</h1>
+ 
+      <div class="header-search-container">
+        <div class="search-box">
+          <input type="text" placeholder="Pesquisar" />
+        </div>
+      </div>
+ 
+      <nav class="header-nav">
+        <a href="index.html">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          <span>Início</span>
+        </a>
+        <a href="planos.html">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 12L2 9z"></path><path d="M11 3v18"></path><path d="M4 9h16"></path></svg>
+          <span>Planos</span>
+        </a>
+        <a href="#">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z"></path><path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
+          <span>Histórico</span>
+        </a>
+        <a href="perfil.html">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          <span>Usuário</span>
+        </a>
+      </nav>
     </header>
-
+ 
     <main class="container">
+      <a href="musicas.html" class="back-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        Nome_música
+      </a>
+ 
       <div class="c">
-
+ 
         <div class="principal">
           <div class="card-principal">
             <div class="usuario-info">
@@ -381,14 +482,14 @@
               </div>
               <span class="nome-usuario">Fulano-de-tal</span>
             </div>
-
+ 
             <div class="estrelas">★★★★<span class="vazia">★</span></div>
-
+ 
             <div class="texto-resenha">
               <p></p>
               <p></p>
             </div>
-
+ 
             <div class="rodape-card">
               <span>
                 <svg viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>
@@ -401,9 +502,9 @@
             </div>
           </div>
         </div>
-
+ 
         <div class="lista-resenhas">
-
+ 
           <div class="mini-card">
             <div class="mini-usuario">
               <div class="mini-avatar">
@@ -414,7 +515,7 @@
             <div class="mini-estrelas">★★★★<span class="vazia">★</span></div>
             <div class="mini-texto">pipipipopopo</div>
           </div>
-
+ 
           <div class="mini-card">
             <div class="mini-usuario">
               <div class="mini-avatar">
@@ -425,7 +526,7 @@
             <div class="mini-estrelas">★★★★<span class="vazia">★</span></div>
             <div class="mini-texto"></div>
           </div>
-
+ 
           <div class="mini-card">
             <div class="mini-usuario">
               <div class="mini-avatar">
@@ -436,7 +537,7 @@
             <div class="mini-estrelas">★★★★<span class="vazia">★</span></div>
             <div class="mini-texto"></div>
           </div>
-
+ 
           <div class="mini-card">
             <div class="mini-usuario">
               <div class="mini-avatar">
@@ -447,12 +548,12 @@
             <div class="mini-estrelas">★★★★★</div>
             <div class="mini-texto"></div>
           </div>
-
+ 
         </div>
-
+ 
       </div>
     </main>
-
+ 
     <footer class="footer">
       <div class="footer-content">
         <div class="footer-brand">
@@ -466,11 +567,12 @@
       </div>
       <div class="footer-bottom">&copy; 2026 EUfonia. Todos os direitos reservados.</div>
     </footer>
-
+ 
   </div>
-
+ 
   <!-- BARRA LATERAL DIREITA -->
   <div class="side-panel"></div>
-
+ 
 </body>
 </html>
+ 
