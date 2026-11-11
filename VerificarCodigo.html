@@ -22,8 +22,6 @@
       align-items: stretch;
       font-family: 'DM Sans', sans-serif;
     }
-
-    /* BARRAS LATERAIS VERDES */
     .side-panel {
       display: none;
       flex: 1 1 0;
@@ -238,7 +236,26 @@
       font-size: 14px;
     }
 
-    /* FOOTER */
+      .back-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+     .back-btn {
+      color: #ffffff;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 20px;
+      transition: transform 0.2s;
+    }
+
+    .back-btn:hover {
+      transform: translateX(-4px);
+    }
+
     .footer {
       width: 100%;
       background-color: #26BD8A;
