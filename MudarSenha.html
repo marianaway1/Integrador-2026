@@ -23,7 +23,6 @@
       font-family: 'DM Sans', sans-serif;
     }
 
-    /* BARRAS LATERAIS VERDES */
     .side-panel {
       display: none;
       flex: 1 1 0;
@@ -238,7 +237,6 @@
       font-size: 14px;
     }
 
-    /* FOOTER */
     .footer {
       width: 100%;
       background-color: #26BD8A;
@@ -294,6 +292,26 @@
       font-size: 12px;
     }
 
+    .back-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+     .back-btn {
+      color: #ffffff;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 20px;
+      transition: transform 0.2s;
+    }
+
+    .back-btn:hover {
+      transform: translateX(-4px);
+    }
+
     @media(max-width:850px) {
       .c { flex-direction: column; }
       .esquerda, .direita { width: 100%; }
@@ -303,13 +321,11 @@
   </style>
 </head>
 <body>
-
-  <!-- BARRA LATERAL ESQUERDA -->
   <div class="side-panel"></div>
 
   <div class="page-content">
 
-    <!-- HEADER -->
+
     <header class="header">
       <a href="index.html" class="header-logo">
         <img src="logopeixinho.png" alt="Logo EUfonia">
@@ -318,8 +334,15 @@
 
      
     </header>
+<div class="back-wrapper">
+  <a href="login.html" class="back-btn">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <line x1="19" y1="12" x2="5" y2="12"></line>
+      <polyline points="12 19 5 12 12 5"></polyline>
+    </svg>
+  </a>
+</div>
 
-    <!-- CONTEÚDO PRINCIPAL -->
     <main class="container">
       <div class="c">
         <div class="esquerda">
@@ -349,7 +372,6 @@
       </div>
     </main>
 
-    <!-- FOOTER -->
     <footer class="footer">
       <div class="footer-content">
         <div class="footer-brand">
@@ -366,7 +388,6 @@
 
   </div>
 
-  <!-- BARRA LATERAL DIREITA -->
   <div class="side-panel"></div>
 
   <script>
