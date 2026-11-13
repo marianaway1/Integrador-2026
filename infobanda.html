@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Banda - Eufonia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    html { scrollbar-gutter: stable; }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: #0F0F80;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .side-panel { display: none; flex: 1 1 0; min-width: 40px; background-color: #26BD8A; }
+    @media (min-width: 1000px) { .side-panel { display: block; } }
+
+    .page-content {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 20px 0 20px;
+      gap: 20px;
+      min-height: 100vh;
+    }
+
+    main.container {
+      flex: 1 0 auto;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    /* ---------- HEADER (igual ao resto do site) ---------- */
+    .header {
+      width: 100%;
+      background: linear-gradient(180deg, #32D29A 0%, #26BD8A 50%, #1DA375 100%);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 18px 36px;
+      min-height: 90px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3), inset 0 2px 3px rgba(255,255,255,0.6);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      position: sticky;
+      top: 20px;
+      z-index: 100;
+    }
+
+    .header-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0; }
+    .header-logo img {
+      height: 58px; width: 58px; object-fit: contain; border-radius: 50%;
+      background: #ffffff; padding: 3px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    .header-logo span {
+      font-family: 'Syne', sans-serif; font-weight: 800; color: #ffffff;
+      font-size: 28px; letter-spacing: -0.5px; text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .header-search-container { display: flex; align-items: center; gap: 10px; flex: 1 1 240px; max-width: 460px; margin: 0 20px; }
+    .search-box {
+      display: flex; align-items: center; background: #ffffff; border-radius: 22px;
+      padding: 10px 18px; width: 100%; box-shadow: inset 0 2px 4px rgba(0,0,0,0.15);
+    }
+    .search-box input {
+      border: none; outline: none; width: 100%;
+      font-family: 'DM Sans', sans-serif; font-size: 15px; color: #333;
+    }
+
+    .header-nav { display: flex; align-items: center; gap: 24px; flex-shrink: 0; }
+    .header-nav a {
+      display: flex; align-items: center; gap: 8px; text-decoration: none; color: #ffffff;
+      font-family: 'DM Sans', sans-serif; font-size: 17px; font-weight: 700;
+      transition: 0.2s; opacity: 0.95;
+    }
+    .header-nav a:hover, .header-nav a.active {
+      opacity: 1; color: #ff6c17; text-shadow: 0 0 8px rgba(255,255,255,0.6);
+    }
+    .header-nav a svg {
+      fill: none; stroke: currentColor; stroke-width: 2;
+      stroke-linecap: round; stroke-linejoin: round; width: 22px; height: 22px;
+    }
+
+    .back-wrapper { width: 100%; display: flex; justify-content: flex-start; }
+    .back-btn {
+      color: #ffffff; text-decoration: none; display: inline-flex; align-items: center;
+      gap: 8px; font-size: 20px; transition: transform 0.2s;
+    }
+    .back-btn:hover { transform: translateX(-4px); }
+
+  
+    .band-wrapper {
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-bottom: 30px;
+    }
+
+    .band-hero {
+      background: #FF8353;
+      border-radius: 35px;
+      padding: 35px 45px;
+      box-shadow: 0 0 25px rgba(38, 189, 138, 0.4), 0 10px 30px rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .band-photo {
+      width: 200px;
+      height: 200px;
+      flex-shrink: 0;
+      border-radius: 24px;
+      overflow: hidden;
+      background: #ffffff;
+      border: 4px solid #ffffff;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    }
+    .band-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .band-info { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+
+    .band-name {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 38px;
+      line-height: 1.05;
+      letter-spacing: -0.5px;
+      color: #0F0F80;
+    }
+
+    .band-rating { display: flex; align-items: center; gap: 4px; }
+    .band-rating svg { width: 22px; height: 22px; fill: #ffffff; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2)); }
+    .band-rating svg.empty { opacity: 0.35; }
+    .band-rating .nota { margin-left: 8px; font-weight: 700; color: #0F0F80; font-size: 17px; }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      background: #26BD8A;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 6px 16px;
+      border-radius: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+    .tag.claro { background: #FFC4B0; color: #111111; box-shadow: inset 0 1px 3px rgba(0,0,0,0.1); }
+
+    /* cards de seção */
+    .section-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1.5px solid #26BD8A;
+      border-radius: 25px;
+      padding: 26px 30px;
+      box-shadow: 0 0 18px rgba(38, 189, 138, 0.25);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .section-card h2 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 22px;
+      color: #26BD8A;
+      letter-spacing: -0.3px;
+    }
+
+    .section-card p { color: #ffffff; font-size: 15px; line-height: 1.6; max-width: 70ch; }
+
+    .pill-list { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; }
+    .pill-list li {
+      background: #FFC4B0; color: #111111; font-weight: 700; font-size: 14px;
+      padding: 9px 18px; border-radius: 25px; box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .track-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .track-list li {
+      display: flex; align-items: center; gap: 14px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 16px; padding: 10px 16px; color: #ffffff; font-size: 15px; font-weight: 500;
+    }
+    .track-list .pos { color: #26BD8A; font-weight: 800; width: 22px; text-align: center; flex-shrink: 0; }
+    .track-list .extra { margin-left: auto; opacity: 0.7; font-size: 13px; }
+
+    .album-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 18px; }
+    .album { display: flex; flex-direction: column; gap: 6px; }
+    .album .capa {
+      aspect-ratio: 1; border-radius: 16px; background: #FFC4B0; overflow: hidden;
+      display: flex; align-items: center; justify-content: center; color: #FF8353; font-size: 34px;
+    }
+    .album .capa img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .album .titulo { font-family: 'Syne', sans-serif; color: #ffffff; font-weight: 800; font-size: 14px; }
+    .album .ano { color: #ffffff; opacity: 0.7; font-size: 13px; }
+
+    .review {
+      background: rgba(15, 15, 128, 0.95);
+      border: 1.5px solid #26BD8A;
+      border-radius: 16px;
+      padding: 14px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .review .autor { color: #26BD8A; font-weight: 700; font-size: 14px; }
+    .review .texto { color: #ffffff; font-size: 14px; line-height: 1.5; }
+
+    .link-btn {
+      align-self: flex-start;
+      background: #26BD8A; color: #ffffff; text-decoration: none;
+      border-radius: 25px; padding: 12px 24px;
+      font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 800;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: all 0.2s;
+    }
+    .link-btn:hover { background: #32D29A; transform: translateY(-2px); box-shadow: 0 6px 14px rgba(0,0,0,0.25); }
+
+    /* bandas parecidas (mesmo visual da home) */
+    .similar-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 22px 18px; }
+    .similar-item { text-decoration: none; display: flex; flex-direction: column; align-items: center; }
+    .similar-item .cover {
+      width: 100%; aspect-ratio: 1; border-radius: 16px;
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+    }
+    .similar-item .cover img { width: 100%; height: 100%; object-fit: cover; border-radius: 16px; display: block; }
+    .similar-item:hover .cover, .similar-item:focus-visible .cover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #26BD8A, 0 0 35px rgba(38, 189, 138, 0.8), 0 0 50px rgba(38, 189, 138, 0.4);
+    }
+    .similar-item .nome {
+      font-family: 'Syne', sans-serif; color: #E85200; font-size: 14px; font-weight: 800;
+      text-align: center; margin-top: 10px; letter-spacing: -0.3px;
+    }
+
+
+    .not-found {
+      background: #FF8353; border-radius: 35px; padding: 40px;
+      text-align: center; display: flex; flex-direction: column; align-items: center; gap: 14px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+    .not-found h1 { font-family: 'Syne', sans-serif; color: #0F0F80; font-size: 28px; }
+    .not-found p { color: #111111; font-size: 15px; }
+
+    /* ---------- RODAPÉ ---------- */
+    .footer {
+      width: 100%; background-color: #26BD8A; border-radius: 18px 18px 0 0;
+      padding: 20px 30px; margin-top: auto; display: flex; flex-direction: column;
+      gap: 15px; box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.15);
+    }
+    .footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
+    .footer-brand { display: flex; align-items: center; gap: 10px; }
+    .footer-brand img {
+      height: 32px; width: 32px; object-fit: contain; border-radius: 50%;
+      background: #ffffff; padding: 2px;
+    }
+    .footer-brand span { font-family: 'Syne', sans-serif; font-weight: 800; color: #ffffff; font-size: 18px; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 20px; }
+    .footer-links a { color: #ffffff; text-decoration: none; font-size: 14px; transition: 0.2s; }
+    .footer-links a:hover { color: #0F0F80; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.2); padding-top: 12px;
+      text-align: center; color: #ffffff; font-size: 12px; opacity: 0.9;
+    }
+
+    /* ---------- RESPONSIVO ---------- */
+    @media (max-width: 850px) {
+      .page-content { padding: 10px 10px 0 10px; }
+      .header-search-container { order: 3; max-width: 100%; flex-basis: 100%; margin: 0; }
+      .header-nav { order: 2; margin-left: auto; gap: 12px; }
+      .band-hero { padding: 25px 20px; gap: 22px; }
+      .band-photo { width: 150px; height: 150px; }
+      .band-name { font-size: 30px; }
+      .section-card { padding: 22px 20px; }
+    }
+
+    @media (max-width: 600px) {
+      .band-hero { flex-direction: column; text-align: center; }
+      .band-info { align-items: center; }
+      .tags, .band-rating { justify-content: center; }
+    }
+
+    @media (max-width: 480px) {
+      .header-logo span { font-size: 17px; }
+      .header-nav { width: 100%; justify-content: space-around; order: 3; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="side-panel"></div>
+
+  <div class="page-content">
+
+    <header class="header">
+      <a href="index.html" class="header-logo">
+        <img src="logopeixinho.png" alt="Logo Eufonia">
+        <span>Eufonia</span>
+      </a>
+
+      <div class="header-search-container">
+        <div class="search-box">
+          <input type="text" placeholder="Pesquisar" />
+        </div>
+      </div>
+
+      <nav class="header-nav">
+        <a href="index.html">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          <span>Início</span>
+        </a>
+        <a href="planos.html">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 12L2 9z"></path><path d="M11 3v18"></path><path d="M4 9h16"></path></svg>
+          <span>Planos</span>
+        </a>
+        <a href="#">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z"></path><path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
+          <span>Histórico</span>
+        </a>
+        <a href="perfil.html">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          <span>Usuário</span>
+        </a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <div class="back-wrapper">
+        <a href="javascript:history.back()" class="back-btn" aria-label="Voltar">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+        </a>
+      </div>
+
+      <div class="band-wrapper" id="conteudo"></div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <img src="logopeixinho.png" alt="Logo Eufonia">
+          <span>Eufonia</span>
+        </div>
+        <div class="footer-links">
+          <a href="#">Sobre nós</a>
+          <a href="#">Termos de Uso</a>
+          <a href="#">Privacidade</a>
+          <a href="#">Contato</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2026 Eufonia. Todos os direitos reservados.
+      </div>
+    </footer>
+
+  </div>
+
+  <div class="side-panel"></div>
+
+
+
+</body>
+</html>
