@@ -549,7 +549,17 @@
  
   <div class="side-panel"></div>
  
- 
+ <script>
+  const cartoes = document.querySelectorAll('.option-card');
+  const paineis = document.querySelectorAll('.painel');
+
+  cartoes.forEach(c => {
+    c.addEventListener('click', () => {
+      cartoes.forEach(x => x.classList.toggle('active', x === c));
+      paineis.forEach(p => { p.hidden = p.id !== 'painel-' + c.dataset.painel; });
+    });
+  });
+</script>
 </body>
 </html>
 
