@@ -413,44 +413,69 @@
 
   <div class="side-panel"></div>
 
-  <script>
-    function entrar() {
-        let usuarioDigitado = document.getElementById("usuario").value.trim().toLowerCase();
-        let senhaDigitada = document.getElementById("senha").value;
-        let mensagem = document.getElementById("mensagem");
+  <script src="auth.js"></script>
+<script>
+  // Contas de teste (visíveis para qualquer um que abrir o código-fonte)
+  const contasTeste = [
+    { nomes: ["usuario", "usuário"], senha: "123456", perfil: "usuario" },
+    { nomes: ["gestor", "gestor de conteúdo"], senha: "1234567", perfil: "gestor" },
+    { nomes: ["administrador"], senha: "12345678", perfil: "administrador" }
+  ];
 
-        if ((usuarioDigitado === "usuário" || usuarioDigitado === "usuario") && senhaDigitada === "123456") {
-            window.location.href = "index.html";
-            return;
-        } else if ((usuarioDigitado === "gestor de conteúdo" || usuarioDigitado === "gestor") && senhaDigitada === "1234567") {
-            window.location.href = "Gestor.html";
-            return;
-        } else if (usuarioDigitado === "administrador" && senhaDigitada === "12345678") {
-            window.location.href = "Admnistrador.html";
-            return;
-        }
+  async function entrar() {
+    const digitado = document.getElementById("usuario").value.trim().toLowerCase();
+    const senha = document.getElementById("senha").value;
+    const mensagem = document.getElementById("mensagem");
 
-        let usuariosSalvos = JSON.parse(localStorage.getItem("usuarios")) || [];
-        let usuarioEncontrado = usuariosSalvos.find(u => 
-          (u.usuario === usuarioDigitado || u.email === usuarioDigitado) && u.senha === senhaDigitada
-        );
+    mensagem.style.color = "#0F0F80";
 
-        if (usuarioEncontrado) {
-            localStorage.setItem("usuarioLogado", JSON.stringify(usuarioEncontrado));
-
-            if (usuarioEncontrado.perfil === "gestor") {
-                window.location.href = "Gestor.html";
-            } else if (usuarioEncontrado.perfil === "administrador") {
-                window.location.href = "Admnistrador.html";
-            } else {
-                window.location.href = "index.html";
-            }
-        } else {
-            mensagem.style.color = "#0F0F80";
-            mensagem.innerHTML = "Usuário ou senha não conferem.";
-        }
+    if (!digitado || !senha) {
+      mensagem.textContent = "Preencha usuário e senha.";
+      return;
     }
-  </script>
+
+    // 1) Contas de teste
+    const teste = contasTeste.find(c => c.nomes.includes(digitado) && c.senha === senha);
+    if (teste) {
+      salvarDados("usuarioLogado", {
+        nome: teste.nomes[0],
+        usuario: teste.nomes[0],
+        perfil: teste.perfil
+      });
+      window.location.href = paginaInicial(teste.perfil);
+      return;
+    }
+
+    // 2) Usuários cadastrados
+    const hash = await hashSenha(senha);
+    const usuarios = lerDados("usuarios");
+    const encontrado = usuarios.find(
+      u => (u.usuario === digitado || u.email === digitado) && u.senha === hash
+    );
+
+    if (!encontrado) {
+      mensagem.textContent = "Usuário ou senha não conferem.";
+      return;
+    }
+
+    // Guarda a sessão SEM a senha
+    salvarDados("usuarioLogado", {
+      nome: encontrado.nome,
+      email: encontrado.email,
+      usuario: encontrado.usuario,
+      perfil: encontrado.perfil
+    });
+    window.location.href = paginaInicial(encontrado.perfil);
+  }
+
+  // Enter também envia o formulário
+  document.querySelectorAll("#usuario, #senha").forEach(campo => {
+    campo.addEventListener("keydown", e => {
+      if (e.key === "Enter") entrar();
+    });
+  });
+</script>
+
 
 </body>
 </html>
