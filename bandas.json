@@ -1,0 +1,79 @@
+[
+  {
+    "id": "sepultura",
+    "nome": "Sepultura",
+    "imagem": "29484572557448473.jpg",
+    "nota": 5,
+    "origem": "Belo Horizonte, MG",
+    "formacao": 1984,
+    "genero": "Thrash / Groove Metal",
+    "descricao": "Uma das bandas brasileiras de maior projeção internacional, referência do metal mundial.",
+    "albuns": ["Beneath the Remains", "Arise", "Chaos A.D.", "Roots"]
+  },
+  {
+    "id": "legiao-urbana",
+    "nome": "Legião Urbana",
+    "imagem": "Legião Urbana.jpg",
+    "nota": 5,
+    "origem": "Brasília, DF",
+    "formacao": 1982,
+    "genero": "Rock nacional",
+    "descricao": "Liderada por Renato Russo, marcou gerações com letras poéticas e críticas.",
+    "albuns": ["Legião Urbana", "Dois", "Que País É Este", "As Quatro Estações"]
+  },
+  {
+    "id": "charlie-brown-jr",
+    "nome": "Charlie Brown Jr",
+    "imagem": "charliebrownjr.jpg",
+    "nota": 4,
+    "origem": "Santos, SP",
+    "formacao": 1992,
+    "genero": "Rock / Skate Punk / Reggae",
+    "descricao": "Banda liderada por Chorão, unindo rock, hardcore e cultura skate e do litoral.",
+    "albuns": ["Transpiração Contínua Prolongada", "Preço Curto, Prazo Longo", "Nadando com os Tubarões"]
+  },
+  {
+    "id": "venere-vai-venus",
+    "nome": "Venere Vai Venus",
+    "imagem": "Venere vai Venus.jpg",
+    "nota": 4,
+    "origem": "Preencha aqui",
+    "formacao": "",
+    "genero": "Preencha aqui",
+    "descricao": "Preencha aqui a descrição da banda.",
+    "albuns": []
+  },
+  {
+    "id": "los-hermanos",
+    "nome": "Los Hermanos",
+    "imagem": "hermanos.jpg",
+    "nota": 5,
+    "origem": "Rio de Janeiro, RJ",
+    "formacao": 1997,
+    "genero": "Rock alternativo / MPB",
+    "descricao": "Misturam rock, samba e MPB, com letras intimistas que conquistaram um público fiel.",
+    "albuns": ["Los Hermanos", "Bloco do Eu Sozinho", "Ventura", "4"]
+  },
+  {
+    "id": "angra",
+    "nome": "Angra",
+    "imagem": "Angra.jpg",
+    "nota": 4,
+    "origem": "São Paulo, SP",
+    "formacao": 1991,
+    "genero": "Power Metal / Metal progressivo",
+    "descricao": "Conhecida pela técnica apurada e por incorporar elementos da música brasileira ao metal.",
+    "albuns": ["Angels Cry", "Holy Land", "Temple of Shadows"]
+  },
+  {
+    "id": "mamonas-assassinas",
+    "nome": "Mamonas Assassinas",
+    "imagem": "Os Mamonas Assassinas.jpg",
+    "nota": 5,
+    "origem": "Guarulhos, SP",
+    "formacao": 1995,
+    "genero": "Rock cômico",
+    "descricao": "Fenômeno de humor e irreverência, com um único álbum que vendeu milhões de cópias.",
+    "albuns": ["Mamonas Assassinas"]
+  }
+]
