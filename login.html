@@ -335,12 +335,10 @@
 </head>
 <body>
 
-  <!-- BARRA LATERAL ESQUERDA -->
   <div class="side-panel"></div>
 
   <div class="page-content">
 
-    <!-- HEADER -->
     <header class="header">
       <a href="index.html" class="header-logo">
         <img src="logopeixinho.png" alt="Logo EUfonia">
@@ -355,7 +353,7 @@
       </nav>
     </header>
 
-    <!-- CONTEÚDO PRINCIPAL -->
+
     <main class="container">
       <div class="c">
         <div class="esquerda">
@@ -415,7 +413,7 @@
 
   <script src="auth.js"></script>
 <script>
-  // Contas de teste (visíveis para qualquer um que abrir o código-fonte)
+
   const contasTeste = [
     { nomes: ["usuario", "usuário"], senha: "123456", perfil: "usuario" },
     { nomes: ["gestor", "gestor de conteúdo"], senha: "1234567", perfil: "gestor" },
@@ -434,7 +432,6 @@
       return;
     }
 
-    // 1) Contas de teste
     const teste = contasTeste.find(c => c.nomes.includes(digitado) && c.senha === senha);
     if (teste) {
       salvarDados("usuarioLogado", {
@@ -446,7 +443,6 @@
       return;
     }
 
-    // 2) Usuários cadastrados
     const hash = await hashSenha(senha);
     const usuarios = lerDados("usuarios");
     const encontrado = usuarios.find(
@@ -458,7 +454,6 @@
       return;
     }
 
-    // Guarda a sessão SEM a senha
     salvarDados("usuarioLogado", {
       nome: encontrado.nome,
       email: encontrado.email,
@@ -468,7 +463,7 @@
     window.location.href = paginaInicial(encontrado.perfil);
   }
 
-  // Enter também envia o formulário
+
   document.querySelectorAll("#usuario, #senha").forEach(campo => {
     campo.addEventListener("keydown", e => {
       if (e.key === "Enter") entrar();
