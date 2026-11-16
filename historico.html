@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Histórico - EUfonia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;700&display=swap"
+        rel="stylesheet" />
+    <style>
+        html {
+            scrollbar-gutter: stable;
+            background-color: #26BD8A;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #0F0F80;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .side-panel {
+            display: none;
+            flex: 1 1 0;
+            min-width: 40px;
+            background-color: #26BD8A;
+        }
+
+        @media (min-width: 1000px) {
+            .side-panel {
+                display: block;
+            }
+        }
+
+        .page-content {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 20px 0 20px;
+            gap: 20px;
+            min-height: 100vh;
+        }
+
+        /* HEADER */
+        .header {
+            width: 100%;
+            background: linear-gradient(180deg, #32D29A 0%, #26BD8A 50%, #1DA375 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding: 18px 36px;
+            min-height: 90px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3), inset 0 2px 3px rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+        }
+
+        .header-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .header-logo img {
+            height: 58px;
+            width: 58px;
+            object-fit: contain;
+            border-radius: 50%;
+            background: #ffffff;
+            padding: 3px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-logo span {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            color: #ffffff;
+            font-size: 28px;
+            letter-spacing: -0.5px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-search-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1 1 240px;
+            max-width: 460px;
+            margin: 0 20px;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #ffffff;
+            border-radius: 22px;
+            padding: 10px 18px;
+            width: 100%;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
+        }
+
+        .search-box input {
+            border: none;
+            outline: none;
+            width: 100%;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 15px;
+            color: #333;
+        }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-shrink: 0;
+        }
+
+        .header-nav a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #ffffff;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 17px;
+            font-weight: 700;
+            transition: 0.2s;
+            opacity: 0.95;
+        }
+
+        .header-nav a:hover,
+        .header-nav a.active {
+            opacity: 1;
+            color: #ff6c17;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+        }
+
+        .header-nav a svg {
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            width: 22px;
+            height: 22px;
+        }
+
+        main.container {
+            flex: 1 0 auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            padding: 0 0 20px 0;
+        }
+
+        /* HISTÓRICO */
+        .historico-card {
+            width: 100%;
+            max-width: 860px;
+            margin: 0 auto;
+            background-color: #F1794A;
+            border-radius: 28px;
+            padding: 30px 40px 36px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 6px 6px 18px rgba(38, 189, 138, 0.55);
+        }
+
+        .historico-titulo {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 40px;
+            color: #ffffff;
+            margin-bottom: 26px;
+        }
+
+        .dia-titulo {
+            font-weight: 700;
+            font-size: 32px;
+            color: #ffffff;
+            margin: 20px 0 10px 2px;
+        }
+
+        .item {
+            margin-bottom: 12px;
+        }
+
+        .item-topo {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            font-family: 'DM Sans', sans-serif;
+            color: #000000;
+            padding: 0;
+        }
+
+        .item-topo:focus-visible {
+            outline: 3px solid #ffffff;
+            outline-offset: 4px;
+            border-radius: 16px;
+        }
+
+        .item-capa {
+            width: 120px;
+            height: 120px;
+            min-width: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            background-color: #26BD8A;
+        }
+
+        .item-capa.destaque {
+            box-shadow: 5px 5px 0 #26BD8A;
+        }
+
+        .item-textos {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .item-nome {
+            font-size: 24px;
+            font-weight: 500;
+        }
+
+        .item-detalhes {
+            font-size: 21px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-left: 12px;
+        }
+
+        .item-detalhes i {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #000000;
+        }
+
+        .item-seta {
+            width: 28px;
+            height: 28px;
+            margin-right: 50px;
+            stroke: #000000;
+            fill: none;
+            stroke-width: 3.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transition: transform 0.25s;
+            flex-shrink: 0;
+        }
+
+        .item.aberto .item-seta {
+            transform: rotate(180deg);
+        }
+
+        /* RESENHAS DENTRO DO ITEM */
+        .item-resenhas {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.3s;
+        }
+
+        .item.aberto .item-resenhas {
+            grid-template-rows: 1fr;
+        }
+
+        .item-resenhas-inner {
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding-left: 140px;
+            padding-right: 10px;
+        }
+
+        .item.aberto .item-resenhas-inner {
+            padding-top: 14px;
+            padding-bottom: 6px;
+        }
+
+        .mini-card {
+            background-color: #E85200;
+            border-radius: 14px;
+            padding: 14px 18px;
+            display: block;
+            position: relative;
+            transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.25s ease;
+        }
+
+        .mini-card:hover {
+            transform: scale(1.04);
+            z-index: 5;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+        }
+
+        .mini-musica {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+
+        .mini-estrelas {
+            color: #26BD8A;
+            font-size: 14px;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .mini-estrelas .vazia {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .mini-texto {
+            color: #FFE7DA;
+            font-size: 13.5px;
+            line-height: 1.55;
+        }
+
+        .sem-resenha {
+            color: #FFE7DA;
+            font-size: 14px;
+            font-style: italic;
+        }
+
+        .footer {
+            width: 100%;
+            background-color: #26BD8A;
+            border-radius: 18px 18px 0 0;
+            padding: 20px 30px;
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-brand img {
+            height: 32px;
+            width: 32px;
+            border-radius: 50%;
+            background: #ffffff;
+            padding: 2px;
+        }
+
+        .footer-brand span {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            color: #ffffff;
+            font-size: 18px;
+        }
+
+        .footer-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 14px;
+            margin-left: 15px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 12px;
+            text-align: center;
+            color: #ffffff;
+            font-size: 12px;
+        }
+
+        @media (max-width: 700px) {
+            .historico-card {
+                padding: 22px 18px 26px;
+            }
+
+            .historico-titulo {
+                font-size: 32px;
+            }
+
+            .dia-titulo {
+                font-size: 24px;
+            }
+
+            .item-capa {
+                width: 80px;
+                height: 80px;
+                min-width: 80px;
+            }
+
+            .item-nome {
+                font-size: 18px;
+            }
+
+            .item-detalhes {
+                font-size: 15px;
+                padding-left: 0;
+            }
+
+            .item-textos {
+                gap: 8px;
+            }
+
+            .item-seta {
+                margin-right: 4px;
+            }
+
+            .item-resenhas-inner {
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .item-resenhas,
+            .item-seta,
+            .mini-card {
+                transition: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="side-panel"></div>
+
+    <div class="page-content">
+
+        <header class="header">
+            <a href="index.html" class="header-logo">
+                <img src="logopeixinho.png" alt="Logo Eufonia">
+                <span>Eufonia</span>
+            </a>
+
+            <div class="header-search-container">
+                <div class="search-box">
+                    <input type="text" placeholder="Pesquisar" />
+                </div>
+            </div>
+
+            <nav class="header-nav">
+                <a href="index.html">
+                    <svg width="18" height="18" viewBox="0 0 24 24">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    <span>Início</span>
+                </a>
+                <a href="planos.html">
+                    <svg width="18" height="18" viewBox="0 0 24 24">
+                        <path d="M6 3h12l4 6-10 12L2 9z"></path>
+                        <path d="M11 3v18"></path>
+                        <path d="M4 9h16"></path>
+                    </svg>
+                    <span>Planos</span>
+                </a>
+                <a href="historico.html" class="active" aria-current="page">
+                    <svg width="18" height="18" viewBox="0 0 24 24">
+                        <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+                        <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z"></path>
+                        <path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+                    </svg>
+                    <span>Histórico</span>
+                </a>
+                <a href="perfil.html">
+                    <svg width="18" height="18" viewBox="0 0 24 24">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    <span>Usuário</span>
+                </a>
+            </nav>
+        </header>
+
+        <main class="container">
+            <section class="historico-card" id="historico" aria-labelledby="titulo-historico">
+                <h1 class="historico-titulo" id="titulo-historico">Histórico</h1>
+                <!-- Os dias e itens são gerados pelo script abaixo -->
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="logopeixinho.png" alt="Logo EUfonia">
+                    <span>EUfonia</span>
+                </div>
+                <div class="footer-links">
+                    <a href="link das outras paginas">Sobre nós</a>
+                    <a href="link das outras paginas">Termos de Uso</a>
+                </div>
+            </div>
+            <div class="footer-bottom">&copy; 2026 EUfonia. Todos os direitos reservados.</div>
+        </footer>
+
+    </div>
+
+    <div class="side-panel"></div>
+
+    <script>
+        /* Troque pelos dados reais (banco de dados / API) quando tiver backend.
+           nota: de 0 a 5 estrelas. resenhas vazias mostram uma mensagem. */
+        const historico = [
+            {
+                dia: 'sex., 3 de jul.',
+                itens: [
+                    {
+                        capa: 'charliebrownjr.jpg', nome: 'Charlie Brown Jr', tipo: 'Banda', qtd: 30,
+                        resenhas: [
+                            { musica: 'Proibida Pra Mim', nota: 5, texto: 'Clássico absoluto, a letra gruda na cabeça.' }
+                        ]
+                    }
+                ]
+            },
+            {
+                dia: 'qui., 2 de jul.',
+                itens: [
+                    {
+                        capa: 'hermanos.jpg', nome: 'Los Hermanos', tipo: 'Banda', qtd: 10,
+                        resenhas: [
+                            { musica: 'Último Romance', nota: 5, texto: 'Simples e perfeita.' }
+                        ]
+                    }
+                ]
+            },
+            {
+                dia: 'qua., 1 de jul.',
+                itens: [
+                    {
+                        capa: '29484572557448473.jpg', nome: 'Sepultura', tipo: 'Banda', qtd: 10, destaque: true,
+                        resenhas: [
+                            { musica: 'Mayhem', nota: 5, texto: 'Pesado do início ao fim.' }
+                        ]
+                    }
+                ]
+            }
+        ];
+
+        const seta = '<svg class="item-seta" viewBox="0 0 24 24" aria-hidden="true"><polyline points="5 8 12 15 19 8"></polyline></svg>';
+
+        function estrelas(n) {
+            return '★'.repeat(n) + '<span class="vazia">' + '★'.repeat(5 - n) + '</span>';
+        }
+
+        function esc(t) {
+            const d = document.createElement('div');
+            d.textContent = t;
+            return d.innerHTML;
+        }
+
+        function criarResenha(r) {
+            return `<div class="mini-card">
+                <div class="mini-musica"><span>${esc(r.musica)}</span></div>
+                <div class="mini-estrelas" aria-label="${r.nota} de 5 estrelas">${estrelas(r.nota)}</div>
+                ${r.texto ? `<div class="mini-texto">${esc(r.texto)}</div>` : ''}
+            </div>`;
+        }
+
+        function criarItem(it, id) {
+            const detalhes = `<div class="item-nome">${esc(it.nome)}</div>
+                   <div class="item-detalhes">${esc(it.tipo)} <i></i> ${it.qtd} músicas avaliadas</div>`;
+            const lista = it.resenhas.length
+                ? it.resenhas.map(criarResenha).join('')
+                : '<p class="sem-resenha">Você ainda não escreveu resenhas aqui.</p>';
+            return `<article class="item">
+                <button type="button" class="item-topo" aria-expanded="false" aria-controls="res-${id}">
+                    <img class="item-capa${it.destaque ? ' destaque' : ''}" src="${it.capa}" alt="">
+                    <div class="item-textos">${detalhes}</div>
+                    ${seta}
+                </button>
+                <div class="item-resenhas" id="res-${id}"><div class="item-resenhas-inner">${lista}</div></div>
+            </article>`;
+        }
+
+        let contador = 0;
+        const alvo = document.getElementById('historico');
+        alvo.insertAdjacentHTML('beforeend', historico.map(d =>
+            `<h2 class="dia-titulo">${esc(d.dia)}</h2>` + d.itens.map(it => criarItem(it, contador++)).join('')
+        ).join(''));
+
+        alvo.addEventListener('click', e => {
+            const btn = e.target.closest('.item-topo');
+            if (!btn) return;
+            const item = btn.parentElement;
+            const aberto = item.classList.toggle('aberto');
+            btn.setAttribute('aria-expanded', aberto);
+        });
+    </script>
+
+</body>
+
+</html>
