@@ -398,21 +398,51 @@
   <!-- BARRA LATERAL DIREITA -->
   <div class="side-panel"></div>
 
-  <script>
-    function enviar() {
-    let usuarioDigitado = document.getElementById("usuario").value.trim().toLowerCase();
-    let mensagem = document.getElementById("mensagem");
+ <script src="auth.js"></script>
+<script>
+  const MAX_TENTATIVAS = 5;
 
-    if (usuarioDigitado === "0101") {
-        window.location.href = "MudarSenha.html";
-        return;
-    } else {
-        mensagem.style.color = "#0F0F80";
-        mensagem.innerHTML = "O código está incorreto.";
-        return;
+  function enviar() {
+    const digitado = document.getElementById("usuario").value.trim();
+    const mensagem = document.getElementById("mensagem");
+    mensagem.style.color = "#0F0F80";
+
+    const rec = lerDados("recuperacao", null);
+
+    if (!rec) {
+      mensagem.textContent = "Nenhum pedido de recuperação. Volte e informe seu e-mail.";
+      return;
     }
-}
-  </script>
+
+    if (Date.now() > rec.expiraEm) {
+      localStorage.removeItem("recuperacao");
+      mensagem.textContent = "O código expirou. Volte e solicite outro.";
+      return;
+    }
+
+    if (rec.tentativas >= MAX_TENTATIVAS) {
+      localStorage.removeItem("recuperacao");
+      mensagem.textContent = "Muitas tentativas. Volte e solicite um novo código.";
+      return;
+    }
+
+    if (digitado !== rec.codigo) {
+      rec.tentativas++;
+      salvarDados("recuperacao", rec);
+      mensagem.textContent = "O código está incorreto.";
+      return;
+    }
+
+    rec.verificado = true;
+    salvarDados("recuperacao", rec);
+    window.location.href = "MudarSenha.html";
+  }
+
+  document.getElementById("usuario").addEventListener("keydown", e => {
+    if (e.key === "Enter") enviar();
+  });
+</script>
+
 
 </body>
 </html>
