@@ -396,7 +396,7 @@
 
   <script src="auth.js"></script>
 <script>
-  // Só entra aqui quem passou pela verificação do código
+
   (function protegerPagina() {
     const rec = lerDados("recuperacao", null);
     if (!rec || !rec.verificado || Date.now() > rec.expiraEm) {
