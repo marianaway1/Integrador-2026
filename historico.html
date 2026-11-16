@@ -194,7 +194,7 @@
             padding: 0 0 20px 0;
         }
 
-        /* HISTÓRICO */
+     
         .historico-card {
             width: 100%;
             max-width: 860px;
@@ -297,7 +297,6 @@
             transform: rotate(180deg);
         }
 
-        /* RESENHAS DENTRO DO ITEM */
         .item-resenhas {
             display: grid;
             grid-template-rows: 0fr;
@@ -542,7 +541,6 @@
         <main class="container">
             <section class="historico-card" id="historico" aria-labelledby="titulo-historico">
                 <h1 class="historico-titulo" id="titulo-historico">Histórico</h1>
-                <!-- Os dias e itens são gerados pelo script abaixo -->
             </section>
         </main>
 
@@ -565,8 +563,6 @@
     <div class="side-panel"></div>
 
     <script>
-        /* Troque pelos dados reais (banco de dados / API) quando tiver backend.
-           nota: de 0 a 5 estrelas. resenhas vazias mostram uma mensagem. */
         const historico = [
             {
                 dia: 'sex., 3 de jul.',
