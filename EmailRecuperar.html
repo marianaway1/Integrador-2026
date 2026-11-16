@@ -389,25 +389,58 @@
 
   <div class="side-panel"></div>
 
-  <script>
-   function enviar() {
-    console.log("enviar() foi chamada");
+  <script src="auth.js"></script>
+<script>
+  const SIMULAR_EMAIL = true; // true = mostra o código na tela (só para testes)
 
-    let usuarioDigitado = document.getElementById("usuario").value.trim().toLowerCase();
-    let mensagem = document.getElementById("mensagem");
-    let regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  function gerarCodigo() {
+    const n = crypto.getRandomValues(new Uint32Array(1))[0] % 1000000;
+    return String(n).padStart(6, "0");
+  }
 
-    if (regexEmail.test(usuarioDigitado)) {
-        window.alert("Acabamos de enviar um código para o seu E-mail!");
-        window.location.href = "VerificarCodigo.html";
-        return;
-    } else {
-        mensagem.style.color = "#0F0F80";
-        mensagem.innerHTML = "E-mail inválido.";
-        return;
+  function enviar() {
+    const email = document.getElementById("usuario").value.trim().toLowerCase();
+    const mensagem = document.getElementById("mensagem");
+    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    mensagem.style.color = "#0F0F80";
+
+    if (!regexEmail.test(email)) {
+      mensagem.textContent = "E-mail inválido.";
+      return;
     }
-}
-  </script>
+
+    const usuarios = lerDados("usuarios");
+    const existe = usuarios.some(u => u.email === email);
+
+    if (!existe) {
+      mensagem.textContent = "Não encontramos uma conta com esse e-mail.";
+      return;
+    }
+
+    const codigo = gerarCodigo();
+
+    salvarDados("recuperacao", {
+      email: email,
+      codigo: codigo,
+      expiraEm: Date.now() + 10 * 60 * 1000, // 10 minutos
+      tentativas: 0,
+      verificado: false
+    });
+
+    if (SIMULAR_EMAIL) {
+      alert("SIMULAÇÃO DE E-MAIL\nSeu código de recuperação é: " + codigo);
+    } else {
+      alert("Acabamos de enviar um código para o seu E-mail!");
+    }
+
+    window.location.href = "VerificarCodigo.html";
+  }
+
+  document.getElementById("usuario").addEventListener("keydown", e => {
+    if (e.key === "Enter") enviar();
+  });
+</script>
 
 </body>
 </html>
