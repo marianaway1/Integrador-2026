@@ -42,8 +42,6 @@ body {
   justify-content: center;
   align-items: stretch;
 }
-
-/* Foco visível: laranja no fundo marinho; marinho sobre verde e coral */
 :focus-visible {
   outline: 3px solid var(--laranja);
   outline-offset: 3px;
@@ -209,7 +207,7 @@ main.container {
       width: 22px;
       height: 22px;
     }
-/* --- BOTÕES --- */
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -245,7 +243,6 @@ main.container {
   color: #ffffff;
 }
 
-/* --- FOOTER --- */
 .footer {
   width: 100%;
   background-color: var(--verde);
@@ -315,7 +312,6 @@ main.container {
   font-size: 12px;
 }
 
-/* --- RESPONSIVIDADE --- */
 @media (max-width: 850px) {
   .page-content {
     padding: 10px 10px 0 10px;
@@ -386,7 +382,6 @@ main.container {
   text-wrap: pretty;
 }
 
-/* --- CARTÃO DE PLANO (coral com brilho verde) --- */
 .plano {
   background: var(--coral);
   color: var(--marinho);
@@ -423,8 +418,6 @@ main.container {
   transform-box: fill-box;
   transform-origin: center;
 }
-
-/* O disco gira quando a pessoa interage com o cartão */
 .plano:hover .disco,
 .plano:focus-within .disco {
   animation: girar 5s linear infinite;
@@ -463,8 +456,6 @@ main.container {
   font-size: 16px;
   font-weight: 500;
 }
-
-/* Linha tracejada de "ingresso destacável" */
 .perfuracao {
   border: 0;
   border-top: 2px dashed rgba(15, 15, 128, 0.45);
@@ -501,7 +492,6 @@ main.container {
   margin-top: auto;
 }
 
-/* --- PÁGINA DE PLANOS: GRADE --- */
 .planos-grid {
   list-style: none;
   display: grid;
@@ -525,9 +515,6 @@ main.container {
   }
 }
 
-/* ==========================================================
-   PÁGINA DE ASSINATURA
-   ========================================================== */
 
 .assinatura {
   display: grid;
@@ -537,7 +524,6 @@ main.container {
   padding: 8px 0 12px;
 }
 
-/* Resumo do plano (coluna direita) */
 .resumo {
   position: sticky;
   top: 20px;
@@ -611,7 +597,6 @@ main.container {
   text-decoration-thickness: 2px;
 }
 
-/* Painel branco do formulário */
 .painel {
   background: #ffffff;
   color: var(--marinho);
@@ -631,8 +616,6 @@ main.container {
   padding-top: 28px;
   border-top: 2px dashed rgba(15, 15, 128, 0.3);
 }
-
-/* legend flutuante: a borda tracejada do fieldset não passa por trás do título */
 .form legend {
   float: left;
   width: 100%;
@@ -716,7 +699,6 @@ main.container {
   display: none;
 }
 
-/* Forma de pagamento */
 .opcoes-pagamento {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -773,7 +755,6 @@ main.container {
   line-height: 1.5;
 }
 
-/* Termos e envio */
 .acoes {
   display: flex;
   flex-direction: column;
@@ -814,7 +795,6 @@ main.container {
   color: var(--suave);
 }
 
-/* Confirmação */
 .sucesso {
   display: flex;
   flex-direction: column;
@@ -854,8 +834,6 @@ main.container {
   gap: 12px;
   margin-top: 8px;
 }
-
-/* --- RESPONSIVIDADE DA ASSINATURA --- */
 @media (max-width: 900px) {
   .assinatura {
     grid-template-columns: minmax(0, 1fr);
@@ -890,12 +868,10 @@ main.container {
 </head>
 <body>
 
-  <!-- BARRA LATERAL ESQUERDA -->
   <div class="side-panel"></div>
 
   <div class="page-content">
 
-    <!-- CABEÇALHO -->
     <header class="header">
       <a href="index.html" class="header-logo">
         <img src="logopeixinho.png" alt="Logo Eufonia">
@@ -945,7 +921,6 @@ main.container {
       </nav>
     </header>
 
-    <!-- CONTEÚDO PRINCIPAL -->
     <main class="container">
       <a href="planos.html" class="back-btn" aria-label="Voltar para os planos"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg></a>
 
@@ -1113,7 +1088,6 @@ main.container {
       </div>
     </main>
 
-    <!-- RODAPÉ -->
     <footer class="footer">
       <div class="footer-content">
         <div class="footer-brand">
@@ -1136,7 +1110,6 @@ main.container {
 
   </div>
 
-  <!-- BARRA LATERAL DIREITA -->
   <div class="side-panel"></div>
 
 
