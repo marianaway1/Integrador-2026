@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Início - Eufonia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+
+        html {
+  scrollbar-gutter: stable;
+            background-color: #26BD8A;
+}
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #0F0F80;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .side-panel {
+      display: none;
+      flex: 1 1 0;
+      min-width: 40px;
+      background-color: #26BD8A;
+    }
+
+    @media (min-width: 1000px) {
+      .side-panel { display: block; }
+    }
+
+
+    .page-content {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 20px 0 20px;
+      gap: 20px;
+      min-height: 100vh;
+    }
+
+    main.container {
+      flex: 1 0 auto;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      justify-content: center;
+    }
+
+  .header {
+      width: 100%;
+      background: linear-gradient(180deg, #32D29A 0%, #26BD8A 50%, #1DA375 100%);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 18px 36px;
+      min-height: 90px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3), inset 0 2px 3px rgba(255,255,255,0.6);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      position: relative;
+      position: sticky;  
+      top: 20px;        
+      z-index: 100; 
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .header-logo img {
+      height: 58px;
+      width: 58px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: #ffffff;
+      padding: 3px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .header-logo span {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      color: #ffffff;
+      font-size: 28px;
+      letter-spacing: -0.5px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .header-search-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 1 1 240px;
+      max-width: 460px;
+      margin: 0 20px;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: #ffffff;
+      border-radius: 22px;
+      padding: 10px 18px;
+      width: 100%;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.15);
+    }
+
+    .search-box input {
+      border: none;
+      outline: none;
+      width: 100%;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      color: #333;
+    }
+
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-shrink: 0;
+    }
+
+    .header-nav a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: #ffffff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      transition: 0.2s;
+      opacity: 0.95;
+    }
+
+    .header-nav a:hover,
+    .header-nav a.active {
+      opacity: 1;
+      color: #ff6c17;
+      text-shadow: 0 0 8px rgba(255,255,255,0.6);
+    }
+
+    .header-nav a svg {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      width: 22px;
+      height: 22px;
+    }
+
+
+    .section-carousel {
+      position: relative;
+      width: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .section-title {
+  width: 100%;
+  text-align: center;
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+  color: #ff6600;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  margin-bottom: -10px;
+}
+
+    .carousel-track {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding: 10px 5px;
+      scrollbar-width: none;
+      width: 100%;
+    }
+
+    .carousel-track::-webkit-scrollbar {
+      display: none;
+    }
+
+
+    .nav-arrow {
+      background: rgba(38, 189, 138, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      color: #ffffff;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: absolute;
+      z-index: 10;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .nav-arrow:hover {
+      background: #32D29A;
+      transform: scale(1.1);
+    }
+
+    .nav-arrow.left { left: -15px; }
+    .nav-arrow.right { right: -15px; }
+
+    .card-item {
+      flex: 0 0 160px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+  
+    .card-media {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card-item:hover .card-media {
+      transform: scale(1.05);
+      box-shadow: 0 0 18px #26BD8A, 0 0 30px rgba(38, 189, 138, 0.6);
+    }
+
+    .card-cover {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    .card-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 5px;
+      padding: 10px 8px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(15,15,128,0) 35%, rgba(15,15,128,0.9) 100%);
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      pointer-events: none;
+    }
+
+    .card-item:hover .card-overlay {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 13px;
+      line-height: 1.25;
+      color: #ffffff;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+    }
+
+    .rating {
+      display: flex;
+      gap: 3px;
+      justify-content: center;
+    }
+
+    .rating svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .rating svg.filled {
+      fill: #26BD8A;
+      stroke: none;
+    }
+
+    .rating svg.empty {
+      fill: none;
+      stroke: #26BD8A;
+      stroke-width: 1.5;
+    }
+
+    .more-card {
+      flex: 0 0 160px;
+      aspect-ratio: 1;
+      border-radius: 16px;
+      border: 3px solid #26BD8A;
+      background: transparent;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: #ffffff;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 16px;
+      gap: 8px;
+      transition: all 0.3s ease;
+      box-shadow: inset 0 0 12px rgba(38, 189, 138, 0.2);
+    }
+
+    .more-card:hover {
+      background: rgba(38, 189, 138, 0.15);
+      border-color: #32D29A;
+      box-shadow: 0 0 20px #26BD8A, inset 0 0 15px rgba(38, 189, 138, 0.4);
+      transform: scale(1.03);
+    }
+
+    .more-card svg {
+      width: 28px;
+      height: 28px;
+      fill: none;
+      stroke: #26BD8A;
+      stroke-width: 2.5;
+    }
+
+    .quote-banner {
+      width: 100%;
+      background: #FF8353;
+      border-radius: 18px;
+      padding: 22px 30px;
+      text-align: center;
+      color: #0F0F80;
+      border: 2px solid #26BD8A;
+      box-shadow: 0 0 20px #26BD8A, 0 0 35px rgba(38, 189, 138, 0.7), inset 0 0 10px rgba(255, 255, 255, 0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin: 10px 0;
+    }
+
+    .quote-text {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.4;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .quote-author {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      color: #ffffff;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      transition: opacity 0.5s ease-in-out;
+    }
+    .footer {
+      width: 100%;
+      background-color: #26BD8A;
+      border-radius: 18px 18px 0 0;
+      padding: 20px 30px;
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-brand img {
+      height: 32px;
+      width: 32px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: #ffffff;
+      padding: 2px;
+    }
+
+    .footer-brand span {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      color: #ffffff;
+      font-size: 18px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: #0F0F80;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      padding-top: 12px;
+      text-align: center;
+      color: #ffffff;
+      font-size: 12px;
+      opacity: 0.9;
+    }
+    @media (max-width: 850px) {
+      .page-content { padding: 10px 10px 0 10px; }
+      .header-search-container { order: 3; max-width: 100%; flex-basis: 100%; margin: 0; }
+      .header-nav { order: 2; margin-left: auto; gap: 12px; }
+      .quote-text { font-size: 14px; }
+    }
+
+    @media (max-width: 480px) {
+      .header-logo span { font-size: 17px; }
+      .header-nav { width: 100%; justify-content: space-around; order: 3; }
+      .nav-arrow { display: none; } 
+    }
+    .card-media a { display: block; width: 100%; height: 100%; }
+
+    .voltar { color: #ffffff; text-decoration: none; font-weight: 700; }
+.voltar:hover { color: #ff6c17; }
+
+.banda {
+  display: flex; gap: 30px; flex-wrap: wrap;
+  background: #26BD8A; border-radius: 20px; padding: 30px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+.banda-img { width: 280px; max-width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 16px; }
+.banda-info { flex: 1 1 300px; color: #ffffff; }
+.banda-info h1 { font-family: 'Syne', sans-serif; color: #E85200; font-size: 36px; margin-bottom: 8px; }
+.banda-info h3 { font-family: 'Syne', sans-serif; margin: 18px 0 6px; color: #0F0F80; }
+.banda-info ul { padding-left: 20px; }
+.banda-meta { margin: 10px 0; font-weight: 700; }
+.banda .rating svg.filled { fill: #0F0F80; }
+.banda .rating svg.empty { stroke: #0F0F80; }
+.rating svg { width: 20px; height: 20px; }
+.erro { color: #ffffff; background: #E85200; padding: 14px; border-radius: 10px; font-weight: 700; }
+  </style>
+</head>
+<body>
+
+  <div class="side-panel"></div>
+
+  <div class="page-content">
+    <header class="header">
+      <a href="index.html" class="header-logo">
+        <img src="logopeixinho.png" alt="Logo Eufonia">
+        <span>Eufonia</span>
+      </a>
+
+      <div class="header-search-container">
+        <div class="search-box">
+          <input type="text" placeholder="Pesquisar" />
+        </div>
+      
+      </div>
+
+      <nav class="header-nav">
+        <a href="index.html" class="active">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+          <span>Início</span>
+        </a>
+        <a href="planos.html">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 12L2 9z"></path><path d="M11 3v18"></path><path d="M4 9h16"></path></svg>
+          <span>Planos</span>
+        </a>
+        <a href="historico.html">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z"></path><path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
+          <span>Histórico</span>
+        </a>
+        <a href="perfil.html">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          <span>Usuário</span>
+        </a>
+      </nav>
+    </header>
+        <h2 class="section-title">Bandas</h2>
+<section class="section-carousel">
+  <button class="nav-arrow left" onclick="scrollCarousel('track-bandas', -220)" aria-label="Anterior">
+
+
+    <main class="container">
+  <a href="index.html" class="voltar">← Voltar</a>
+
+  <section class="banda" id="banda" hidden>
+    <img id="bandaImg" class="banda-img" alt="">
+    <div class="banda-info">
+      <h1 id="bandaNome"></h1>
+      <div class="rating" id="bandaNota"></div>
+      <p class="banda-meta" id="bandaMeta"></p>
+      <p id="bandaDescricao"></p>
+      <h3>Álbuns</h3>
+      <ul id="bandaAlbuns"></ul>
+    </div>
+  </section>
+
+  <p id="erro" class="erro" hidden></p>
+</main>
+
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <img src="logopeixinho.png" alt="Logo Eufonia">
+          <span>Eufonia</span>
+        </div>
+
+        <div class="footer-links">
+          <a href="#">Sobre nós</a>
+          <a href="#">Termos de Uso</a>
+          <a href="#">Privacidade</a>
+          <a href="#">Contato</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        &copy; 2026 Eufonia. Todos os direitos reservados.
+      </div>
+    </footer>
+
+  </div>
+
+
+  <div class="side-panel"></div>
+<script>
+  const ESTRELA = '<path d="M12 2l2.9 6.9 7.1.6-5.4 4.9 1.6 7.4L12 17.9 5.8 21.8l1.6-7.4L2 9.5l7.1-.6z"/>';
+
+  async function carregarBanda() {
+    const id = new URLSearchParams(window.location.search).get("id");
+    const erro = document.getElementById("erro");
+
+    try {
+      const resposta = await fetch("bandas.json");
+      if (!resposta.ok) throw new Error("Falha ao carregar bandas.json");
+      const bandas = await resposta.json();
+
+      const b = bandas.find(x => x.id === id);
+      if (!b) {
+        erro.textContent = "Banda não encontrada.";
+        erro.hidden = false;
+        return;
+      }
+
+      document.title = b.nome + " - Eufonia";
+      document.getElementById("bandaImg").src = b.imagem;
+      document.getElementById("bandaImg").alt = b.nome;
+      document.getElementById("bandaNome").textContent = b.nome;
+      document.getElementById("bandaDescricao").textContent = b.descricao;
+      document.getElementById("bandaMeta").textContent =
+        [b.origem, b.formacao, b.genero].filter(Boolean).join(" • ");
+
+      // Estrelas
+      const nota = document.getElementById("bandaNota");
+      for (let i = 1; i <= 5; i++) {
+        const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        svg.setAttribute("viewBox", "0 0 24 24");
+        svg.setAttribute("class", i <= b.nota ? "filled" : "empty");
+        svg.innerHTML = ESTRELA;
+        nota.appendChild(svg);
+      }
+
+      // Álbuns
+      const lista = document.getElementById("bandaAlbuns");
+      b.albuns.forEach(album => {
+        const li = document.createElement("li");
+        li.textContent = album;
+        lista.appendChild(li);
+      });
+
+      document.getElementById("banda").hidden = false;
+    } catch (e) {
+      erro.textContent = "Não foi possível carregar as informações da banda.";
+      erro.hidden = false;
+    }
+  }
+
+  carregarBanda();
+</script>
+
+</body>
+</html>
