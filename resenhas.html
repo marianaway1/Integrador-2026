@@ -323,6 +323,42 @@
             stroke-linecap: round;
             stroke-linejoin: round;
         }
+        .btn-like {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: none;
+            border: none;
+            padding: 0;
+            color: #ffffff;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .btn-like svg {
+            transition: transform 0.2s ease, fill 0.2s ease, stroke 0.2s ease;
+        }
+
+        .btn-like:hover svg {
+            transform: scale(1.15);
+        }
+
+        .btn-like:focus-visible {
+            outline: 2px solid #ffffff;
+            outline-offset: 4px;
+            border-radius: 6px;
+        }
+
+        .btn-like[aria-pressed="true"] {
+            color: #26BD8A;
+        }
+
+        .btn-like[aria-pressed="true"] svg {
+            fill: #26BD8A;
+            stroke: #26BD8A;
+        }
 
         .lista-resenhas {
             width: 40%;
@@ -365,6 +401,84 @@
             font-family: 'DM Sans', sans-serif;
             font-size: 14px;
             color: #333;
+        }
+        .avaliar {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 4px 10px;
+        }
+
+        .avaliar-label {
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        .estrelas-input {
+            --estrela: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z'/%3E%3C/svg%3E");
+            display: inline-flex;
+            flex-direction: row-reverse;
+        }
+
+        .estrelas-input input {
+            position: absolute;
+            opacity: 0;
+            width: 1px;
+            height: 1px;
+            pointer-events: none;
+        }
+        .estrelas-input label {
+            position: relative;
+            display: block;
+            width: 15px;
+            height: 30px;
+            overflow: hidden;
+            color: rgba(255, 255, 255, 0.45);
+            cursor: pointer;
+            transition: color 0.15s;
+        }
+
+        .estrelas-input label::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            background-color: currentColor;
+            -webkit-mask: var(--estrela) center / contain no-repeat;
+            mask: var(--estrela) center / contain no-repeat;
+        }
+
+        .estrelas-input label.esq::before {
+            left: 0;
+        }
+
+        .estrelas-input label.dir::before {
+            left: -15px;
+        }
+
+        .estrelas-input input:checked~label {
+            color: #26BD8A;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip: rect(0 0 0 0);
+            white-space: nowrap;
+        }
+
+        .estrelas-input input:focus-visible+label {
+            outline: 2px solid #ffffff;
+            outline-offset: 2px;
+            border-radius: 6px;
+        }
+
+        .nota-texto {
+            color: #FFE7DA;
+            font-size: 13px;
         }
 
         .nova-resenha button {
@@ -620,19 +734,39 @@
                                 </svg>
                                 150
                             </span>
-                            <span>
+
+                            <!-- LIKE: clique para curtir e clique de novo para tirar a curtida -->
+                            <button type="button" class="btn-like" id="btnLike" aria-pressed="false" aria-label="Curtir esta resenha">
                                 <svg viewBox="0 0 24 24">
-                                    <path
-                                        d="M7 22V11m0 11h11.5a2 2 0 0 0 2-1.7l1.2-7A2 2 0 0 0 19.7 11H14l1-5.5A2 2 0 0 0 13 3L7 11" />
+                                    <path d="M7 10v12" />
+                                    <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z" />
                                 </svg>
-                                100
-                            </span>
+                                <span id="contadorLike">100</span>
+                            </button>
                         </div>
                     </div>
                 </div>
 
                 <div class="lista-resenhas">
                     <div class="nova-resenha">
+
+                        <div class="avaliar">
+                            <span class="avaliar-label" id="avaliarLabel">Sua avaliação</span>
+                            <div class="estrelas-input" role="radiogroup" aria-labelledby="avaliarLabel">
+                                <input type="radio" name="nota" id="nota5" value="5"><label for="nota5" class="dir"><span class="sr-only">5 estrelas</span></label>
+                                <input type="radio" name="nota" id="nota4_5" value="4.5"><label for="nota4_5" class="esq"><span class="sr-only">4,5 estrelas</span></label>
+                                <input type="radio" name="nota" id="nota4" value="4"><label for="nota4" class="dir"><span class="sr-only">4 estrelas</span></label>
+                                <input type="radio" name="nota" id="nota3_5" value="3.5"><label for="nota3_5" class="esq"><span class="sr-only">3,5 estrelas</span></label>
+                                <input type="radio" name="nota" id="nota3" value="3"><label for="nota3" class="dir"><span class="sr-only">3 estrelas</span></label>
+                                <input type="radio" name="nota" id="nota2_5" value="2.5"><label for="nota2_5" class="esq"><span class="sr-only">2,5 estrelas</span></label>
+                                <input type="radio" name="nota" id="nota2" value="2"><label for="nota2" class="dir"><span class="sr-only">2 estrelas</span></label>
+                                <input type="radio" name="nota" id="nota1_5" value="1.5"><label for="nota1_5" class="esq"><span class="sr-only">1,5 estrelas</span></label>
+                                <input type="radio" name="nota" id="nota1" value="1"><label for="nota1" class="dir"><span class="sr-only">1 estrela</span></label>
+                                <input type="radio" name="nota" id="nota0_5" value="0.5"><label for="nota0_5" class="esq"><span class="sr-only">0,5 estrela</span></label>
+                            </div>
+                            <span class="nota-texto" id="notaTexto">Clique nas estrelas para avaliar</span>
+                        </div>
+
                         <textarea placeholder="Escreva sua resenha..."></textarea>
                         <button type="button">Publicar</button>
                     </div>
@@ -715,6 +849,29 @@
     </div>
 
     <div class="side-panel"></div>
+
+    <script>
+        const btnLike = document.getElementById('btnLike');
+        const contadorLike = document.getElementById('contadorLike');
+        let curtidas = Number(contadorLike.textContent);
+
+        btnLike.addEventListener('click', () => {
+            const jaCurtiu = btnLike.getAttribute('aria-pressed') === 'true';
+            btnLike.setAttribute('aria-pressed', String(!jaCurtiu));
+            curtidas += jaCurtiu ? -1 : 1;
+            contadorLike.textContent = curtidas;
+        });
+
+        const notaTexto = document.getElementById('notaTexto');
+
+        document.querySelectorAll('input[name="nota"]').forEach(opcao => {
+            opcao.addEventListener('change', () => {
+                const n = Number(opcao.value);
+                const texto = String(n).replace('.', ',');
+                notaTexto.textContent = 'Você deu ' + texto + (n <= 1 ? ' estrela' : ' estrelas');
+            });
+        });
+    </script>
 
 </body>
 
