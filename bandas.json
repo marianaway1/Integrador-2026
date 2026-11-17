@@ -75,5 +75,166 @@
     "genero": "Rock cômico",
     "descricao": "Fenômeno de humor e irreverência, com um único álbum que vendeu milhões de cópias.",
     "albuns": ["Mamonas Assassinas"]
+  },
+  {
+    "id": "o-terno",
+    "nome": "O Terno",
+    "imagem": "oterno.jpg",
+    "nota": 5,
+    "origem": "São Paulo, SP",
+    "formacao": 2009,
+    "genero": "Rock / Indie",
+    "descricao": "Banda paulistana liderada por Tim Bernardes, com som que mistura rock e psicodelia.",
+    "albuns": [
+      "66",
+      "Melhor do que Parece",
+      "Atrás/Além"
+    ]
+  },
+  {
+    "id": "fresno",
+    "nome": "Fresno",
+    "imagem": "fresno.jpg",
+    "nota": 5,
+    "origem": "Porto Alegre, RS",
+    "formacao": 1999,
+    "genero": "Rock alternativo / Emo",
+    "descricao": "Uma das bandas mais populares do rock alternativo brasileiro dos anos 2000.",
+    "albuns": [
+      "Ciano",
+      "Revanche",
+      "Eu Sou a Maré Viva"
+    ]
+  },
+  {
+    "id": "terno-rei",
+    "nome": "Terno Rei",
+    "imagem": "Ternorei.jpg",
+    "nota": 5,
+    "origem": "São Paulo, SP",
+    "formacao": 2010,
+    "genero": "Indie rock / Dream pop",
+    "descricao": "Banda de indie rock brasileiro com guitarras atmosféricas e letras melancólicas.",
+    "albuns": []
+  },
+  {
+    "id": "restart",
+    "nome": "Restart",
+    "imagem": "Levo Comigo.jpg",
+    "nota": 5,
+    "origem": "São Paulo, SP",
+    "formacao": 2008,
+    "genero": "Pop rock",
+    "descricao": "Banda de pop rock que conquistou o público jovem nos anos 2010.",
+    "albuns": []
+  },
+  {
+    "id": "nx-zero",
+    "nome": "NX Zero",
+    "imagem": "NX Zero.jpg",
+    "nota": 5,
+    "origem": "São Paulo, SP",
+    "formacao": 2001,
+    "genero": "Rock alternativo / Pop rock",
+    "descricao": "Um dos grandes nomes do rock nacional jovem dos anos 2000.",
+    "albuns": []
+  },
+  {
+    "id": "foto-em-grupo",
+    "nome": "Foto em Grupo",
+    "imagem": "fotoemgrupo.jpg",
+    "nota": 5,
+    "origem": "Preencha aqui",
+    "formacao": "",
+    "genero": "Preencha aqui",
+    "descricao": "Preencha aqui a descrição da banda.",
+    "albuns": []
+  },
+  {
+    "id": "detonautas",
+    "nome": "Detonautas",
+    "imagem": "detonautas.jpg",
+    "nota": 5,
+    "origem": "Rio de Janeiro, RJ",
+    "formacao": 2000,
+    "genero": "Rock nacional",
+    "descricao": "Conhecida por letras de forte apelo social e por hits do rock nacional.",
+    "albuns": [
+      "Detonautas Roque Clube",
+      "Roque Marciano"
+    ]
+  },
+  {
+    "id": "ratos-de-porao",
+    "nome": "Ratos de Porão",
+    "imagem": "Ratos de Porão.jpg",
+    "nota": 5,
+    "origem": "São Paulo, SP",
+    "formacao": 1981,
+    "genero": "Hardcore punk / Crossover",
+    "descricao": "Pioneira do hardcore e do punk no Brasil, com letras de crítica social.",
+    "albuns": [
+      "Crucificados pelo Sistema",
+      "Brasil",
+      "Anarkophobia"
+    ]
+  },
+  {
+    "id": "engenheiros-do-hawaii",
+    "nome": "Engenheiros do Hawaii",
+    "imagem": "hawaii.jpg",
+    "nota": 5,
+    "origem": "Porto Alegre, RS",
+    "formacao": 1985,
+    "genero": "Rock nacional",
+    "descricao": "Banda gaúcha de letras reflexivas, marco do rock brasileiro dos anos 80 e 90.",
+    "albuns": [
+      "Longe Demais das Capitais",
+      "Ouça o que Eu Digo: Não Ouça Ninguém",
+      "O Papa É Pop"
+    ]
+  },
+  {
+    "id": "capital-inicial",
+    "nome": "Capital Inicial",
+    "imagem": "capital.jpg",
+    "nota": 5,
+    "origem": "Brasília, DF",
+    "formacao": 1982,
+    "genero": "Rock nacional",
+    "descricao": "Formada em Brasília, é um dos nomes mais longevos do rock brasileiro.",
+    "albuns": [
+      "Capital Inicial",
+      "Das Kapital",
+      "Acústico MTV"
+    ]
+  },
+  {
+    "id": "garotos-podres",
+    "nome": "Garotos Podres",
+    "imagem": "garotospodres.jpg",
+    "nota": 5,
+    "origem": "São Paulo, SP",
+    "formacao": 1982,
+    "genero": "Punk rock",
+    "descricao": "Banda punk paulistana conhecida pelas letras diretas e irreverentes.",
+    "albuns": [
+      "Mais Podres do que Nunca"
+    ]
+  },
+  {
+    "id": "skank",
+    "nome": "Skank",
+    "imagem": "11470174045583990.jpg",
+    "nota": 5,
+    "origem": "Belo Horizonte, MG",
+    "formacao": 1991,
+    "genero": "Pop rock / Reggae",
+    "descricao": "Mistura pop, rock e reggae em hits que marcaram as rádios brasileiras.",
+    "albuns": [
+      "Calango",
+      "Samba Poconé",
+      "Cosmotron"
+    ]
   }
 ]
