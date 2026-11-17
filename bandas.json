@@ -8,7 +8,12 @@
     "formacao": 1984,
     "genero": "Thrash / Groove Metal",
     "descricao": "Uma das bandas brasileiras de maior projeção internacional, referência do metal mundial.",
-    "albuns": ["Beneath the Remains", "Arise", "Chaos A.D.", "Roots"]
+    "albuns": [
+      "Beneath the Remains",
+      "Arise",
+      "Chaos A.D.",
+      "Roots"
+    ]
   },
   {
     "id": "legiao-urbana",
@@ -19,7 +24,12 @@
     "formacao": 1982,
     "genero": "Rock nacional",
     "descricao": "Liderada por Renato Russo, marcou gerações com letras poéticas e críticas.",
-    "albuns": ["Legião Urbana", "Dois", "Que País É Este", "As Quatro Estações"]
+    "albuns": [
+      "Legião Urbana",
+      "Dois",
+      "Que País É Este",
+      "As Quatro Estações"
+    ]
   },
   {
     "id": "charlie-brown-jr",
@@ -30,7 +40,11 @@
     "formacao": 1992,
     "genero": "Rock / Skate Punk / Reggae",
     "descricao": "Banda liderada por Chorão, unindo rock, hardcore e cultura skate e do litoral.",
-    "albuns": ["Transpiração Contínua Prolongada", "Preço Curto, Prazo Longo", "Nadando com os Tubarões"]
+    "albuns": [
+      "Transpiração Contínua Prolongada",
+      "Preço Curto, Prazo Longo",
+      "Nadando com os Tubarões"
+    ]
   },
   {
     "id": "venere-vai-venus",
@@ -52,7 +66,12 @@
     "formacao": 1997,
     "genero": "Rock alternativo / MPB",
     "descricao": "Misturam rock, samba e MPB, com letras intimistas que conquistaram um público fiel.",
-    "albuns": ["Los Hermanos", "Bloco do Eu Sozinho", "Ventura", "4"]
+    "albuns": [
+      "Los Hermanos",
+      "Bloco do Eu Sozinho",
+      "Ventura",
+      "4"
+    ]
   },
   {
     "id": "angra",
@@ -63,7 +82,11 @@
     "formacao": 1991,
     "genero": "Power Metal / Metal progressivo",
     "descricao": "Conhecida pela técnica apurada e por incorporar elementos da música brasileira ao metal.",
-    "albuns": ["Angels Cry", "Holy Land", "Temple of Shadows"]
+    "albuns": [
+      "Angels Cry",
+      "Holy Land",
+      "Temple of Shadows"
+    ]
   },
   {
     "id": "mamonas-assassinas",
@@ -74,7 +97,9 @@
     "formacao": 1995,
     "genero": "Rock cômico",
     "descricao": "Fenômeno de humor e irreverência, com um único álbum que vendeu milhões de cópias.",
-    "albuns": ["Mamonas Assassinas"]
+    "albuns": [
+      "Mamonas Assassinas"
+    ]
   },
   {
     "id": "o-terno",
@@ -235,6 +260,153 @@
       "Calango",
       "Samba Poconé",
       "Cosmotron"
+    ]
+  },
+  {
+    "id": "titas",
+    "nome": "Titãs",
+    "imagem": "titas.jpg",
+    "nota": 5,
+    "origem": "São Paulo, SP",
+    "formacao": 1982,
+    "genero": "Rock nacional",
+    "descricao": "Uma das bandas mais importantes do rock brasileiro dos anos 80, com letras críticas e muitos hits.",
+    "albuns": [
+      "Cabeça Dinossauro",
+      "Jesus Não Tem Dentes no País dos Banguelas",
+      "Õ Blésq Blom"
+    ]
+  },
+  {
+    "id": "barao-vermelho",
+    "nome": "Barão Vermelho",
+    "imagem": "baraovermelho.jpg",
+    "nota": 4,
+    "origem": "Rio de Janeiro, RJ",
+    "formacao": 1981,
+    "genero": "Rock nacional",
+    "descricao": "Banda carioca que tinha Cazuza como vocalista nos primeiros discos e marcou o rock dos anos 80.",
+    "albuns": [
+      "Barão Vermelho",
+      "Maior Abandonado",
+      "Declare Guerra"
+    ]
+  },
+  {
+    "id": "os-mutantes",
+    "nome": "Os Mutantes",
+    "imagem": "osmutantes.jpg",
+    "nota": 5,
+    "origem": "São Paulo, SP",
+    "formacao": 1966,
+    "genero": "Rock psicodélico / Tropicália",
+    "descricao": "Grupo paulistano da Tropicália, famoso pela mistura de rock psicodélico, humor e experimentação.",
+    "albuns": [
+      "Os Mutantes",
+      "Mutantes",
+      "A Divina Comédia ou Ando Meio Desligado"
+    ]
+  },
+  {
+    "id": "raimundos",
+    "nome": "Raimundos",
+    "imagem": "raimundos.jpg",
+    "nota": 4,
+    "origem": "Brasília, DF",
+    "formacao": 1987,
+    "genero": "Hardcore / Forró",
+    "descricao": "Banda de Brasília que misturou hardcore e forró e virou sucesso nos anos 90.",
+    "albuns": [
+      "Raimundos",
+      "Lavô Tá Novo",
+      "Só no Forévis"
+    ]
+  },
+  {
+    "id": "cpm-22",
+    "nome": "CPM 22",
+    "imagem": "cpm22.jpg",
+    "nota": 4,
+    "origem": "São Paulo, SP",
+    "formacao": 1995,
+    "genero": "Punk rock",
+    "descricao": "Banda paulistana de punk rock melódico, um dos grandes nomes do gênero no Brasil nos anos 2000.",
+    "albuns": [
+      "Chegou a Hora de Recomeçar",
+      "Felicidade Instantânea"
+    ]
+  },
+  {
+    "id": "jota-quest",
+    "nome": "Jota Quest",
+    "imagem": "jotaquest.jpg",
+    "nota": 4,
+    "origem": "Belo Horizonte, MG",
+    "formacao": 1993,
+    "genero": "Pop rock / Funk rock",
+    "descricao": "Banda mineira de pop rock com toques de funk e soul, conhecida por hits românticos e dançantes.",
+    "albuns": [
+      "De Volta ao Planeta dos Macacos",
+      "Oxigênio"
+    ]
+  },
+  {
+    "id": "pato-fu",
+    "nome": "Pato Fu",
+    "imagem": "patofu.jpg",
+    "nota": 4,
+    "origem": "Belo Horizonte, MG",
+    "formacao": 1992,
+    "genero": "Pop rock / Alternativo",
+    "descricao": "Banda mineira que mistura pop, rock e experimentação, com som delicado e cheio de humor.",
+    "albuns": [
+      "Gol de Quem?",
+      "Isopor",
+      "Ruído Rosa"
+    ]
+  },
+  {
+    "id": "nacao-zumbi",
+    "nome": "Nação Zumbi",
+    "imagem": "nacaozumbi.jpg",
+    "nota": 5,
+    "origem": "Recife, PE",
+    "formacao": 1991,
+    "genero": "Manguebeat",
+    "descricao": "Grupo pernambucano ligado ao movimento manguebeat, que une rock, maracatu e música eletrônica.",
+    "albuns": [
+      "Da Lama ao Caos",
+      "Afrociberdelia"
+    ]
+  },
+  {
+    "id": "o-rappa",
+    "nome": "O Rappa",
+    "imagem": "orappa.jpg",
+    "nota": 5,
+    "origem": "Rio de Janeiro, RJ",
+    "formacao": 1993,
+    "genero": "Rock / Reggae / Rap",
+    "descricao": "Banda carioca que mistura rock, reggae e rap, com letras sobre a vida urbana e questões sociais.",
+    "albuns": [
+      "Rappa Mundi",
+      "Lado B Lado A",
+      "O Silêncio que Precede o Esporro"
+    ]
+  },
+  {
+    "id": "ira",
+    "nome": "Ira!",
+    "imagem": "ira.jpg",
+    "nota": 4,
+    "origem": "São Paulo, SP",
+    "formacao": 1981,
+    "genero": "Rock nacional",
+    "descricao": "Banda paulistana do rock brasileiro dos anos 80, conhecida pelas letras sobre o cotidiano urbano.",
+    "albuns": [
+      "Mudança de Comportamento",
+      "Vivendo e Não Aprendendo",
+      "Psicoacústica"
     ]
   }
 ]
