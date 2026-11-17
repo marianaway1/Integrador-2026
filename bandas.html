@@ -79,8 +79,8 @@
     .back-btn:hover { transform: translateX(-4px); }
     .grid-music { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 25px 20px; width: 100%; }
     .music-item { display: flex; flex-direction: column; align-items: center; position: relative; }
-    .music-cover-wrapper { display: block; width: 100%; aspect-ratio: 1; border-radius: 16px; position: relative; cursor: pointer; transition: transform 0.3s cubic-bezier(0.175,0.885,0.32,1.275), box-shadow 0.3s ease; }
-    .music-cover-wrapper img { width: 100%; height: 100%; object-fit: cover; border-radius: 16px; display: block; }
+    .music-cover-wrapper { display: block; width: 100%; aspect-ratio: 1; overflow: hidden; border-radius: 16px; position: relative; cursor: pointer; transition: transform 0.3s cubic-bezier(0.175,0.885,0.32,1.275), box-shadow 0.3s ease; }
+    .music-cover-wrapper img { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 16px; display: block; }
     .music-item:hover .music-cover-wrapper { transform: scale(1.05); box-shadow: 0 0 20px #26BD8A, 0 0 35px rgba(38,189,138,0.8), 0 0 50px rgba(38,189,138,0.4); }
     .music-title { font-family: 'Syne', sans-serif; color: #E85200; font-size: 15px; text-align: center; margin-top: 10px; margin-bottom: 4px; font-weight: 800; letter-spacing: -0.3px; }
     .grid-music .rating svg { fill: #26BD8A; width: 17px; height: 17px; filter: drop-shadow(0 0 2px rgba(38,189,138,0.5)); }
@@ -522,7 +522,7 @@
 
         <div class="music-item">
           <a href="banda.html?id=os-mutantes" class="music-cover-wrapper">
-            <img src="mutantes.jpg" alt="Os Mutantes">
+            <img src="osmutantes.jpg" alt="Os Mutantes">
           </a>
           <div class="music-title">Os Mutantes</div>
           <div class="rating">
@@ -540,7 +540,7 @@
 
         <div class="music-item">
           <a href="banda.html?id=raimundos" class="music-cover-wrapper">
-            <img src="Raimundos.jpg" alt="Raimundos">
+            <img src="raimundos.jpg" alt="Raimundos">
           </a>
           <div class="music-title">Raimundos</div>
           <div class="rating">
