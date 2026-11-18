@@ -687,6 +687,11 @@
 
   <div class="side-panel"></div>
 
-
+<script>
+  document.querySelectorAll('.music-item').forEach(item => {
+    const id = new URL(item.querySelector('.music-cover-wrapper').href).searchParams.get('id');
+    item.querySelector('.read-more-link').href = 'resenhas.html?id=' + id;
+  });
+</script>
 </body>
 </html>
