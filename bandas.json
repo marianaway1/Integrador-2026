@@ -14,6 +14,10 @@
       "Chaos A.D.",
       "Roots"
     ]
+    "resenhas": [
+    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
+    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
+  ]
   },
   {
     "id": "legiao-urbana",
@@ -30,6 +34,10 @@
       "Que País É Este",
       "As Quatro Estações"
     ]
+    "resenhas": [
+    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
+    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
+  ]
   },
   {
     "id": "charlie-brown-jr",
@@ -45,6 +53,10 @@
       "Preço Curto, Prazo Longo",
       "Nadando com os Tubarões"
     ]
+    "resenhas": [
+    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
+    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
+  ]
   },
   {
     "id": "venere-vai-venus",
@@ -56,6 +68,10 @@
     "genero": "Preencha aqui",
     "descricao": "Preencha aqui a descrição da banda.",
     "albuns": []
+    "resenhas": [
+    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
+    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
+  ]
   },
   {
     "id": "los-hermanos",
@@ -72,6 +88,10 @@
       "Ventura",
       "4"
     ]
+    "resenhas": [
+    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
+    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
+  ]
   },
   {
     "id": "angra",
@@ -87,6 +107,10 @@
       "Holy Land",
       "Temple of Shadows"
     ]
+    "resenhas": [
+    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
+    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
+  ]
   },
   {
     "id": "mamonas-assassinas",
@@ -100,6 +124,10 @@
     "albuns": [
       "Mamonas Assassinas"
     ]
+    "resenhas": [
+    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
+    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
+  ]
   },
   {
     "id": "o-terno",
@@ -115,6 +143,10 @@
       "Melhor do que Parece",
       "Atrás/Além"
     ]
+    "resenhas": [
+    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
+    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
+  ]
   },
   {
     "id": "fresno",
@@ -130,6 +162,10 @@
       "Revanche",
       "Eu Sou a Maré Viva"
     ]
+    "resenhas": [
+    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
+    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
+  ]
   },
   {
     "id": "terno-rei",
@@ -141,6 +177,10 @@
     "genero": "Indie rock / Dream pop",
     "descricao": "Banda de indie rock brasileiro com guitarras atmosféricas e letras melancólicas.",
     "albuns": []
+    "resenhas": [
+    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
+    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
+  ]
   },
   {
     "id": "restart",
@@ -152,6 +192,10 @@
     "genero": "Pop rock",
     "descricao": "Banda de pop rock que conquistou o público jovem nos anos 2010.",
     "albuns": []
+    "resenhas": [
+    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
+    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
+  ]
   },
   {
     "id": "nx-zero",
@@ -163,6 +207,10 @@
     "genero": "Rock alternativo / Pop rock",
     "descricao": "Um dos grandes nomes do rock nacional jovem dos anos 2000.",
     "albuns": []
+    "resenhas": [
+    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
+    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
+  ]
   },
   {
     "id": "foto-em-grupo",
@@ -174,6 +222,10 @@
     "genero": "Preencha aqui",
     "descricao": "Preencha aqui a descrição da banda.",
     "albuns": []
+    "resenhas": [
+    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
+    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
+  ]
   },
   {
     "id": "detonautas",
@@ -188,6 +240,10 @@
       "Detonautas Roque Clube",
       "Roque Marciano"
     ]
+    "resenhas": [
+    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
+    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
+  ]
   },
   {
     "id": "ratos-de-porao",
@@ -203,6 +259,10 @@
       "Brasil",
       "Anarkophobia"
     ]
+    "resenhas": [
+    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
+    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
+  ]
   },
   {
     "id": "engenheiros-do-hawaii",
@@ -218,6 +278,10 @@
       "Ouça o que Eu Digo: Não Ouça Ninguém",
       "O Papa É Pop"
     ]
+    "resenhas": [
+    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
+    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
+  ]
   },
   {
     "id": "capital-inicial",
@@ -233,6 +297,10 @@
       "Das Kapital",
       "Acústico MTV"
     ]
+    "resenhas": [
+    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
+    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
+  ]
   },
   {
     "id": "garotos-podres",
@@ -246,6 +314,10 @@
     "albuns": [
       "Mais Podres do que Nunca"
     ]
+    "resenhas": [
+    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
+    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
+  ]
   },
   {
     "id": "skank",
@@ -261,6 +333,10 @@
       "Samba Poconé",
       "Cosmotron"
     ]
+    "resenhas": [
+    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
+    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
+  ]
   },
   {
     "id": "titas",
@@ -276,6 +352,10 @@
       "Jesus Não Tem Dentes no País dos Banguelas",
       "Õ Blésq Blom"
     ]
+    "resenhas": [
+    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
+    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
+  ]
   },
   {
     "id": "barao-vermelho",
@@ -291,6 +371,10 @@
       "Maior Abandonado",
       "Declare Guerra"
     ]
+    "resenhas": [
+    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
+    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
+  ]
   },
   {
     "id": "os-mutantes",
@@ -306,6 +390,10 @@
       "Mutantes",
       "A Divina Comédia ou Ando Meio Desligado"
     ]
+    "resenhas": [
+    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
+    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
+  ]
   },
   {
     "id": "raimundos",
@@ -321,6 +409,10 @@
       "Lavô Tá Novo",
       "Só no Forévis"
     ]
+    "resenhas": [
+    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
+    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
+  ]
   },
   {
     "id": "cpm-22",
@@ -335,6 +427,10 @@
       "Chegou a Hora de Recomeçar",
       "Felicidade Instantânea"
     ]
+    "resenhas": [
+    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
+    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
+  ]
   },
   {
     "id": "jota-quest",
@@ -349,6 +445,10 @@
       "De Volta ao Planeta dos Macacos",
       "Oxigênio"
     ]
+    "resenhas": [
+    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
+    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
+  ]
   },
   {
     "id": "pato-fu",
@@ -364,6 +464,10 @@
       "Isopor",
       "Ruído Rosa"
     ]
+    "resenhas": [
+    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
+    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
+  ]
   },
   {
     "id": "nacao-zumbi",
@@ -378,6 +482,10 @@
       "Da Lama ao Caos",
       "Afrociberdelia"
     ]
+    "resenhas": [
+    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
+    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
+  ]
   },
   {
     "id": "o-rappa",
@@ -393,6 +501,10 @@
       "Lado B Lado A",
       "O Silêncio que Precede o Esporro"
     ]
+    "resenhas": [
+    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
+    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
+  ]
   },
   {
     "id": "ira",
@@ -408,5 +520,9 @@
       "Vivendo e Não Aprendendo",
       "Psicoacústica"
     ]
+    "resenhas": [
+    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
+    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
+  ]
   }
 ]
