@@ -918,6 +918,23 @@
 
   </div>
   <div class="side-panel"></div>
+
+  <script>
+  fetch('musicas.json')
+    .then(r => r.json())
+    .then(musicas => {
+      document.querySelectorAll('.music-item').forEach(item => {
+        const titulo = item.querySelector('.music-title').textContent.trim();
+        const m = musicas.find(x => x.nome === titulo);
+        if (m) {
+          item.querySelector('.read-more-link').href =
+            'resenhas.html?tipo=musica&id=' + encodeURIComponent(m.id);
+        }
+      });
+    })
+    .catch(e => console.error(e));
+</script>
+<script src="busca.js"></script>
 <script src="busca.js"></script>
 </body>
 </html>
