@@ -389,6 +389,15 @@
       .grid-music { grid-template-columns: repeat(auto-fill, minmax(105px, 1fr)); gap: 15px 10px; }
       .music-title { font-size: 13px; }
     }
+    .music-cover-wrapper {
+  display: block;        /* NOVO */
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 16px;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+}
   </style>
 </head>
 <body>
