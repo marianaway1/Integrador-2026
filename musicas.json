@@ -1,0 +1,194 @@
+[
+  {
+    "id": "mayhem-sepultura",
+    "nome": "Mayhem",
+    "imagem": "mayhem.jfif",
+    "nota": 5,
+    "banda": "Sepultura",
+    "bandaId": "sepultura",
+    "album": "Morbid Visions",
+    "ano": 1986,
+    "genero": "Thrash / Death Metal",
+    "descricao": "Faixa dos primeiros anos do Sepultura, crua e agressiva, que mostra a força da banda mesmo em meio a mudanças de formação ao longo da carreira.",
+    "resenhas": [
+      { "usuario": "Ciclaninho", "nota": 5, "texto": "Pesada, rápida e cheia de atitude. Clássico do início do Sepultura.", "curtidas": 40, "views": 90 },
+      { "usuario": "Amo_música", "nota": 4, "texto": "A produção é crua, mas é isso que dá o charme.", "curtidas": 12, "views": 35 }
+    ]
+  },
+  {
+    "id": "vento-no-litoral-legiao-urbana",
+    "nome": "Vento no Litoral",
+    "imagem": "vento.jfif",
+    "nota": 5,
+    "banda": "Legião Urbana",
+    "bandaId": "legiao-urbana",
+    "album": "Dois",
+    "ano": 1986,
+    "genero": "Rock nacional",
+    "descricao": "Obra-prima poética do Legião Urbana, com letra sobre o tempo e a memória que emociona do início ao fim.",
+    "resenhas": [
+      { "usuario": "SuperVinil", "nota": 5, "texto": "A letra é de uma beleza rara. Ouço até hoje e sempre arrepia.", "curtidas": 120, "views": 300 },
+      { "usuario": "MariaJosé", "nota": 5, "texto": "Renato Russo escrevia como ninguém.", "curtidas": 85, "views": 210 }
+    ]
+  },
+  {
+    "id": "proibida-pra-mim-charlie-brown-jr",
+    "nome": "Proibida Pra Mim",
+    "imagem": "cbjr.jfif",
+    "nota": 4,
+    "banda": "Charlie Brown Jr",
+    "bandaId": "charlie-brown-jr",
+    "album": "Transpiração Contínua Prolongada",
+    "ano": 1997,
+    "genero": "Rock / Skate Punk / Reggae",
+    "descricao": "Clássico atemporal do skate punk nacional, com a voz e a atitude inesquecíveis do Chorão.",
+    "resenhas": [
+      { "usuario": "Ciclaninho", "nota": 5, "texto": "Hino da minha adolescência. Chorão faz falta.", "curtidas": 76, "views": 180 },
+      { "usuario": "Amo_música", "nota": 4, "texto": "Energia pura, não tem como não cantar junto.", "curtidas": 30, "views": 95 }
+    ]
+  },
+  {
+    "id": "ultimo-romance-los-hermanos",
+    "nome": "Último Romance",
+    "imagem": "loshermanos.jfif",
+    "nota": 5,
+    "banda": "Los Hermanos",
+    "bandaId": "los-hermanos",
+    "album": "Ventura",
+    "ano": 2003,
+    "genero": "Rock alternativo / MPB",
+    "descricao": "Sutil, romântica e perfeita no álbum Ventura. Uma das composições mais bonitas dos Hermanos.",
+    "resenhas": [
+      { "usuario": "MariaJosé", "nota": 5, "texto": "Delicada e triste ao mesmo tempo. Uma das minhas favoritas.", "curtidas": 64, "views": 150 },
+      { "usuario": "SuperVinil", "nota": 5, "texto": "Ventura é um disco perfeito e essa faixa é a prova.", "curtidas": 41, "views": 120 }
+    ]
+  },
+  {
+    "id": "anjos-venere-vai-venus",
+    "nome": "Anjos",
+    "imagem": "anjos.jfif",
+    "nota": 4,
+    "banda": "Venere Vai Venus",
+    "bandaId": "venere-vai-venus",
+    "album": "Preencha aqui",
+    "ano": "",
+    "genero": "Preencha aqui",
+    "descricao": "Preencha aqui a descrição da música.",
+    "resenhas": [
+      { "usuario": "Ciclaninho", "nota": 4, "texto": "Melodia marcante e letra profunda.", "curtidas": 10, "views": 40 },
+      { "usuario": "Amo_música", "nota": 4, "texto": "Descobri a banda por essa música e fiquei fã.", "curtidas": 7, "views": 28 }
+    ]
+  },
+  {
+    "id": "aonde-quer-que-eu-va-paralamas",
+    "nome": "Aonde Quer Que Eu Vá",
+    "imagem": "aonde.jpg",
+    "nota": 5,
+    "banda": "Paralamas do Sucesso",
+    "bandaId": null,
+    "album": "Preencha aqui",
+    "ano": "",
+    "genero": "Rock nacional",
+    "descricao": "Balada inesquecível dos Paralamas do Sucesso, com arranjo rico e vocal emocionante.",
+    "resenhas": [
+      { "usuario": "MariaJosé", "nota": 5, "texto": "Uma das baladas mais bonitas do rock brasileiro.", "curtidas": 55, "views": 140 },
+      { "usuario": "SuperVinil", "nota": 5, "texto": "O vocal do Herbert nessa música é emocionante.", "curtidas": 33, "views": 100 }
+    ]
+  },
+  {
+    "id": "culpa-o-terno",
+    "nome": "Culpa",
+    "imagem": "culpa.jfif",
+    "nota": 5,
+    "banda": "O Terno",
+    "bandaId": "o-terno",
+    "album": "Atrás/Além",
+    "ano": 2019,
+    "genero": "Rock / Indie",
+    "descricao": "O Terno com um som indie marcante e letras sarcásticas com tom de confissão.",
+    "resenhas": [
+      { "usuario": "Ciclaninho", "nota": 5, "texto": "Letra ácida e melodia grudenta. Tim Bernardes é um gênio.", "curtidas": 28, "views": 85 },
+      { "usuario": "Amo_música", "nota": 5, "texto": "Combinação perfeita de ironia e sensibilidade.", "curtidas": 19, "views": 60 }
+    ]
+  },
+  {
+    "id": "pelados-em-santos-mamonas-assassinas",
+    "nome": "Pelados em Santos",
+    "imagem": "mamonas.jpg",
+    "nota": 4,
+    "banda": "Mamonas Assassinas",
+    "bandaId": "mamonas-assassinas",
+    "album": "Mamonas Assassinas",
+    "ano": 1995,
+    "genero": "Rock cômico",
+    "descricao": "Energia, humor e irreverência dos Mamonas Assassinas, que marcaram gerações.",
+    "resenhas": [
+      { "usuario": "SuperVinil", "nota": 5, "texto": "Impossível ouvir sem rir. Nostalgia total.", "curtidas": 90, "views": 220 },
+      { "usuario": "Ciclaninho", "nota": 4, "texto": "Divertida do começo ao fim.", "curtidas": 45, "views": 130 }
+    ]
+  },
+  {
+    "id": "pose-engenheiros-do-hawaii",
+    "nome": "Pose",
+    "imagem": "pose.jfif",
+    "nota": 5,
+    "banda": "Engenheiros do Hawaii",
+    "bandaId": "engenheiros-do-hawaii",
+    "album": "Preencha aqui",
+    "ano": "",
+    "genero": "Rock nacional",
+    "descricao": "Engenheiros do Hawaii trazendo crítica social refinada e acordes inconfundíveis.",
+    "resenhas": [
+      { "usuario": "MariaJosé", "nota": 5, "texto": "Crítica social inteligente, como só o Humberto Gessinger faz.", "curtidas": 22, "views": 70 },
+      { "usuario": "Amo_música", "nota": 4, "texto": "Os acordes são inconfundíveis.", "curtidas": 14, "views": 45 }
+    ]
+  },
+  {
+    "id": "a-sua-maneira-capital-inicial",
+    "nome": "À sua maneira",
+    "imagem": "maneira.avif",
+    "nota": 5,
+    "banda": "Capital Inicial",
+    "bandaId": "capital-inicial",
+    "album": "Acústico MTV",
+    "ano": 2000,
+    "genero": "Rock nacional",
+    "descricao": "Um dos maiores hits do Capital Inicial, hino do rock nacional dos anos 2000.",
+    "resenhas": [
+      { "usuario": "SuperVinil", "nota": 5, "texto": "Todo show do Capital termina com o público cantando essa.", "curtidas": 60, "views": 160 },
+      { "usuario": "Ciclaninho", "nota": 5, "texto": "A versão acústica ficou ainda mais bonita.", "curtidas": 38, "views": 105 }
+    ]
+  },
+  {
+    "id": "fingi-na-hora-rir-los-hermanos",
+    "nome": "Fingi na Hora Rir",
+    "imagem": "fingi.jfif",
+    "nota": 4,
+    "banda": "Los Hermanos",
+    "bandaId": "los-hermanos",
+    "album": "Bloco do Eu Sozinho",
+    "ano": 2001,
+    "genero": "Rock alternativo / MPB",
+    "descricao": "Faixa memorável com a essência e a sonoridade alternativa do Los Hermanos.",
+    "resenhas": [
+      { "usuario": "MariaJosé", "nota": 4, "texto": "Letra bem humorada e melancólica ao mesmo tempo.", "curtidas": 26, "views": 80 },
+      { "usuario": "Amo_música", "nota": 5, "texto": "Bloco do Eu Sozinho é um discão.", "curtidas": 18, "views": 58 }
+    ]
+  },
+  {
+    "id": "tempo-perdido-legiao-urbana",
+    "nome": "Tempo Perdido",
+    "imagem": "dois.jfif",
+    "nota": 5,
+    "banda": "Legião Urbana",
+    "bandaId": "legiao-urbana",
+    "album": "Dois",
+    "ano": 1986,
+    "genero": "Rock nacional",
+    "descricao": "\"Temos nosso próprio tempo\" é uma das composições mais icônicas da música brasileira.",
+    "resenhas": [
+      { "usuario": "SuperVinil", "nota": 5, "texto": "Uma música que atravessa gerações.", "curtidas": 110, "views": 280 },
+      { "usuario": "MariaJosé", "nota": 5, "texto": "Esse refrão resume muita coisa da vida.", "curtidas": 72, "views": 190 }
+    ]
+  }
+]
