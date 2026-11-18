@@ -5,7 +5,6 @@
   const container = input.closest('.header-search-container');
   container.style.position = 'relative';
 
-  // ---------- estilo da lista ----------
   const css = document.createElement('style');
   css.textContent = `
     .busca-resultados {
@@ -22,6 +21,8 @@
     .busca-item:hover, .busca-item.ativo { background: rgba(38,189,138,.25); }
     .busca-item img { width: 44px; height: 44px; border-radius: 8px; object-fit: cover; flex-shrink: 0; }
     .busca-nome { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 14px; color: #26BD8A; }
+    .busca-tag { font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 700;
+      color: #fff; background: #E85200; border-radius: 8px; padding: 1px 7px; margin-left: 6px; }
     .busca-info { font-size: 12px; color: #E7E7FA; line-height: 1.3; }
     .busca-vazio { padding: 12px; color: #E7E7FA; font-size: 13px; text-align: center; }
   `;
@@ -32,52 +33,70 @@
   lista.hidden = true;
   container.appendChild(lista);
 
-  // ---------- dados ----------
   const norm = s => String(s ?? '')
     .normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 
   const valido = v => v !== undefined && v !== null && v !== '' &&
                       !String(v).startsWith('Preencha aqui');
 
-  // campos pesquisáveis de uma banda: [rótulo, valor]
-  function campos(b) {
-    const c = [
-      ['Banda', b.nome],
-      ['Gênero', b.genero],
-      ['Origem', b.origem],
-      ['Formação', b.formacao],
-      ['Descrição', b.descricao]
-    ];
-    (b.albuns || []).forEach(a => c.push(['Álbum', a]));
+  // campos pesquisáveis: [rótulo, valor]
+  function campos(item) {
+    let c;
+    if (item._tipo === 'musica') {
+      c = [
+        ['Música', item.nome],
+        ['Banda', item.banda],
+        ['Álbum', item.album],
+        ['Ano', item.ano],
+        ['Gênero', item.genero],
+        ['Descrição', item.descricao]
+      ];
+    } else {
+      c = [
+        ['Banda', item.nome],
+        ['Gênero', item.genero],
+        ['Origem', item.origem],
+        ['Formação', item.formacao],
+        ['Descrição', item.descricao]
+      ];
+      (item.albuns || []).forEach(a => c.push(['Álbum', a]));
+    }
     return c.filter(([, v]) => valido(v));
   }
 
-  let bandas = [];
-  fetch('bandas.json')
-    .then(r => r.json())
-    .then(dados => {
-      bandas = dados.map(b => ({
-        ...b,
-        _texto: norm(campos(b).map(([, v]) => v).join(' '))
-      }));
-    })
-    .catch(e => console.error('Erro ao carregar bandas.json', e));
+  function link(item) {
+    return item._tipo === 'musica'
+      ? 'resenhas.html?tipo=musica&id=' + encodeURIComponent(item.id)
+      : 'resenhas.html?id=' + encodeURIComponent(item.id);
+  }
 
-  // ---------- busca ----------
+  let itens = [];
+  const carregar = (arquivo, tipo) =>
+    fetch(arquivo).then(r => r.json())
+      .then(d => d.map(x => ({ ...x, _tipo: tipo })))
+      .catch(e => { console.error('Erro ao carregar ' + arquivo, e); return []; });
+
+  Promise.all([carregar('bandas.json', 'banda'), carregar('musicas.json', 'musica')])
+    .then(([bandas, musicas]) => {
+      itens = [...bandas, ...musicas].map(x => ({
+        ...x,
+        _texto: norm(campos(x).map(([, v]) => v).join(' '))
+      }));
+    });
+
   function buscar(q) {
     const termos = norm(q).split(/\s+/).filter(Boolean);
     if (!termos.length) return [];
 
-    return bandas
-      .filter(b => termos.every(t => b._texto.includes(t)))
-      .map(b => {
-        // descobre em qual campo achou, para mostrar embaixo do nome
-        const achou = campos(b).find(([, v]) => norm(v).includes(termos[0]));
-        const noNome = norm(b.nome).includes(termos[0]);
-        return { b, achou, ordem: noNome ? 0 : 1 };
+    return itens
+      .filter(x => termos.every(t => x._texto.includes(t)))
+      .map(x => {
+        const achou = campos(x).find(([, v]) => norm(v).includes(termos[0]));
+        const noNome = norm(x.nome).includes(termos[0]);
+        return { x, achou, ordem: noNome ? 0 : 1 };
       })
-      .sort((x, y) => x.ordem - y.ordem || x.b.nome.localeCompare(y.b.nome))
-      .slice(0, 8);
+      .sort((a, b) => a.ordem - b.ordem || a.x.nome.localeCompare(b.x.nome))
+      .slice(0, 10);
   }
 
   function mostrar(resultados) {
@@ -92,26 +111,34 @@
       return;
     }
 
-    resultados.forEach(({ b, achou }) => {
+    resultados.forEach(({ x, achou }) => {
       const a = document.createElement('a');
       a.className = 'busca-item';
-      a.href = 'resenhas.html?id=' + encodeURIComponent(b.id);
+      a.href = link(x);
 
       const img = document.createElement('img');
-      img.src = b.imagem;
-      img.alt = b.nome;
+      img.src = x.imagem;
+      img.alt = x.nome;
 
       const texto = document.createElement('div');
       const nome = document.createElement('div');
       nome.className = 'busca-nome';
-      nome.textContent = b.nome;
+      nome.textContent = x.nome;
+
+      const tag = document.createElement('span');
+      tag.className = 'busca-tag';
+      tag.textContent = x._tipo === 'musica' ? 'Música' : 'Banda';
+      nome.appendChild(tag);
 
       const info = document.createElement('div');
       info.className = 'busca-info';
-      // mostra o campo que bateu (ex.: "Gênero: Rock nacional")
-      info.textContent = achou && achou[0] !== 'Banda'
-        ? achou[0] + ': ' + String(achou[1]).slice(0, 60)
-        : b.genero && valido(b.genero) ? b.genero : '';
+      if (x._tipo === 'musica') {
+        info.textContent = valido(x.banda) ? x.banda : '';
+      } else if (achou && achou[0] !== 'Banda') {
+        info.textContent = achou[0] + ': ' + String(achou[1]).slice(0, 60);
+      } else {
+        info.textContent = valido(x.genero) ? x.genero : '';
+      }
 
       texto.append(nome, info);
       a.append(img, texto);
@@ -121,7 +148,6 @@
     lista.hidden = false;
   }
 
-  // ---------- eventos ----------
   input.setAttribute('autocomplete', 'off');
 
   input.addEventListener('input', () => {
@@ -135,20 +161,20 @@
   });
 
   input.addEventListener('keydown', e => {
-    const itens = [...lista.querySelectorAll('.busca-item')];
+    const els = [...lista.querySelectorAll('.busca-item')];
     const atual = lista.querySelector('.busca-item.ativo');
-    let i = itens.indexOf(atual);
+    let i = els.indexOf(atual);
 
     if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
-      if (!itens.length) return;
+      if (!els.length) return;
       e.preventDefault();
       if (atual) atual.classList.remove('ativo');
-      i = e.key === 'ArrowDown' ? (i + 1) % itens.length
-                                : (i - 1 + itens.length) % itens.length;
-      itens[i].classList.add('ativo');
-      itens[i].scrollIntoView({ block: 'nearest' });
+      i = e.key === 'ArrowDown' ? (i + 1) % els.length
+                                : (i - 1 + els.length) % els.length;
+      els[i].classList.add('ativo');
+      els[i].scrollIntoView({ block: 'nearest' });
     } else if (e.key === 'Enter') {
-      const alvo = atual || itens[0];
+      const alvo = atual || els[0];
       if (alvo) location.href = alvo.href;
     } else if (e.key === 'Escape') {
       lista.hidden = true;
