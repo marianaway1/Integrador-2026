@@ -15,9 +15,21 @@
       "Roots"
     ],
     "resenhas": [
-    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
-    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
-  ]
+      {
+        "usuario": "Ciclaninho",
+        "nota": 5,
+        "texto": "Ouvi Roots pela primeira vez aos 15 anos e a bateria de Ratamahatta me deixou arrepiado. A voz do Max é rasgada, mas dá pra sentir a raiva em cada verso, e a mistura com percussão tribal é única. A letra de Roots Bloody Roots fala de origem e identidade de um jeito bem direto. Só achei a produção meio abafada em algumas faixas.",
+        "curtidas": 100,
+        "views": 150
+      },
+      {
+        "usuario": "Amo_música",
+        "nota": 4,
+        "texto": "Refuse/Resist tem um riff que gruda na cabeça e uma letra sobre não aceitar tudo o que impõem pra gente. O vocal do Max é gritado, mas dá pra entender a mensagem e sentir a revolta. Achei o Arise um pouco repetitivo em algumas faixas, mas o Beneath the Remains continua sendo meu favorito. Ótimo pra ouvir antes de uma prova de matemática, ajuda a descarregar.",
+        "curtidas": 12,
+        "views": 40
+      }
+    ]
   },
   {
     "id": "legiao-urbana",
@@ -35,9 +47,21 @@
       "As Quatro Estações"
     ],
     "resenhas": [
-    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
-    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
-  ]
+      {
+        "usuario": "Ciclaninho",
+        "nota": 5,
+        "texto": "Fiquei viciado em Tempo Perdido e Pais e Filhos depois que minha professora de português passou em aula. A voz grave do Renato Russo carrega muito sentimento, e as letras parecem poesia sobre coisas que a gente sente até hoje. Pra quem tem 16 anos e vive meio perdido, faz todo sentido. Algumas músicas são longas demais, mas valem a pena.",
+        "curtidas": 100,
+        "views": 150
+      },
+      {
+        "usuario": "Amo_música",
+        "nota": 5,
+        "texto": "Faroeste Caboclo tem mais de nove minutos e eu fiquei preso na história do começo ao fim. A letra é um filme em forma de música, e o Renato Russo narra com tanta emoção que dá pra imaginar cada cena. O único problema é que a música é tão longa que é difícil ouvir no ônibus sem ter que pausar. Mesmo assim, é uma obra-prima.",
+        "curtidas": 12,
+        "views": 40
+      }
+    ]
   },
   {
     "id": "charlie-brown-jr",
@@ -54,9 +78,21 @@
       "Nadando com os Tubarões"
     ],
     "resenhas": [
-    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
-    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
-  ]
+      {
+        "usuario": "Ciclaninho",
+        "nota": 4,
+        "texto": "Ouço Só os Loucos Sabem quando estou triste, porque a voz meio rouca e sincera do Chorão parece de um amigo conversando comigo. As letras falam de rua, skate, perrengue e superação, e isso me representa. Dou 4 porque algumas músicas têm refrões e estruturas parecidas, mas as melhores são marcantes demais.",
+        "curtidas": 100,
+        "views": 150
+      },
+      {
+        "usuario": "Amo_música",
+        "nota": 4,
+        "texto": "Zóio de Lula é muito divertida, a letra tem humor mas também fala de sonhos e de ir atrás do que a gente quer. O Chorão canta de um jeito quase falado, e isso deixa tudo mais verdadeiro. Minha crítica é que algumas músicas da banda repetem muito as mesmas ideias, mas os hinos de skate e de praia são imbatíveis.",
+        "curtidas": 12,
+        "views": 40
+      }
+    ]
   },
   {
     "id": "venere-vai-venus",
@@ -69,9 +105,21 @@
     "descricao": "Preencha aqui a descrição da banda.",
     "albuns": [],
     "resenhas": [
-    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
-    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
-  ]
+      {
+        "usuario": "Ciclaninho",
+        "nota": 4,
+        "texto": "Descobri a banda por acaso e curti o som diferente. A voz tem um clima meio etéreo e as letras são esquisitinhas, no bom sentido, daquelas que você fica pensando depois. A guitarra cria uma atmosfera legal. Só acho que a gravação poderia ser mais limpa, às vezes a voz some no meio dos instrumentos.",
+        "curtidas": 100,
+        "views": 150
+      },
+      {
+        "usuario": "Amo_música",
+        "nota": 3,
+        "texto": "Ainda estou me acostumando com o som da banda. Achei as letras meio difíceis de entender e a voz às vezes fica baixa na mixagem, o que atrapalha. Em compensação, a melodia de algumas faixas ficou na minha cabeça por dias. Acho que tem potencial, mas ainda não me ganhou por completo.",
+        "curtidas": 12,
+        "views": 40
+      }
+    ]
   },
   {
     "id": "los-hermanos",
@@ -89,9 +137,21 @@
       "4"
     ],
     "resenhas": [
-    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
-    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
-  ]
+      {
+        "usuario": "Ciclaninho",
+        "nota": 5,
+        "texto": "Conheci por Anna Júlia, mas foi O Vencedor e Todo Carnaval Tem Seu Fim que me pegaram de vez. São letras de dor de cotovelo muito bem escritas, e a voz do Marcelo Camelo é cheia de emoção. O Ventura é um disco que cresce a cada vez que você escuta. Não é som pra animar a festa, é pra ouvir de fone no ônibus.",
+        "curtidas": 100,
+        "views": 150
+      },
+      {
+        "usuario": "Amo_música",
+        "nota": 4,
+        "texto": "Último Romance é daquelas músicas tristes que a gente ouve quando está de coração partido. A letra é muito bem construída e a voz grave passa uma melancolia bonita. Mas confesso que o Ventura é mais lento e difícil de ouvir de primeira, precisei de umas três tentativas pra gostar. Vale a persistência.",
+        "curtidas": 12,
+        "views": 40
+      }
+    ]
   },
   {
     "id": "angra",
@@ -108,9 +168,21 @@
       "Temple of Shadows"
     ],
     "resenhas": [
-    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
-    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
-  ]
+      {
+        "usuario": "Ciclaninho",
+        "nota": 4,
+        "texto": "Carry On com a voz do André Matos é absurda, os agudos parecem impossíveis. A técnica dos guitarristas é de outro nível e a parte instrumental é linda. Só acho que as letras em inglês, às vezes, ficam meio clichê, com aquele papo de destino e batalha. Mesmo assim, pra quem está começando no metal, é uma ótima porta de entrada.",
+        "curtidas": 100,
+        "views": 150
+      },
+      {
+        "usuario": "Amo_música",
+        "nota": 4,
+        "texto": "Spread Your Fire é muito rápida, tem solo de guitarra que me deixou de queixo caído e o Edu Falaschi canta com uma força impressionante. A letra fala de liberdade e de seguir em frente, o que é motivador. Só queria que as letras fossem em português de vez em quando, porque em inglês perde um pouco da conexão pra quem não domina o idioma.",
+        "curtidas": 12,
+        "views": 40
+      }
+    ]
   },
   {
     "id": "mamonas-assassinas",
@@ -125,9 +197,21 @@
       "Mamonas Assassinas"
     ],
     "resenhas": [
-    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
-    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
-  ]
+      {
+        "usuario": "Ciclaninho",
+        "nota": 5,
+        "texto": "Cresci ouvindo com meu pai e até hoje rio com Pelados em Santos. As letras são muito engraçadas e cheias de referências, mas por trás do humor tem rock bem tocado, com guitarras e arranjos que não são de brincadeira. O Dinho cantava de um jeito que dava vontade de cantar junto. Uma pena terem feito só um álbum.",
+        "curtidas": 100,
+        "views": 150
+      },
+      {
+        "usuario": "Amo_música",
+        "nota": 4,
+        "texto": "Vira-Vira tem uma letra tão absurda que eu rio toda vez, e a energia da banda é contagiante. O vocal do Dinho é cheio de personalidade e as músicas são muito bem arranjadas. Só que minha mãe disse que na época algumas piadas eram polêmicas, e hoje eu entendo, porque algumas não envelheceram muito bem. Ainda assim, é diversão pura.",
+        "curtidas": 12,
+        "views": 40
+      }
+    ]
   },
   {
     "id": "o-terno",
@@ -144,9 +228,21 @@
       "Atrás/Além"
     ],
     "resenhas": [
-    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
-    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
-  ]
+      {
+        "usuario": "Ciclaninho",
+        "nota": 4,
+        "texto": "Ai, Ai, Como Eu Me Iludo tem uma letra sobre expectativa e frustração que bateu forte em mim. A voz do Tim é baixinha e parece uma confissão, e a guitarra psicodélica dá um clima diferente. O ponto negativo é que nas faixas mais lentas o disco fica meio sonolento. Mas é uma banda que eu recomendo pra quem cansou do rock mais óbvio.",
+        "curtidas": 100,
+        "views": 150
+      },
+      {
+        "usuario": "Amo_música",
+        "nota": 4,
+        "texto": "O álbum 66 tem uma pegada de rock dos anos 60 misturado com letras sobre amor e dúvidas que são bem reais. A voz do Tim Bernardes é suave, e isso contrasta com as guitarras mais sujas. Eu gosto mais das músicas rápidas, as mais calmas me dão um pouco de sono. Mesmo assim, é uma banda original e merece mais atenção.",
+        "curtidas": 12,
+        "views": 40
+      }
+    ]
   },
   {
     "id": "fresno",
@@ -163,9 +259,21 @@
       "Eu Sou a Maré Viva"
     ],
     "resenhas": [
-    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
-    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
-  ]
+      {
+        "usuario": "Ciclaninho",
+        "nota": 5,
+        "texto": "Minha fase dos 14 anos foi toda embalada por Fresno. Eu Nunca Disse tem aquela letra pra quem gosta de alguém e nunca teve coragem de falar. A voz do Lucas Silveira alterna entre o melodioso e o grito, e isso dá muita emoção. Sei que algumas letras são dramáticas demais, mas na adolescência é exatamente isso que a gente quer ouvir.",
+        "curtidas": 100,
+        "views": 150
+      },
+      {
+        "usuario": "Amo_música",
+        "nota": 4,
+        "texto": "Quebre as Correntes é uma música de superação que me ajudou numa fase difícil da escola. A letra é intensa e o Lucas Silveira alterna entre o canto limpo e o grito de um jeito que passa muita emoção. Só acho que algumas letras são dramáticas demais, parecem páginas de diário. Mas quem nunca passou por isso na adolescência?",
+        "curtidas": 12,
+        "views": 40
+      }
+    ]
   },
   {
     "id": "terno-rei",
@@ -178,9 +286,21 @@
     "descricao": "Banda de indie rock brasileiro com guitarras atmosféricas e letras melancólicas.",
     "albuns": [],
     "resenhas": [
-    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
-    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
-  ]
+      {
+        "usuario": "Ciclaninho",
+        "nota": 5,
+        "texto": "Ouço muito à noite, depois da escola. As guitarras cheias de reverb criam uma atmosfera de sonho e a voz do Ale Sater é calma, quase sussurrada, combinando com as letras melancólicas sobre saudade e relações que acabam. Não é um som pra todo dia, porque deixa a gente pensativo, mas quando bate o clima, não tem igual.",
+        "curtidas": 100,
+        "views": 150
+      },
+      {
+        "usuario": "Amo_música",
+        "nota": 4,
+        "texto": "As letras curtas e melancólicas combinam muito com o som de guitarras flutuantes, dá a sensação de estar ouvindo de madrugada olhando pela janela. A voz é calma, sem exageros, e isso deixa tudo mais íntimo. Meu único problema é que, ouvindo o disco inteiro, o ritmo fica meio parado e eu perco a atenção.",
+        "curtidas": 12,
+        "views": 40
+      }
+    ]
   },
   {
     "id": "restart",
@@ -193,9 +313,21 @@
     "descricao": "Banda de pop rock que conquistou o público jovem nos anos 2010.",
     "albuns": [],
     "resenhas": [
-    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
-    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
-  ]
+      {
+        "usuario": "Ciclaninho",
+        "nota": 3,
+        "texto": "Levo Comigo tem um refrão grudento que fica na cabeça o dia inteiro, e as letras simples sobre amizade e amor são fáceis de se identificar quando se tem 14 anos. Dou 3 porque, ouvindo o álbum todo, as músicas acabam soando parecidas e as letras repetem sempre os mesmos temas. É bom pra cantar com os amigos, mas não me surpreende.",
+        "curtidas": 100,
+        "views": 150
+      },
+      {
+        "usuario": "Amo_música",
+        "nota": 4,
+        "texto": "Fui num show deles com minhas amigas e todo mundo cantava as músicas do início ao fim, as letras de amor adolescente são fáceis de decorar. A voz do vocalista é bem pop e combina com o estilo da banda. Não é rock pesado nem profundo, mas é exatamente a trilha sonora de quem tem 15 anos e se apaixona toda semana.",
+        "curtidas": 12,
+        "views": 40
+      }
+    ]
   },
   {
     "id": "nx-zero",
@@ -208,9 +340,21 @@
     "descricao": "Um dos grandes nomes do rock nacional jovem dos anos 2000.",
     "albuns": [],
     "resenhas": [
-    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
-    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
-  ]
+      {
+        "usuario": "Ciclaninho",
+        "nota": 4,
+        "texto": "Cedo ou Tarde é praticamente o hino da minha geração. A letra fala de crescer, errar e seguir em frente, e o Di Ferrero canta com uma energia que contagia, mesmo com aquela voz meio nasal que nem todo mundo curte. Gosto mais das músicas mais rápidas, as baladas às vezes ficam muito melosas.",
+        "curtidas": 100,
+        "views": 150
+      },
+      {
+        "usuario": "Amo_música",
+        "nota": 5,
+        "texto": "Razões e Emoções é uma música que parece escrita pra quem está no último ano da escola e não sabe o que fazer da vida. A letra fala de escolhas e de crescer, e o Di Ferrero canta com muita sinceridade. As guitarras são limpas e o refrão é muito forte. É uma das minhas preferidas pra ouvir no fone.",
+        "curtidas": 12,
+        "views": 40
+      }
+    ]
   },
   {
     "id": "foto-em-grupo",
@@ -223,9 +367,21 @@
     "descricao": "Preencha aqui a descrição da banda.",
     "albuns": [],
     "resenhas": [
-    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
-    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
-  ]
+      {
+        "usuario": "Ciclaninho",
+        "nota": 4,
+        "texto": "Achei o som leve e agradável, daqueles que combinam com tarde de domingo. As letras falam de amizade e cotidiano de um jeito simples, e a voz é suave e não cansa. Tirei um ponto porque senti falta de mais variação nas músicas, algumas parecem a mesma coisa com outra melodia. Mas vou continuar acompanhando.",
+        "curtidas": 100,
+        "views": 150
+      },
+      {
+        "usuario": "Amo_música",
+        "nota": 4,
+        "texto": "Gostei mais das músicas mais animadas, que têm uma levada gostosa e letras sobre rolês com os amigos. A voz do vocalista é simples e sem frescura, o que combina com o clima. Achei que as baladas são mais fracas e as letras ficam mais genéricas. Mesmo assim, é uma banda boa pra ouvir sem pensar muito.",
+        "curtidas": 12,
+        "views": 40
+      }
+    ]
   },
   {
     "id": "detonautas",
@@ -241,9 +397,21 @@
       "Roque Marciano"
     ],
     "resenhas": [
-    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
-    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
-  ]
+      {
+        "usuario": "Ciclaninho",
+        "nota": 4,
+        "texto": "Olhos Certos tem uma letra forte sobre desigualdade e o jeito como a sociedade enxerga as pessoas. O Tico Santa Cruz canta com raiva e emoção ao mesmo tempo, e o refrão é daqueles que a galera grita no show. Achei o segundo disco um pouco abaixo do primeiro, mas a banda tem personalidade e fala de coisas importantes.",
+        "curtidas": 100,
+        "views": 150
+      },
+      {
+        "usuario": "Amo_música",
+        "nota": 4,
+        "texto": "Quando o Sol Se For tem uma melodia triste e bonita, e a letra fala sobre perda de um jeito sensível. O Tico Santa Cruz canta com a voz meio rouca, o que combina muito. O disco Roque Marciano é mais pesado e não me pegou tanto quanto o primeiro, mas ainda acho a banda importante pelo que ela fala.",
+        "curtidas": 12,
+        "views": 40
+      }
+    ]
   },
   {
     "id": "ratos-de-porao",
@@ -260,9 +428,21 @@
       "Anarkophobia"
     ],
     "resenhas": [
-    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
-    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
-  ]
+      {
+        "usuario": "Ciclaninho",
+        "nota": 4,
+        "texto": "É tão rápido que eu mal consigo entender metade das letras na primeira vez, mas a energia é absurda. O João Gordo grita sobre política, polícia e hipocrisia sem filtro nenhum, e as músicas curtas deixam tudo mais direto. Pra quem está começando no hardcore pode ser pesado e meio barulhento demais, mas funciona muito bem pra descarregar o estresse.",
+        "curtidas": 100,
+        "views": 150
+      },
+      {
+        "usuario": "Amo_música",
+        "nota": 4,
+        "texto": "Aids, Pop, Repressão é curta e direta, com letra de crítica social que mostra o que a banda pensa sem rodeios. O João Gordo grita, mas com tanta atitude que faz sentido. O ponto fraco é a gravação, que parece antiga e meio embolada, e às vezes é difícil distinguir os instrumentos. Mesmo assim, é ótimo pra descarregar a raiva.",
+        "curtidas": 12,
+        "views": 40
+      }
+    ]
   },
   {
     "id": "engenheiros-do-hawaii",
@@ -279,9 +459,21 @@
       "O Papa É Pop"
     ],
     "resenhas": [
-    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
-    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
-  ]
+      {
+        "usuario": "Ciclaninho",
+        "nota": 5,
+        "texto": "Infinita Highway parece um poema sobre estrada e sobre a vida, e eu nunca tinha visto uma letra de rock que me fizesse pensar tanto. A voz meio rouca do Humberto Gessinger tem um charme único e o baixo é muito marcante. As letras às vezes são difíceis de entender de primeira, mas é isso que me faz voltar a ouvir.",
+        "curtidas": 100,
+        "views": 150
+      },
+      {
+        "usuario": "Amo_música",
+        "nota": 5,
+        "texto": "O Papa É Pop tem uma letra irônica e inteligente sobre cultura e sociedade, e o Humberto Gessinger canta com um tom sério e debochado ao mesmo tempo. A guitarra e o baixo trabalham muito bem juntos. Eu aprendi mais sobre o mundo ouvindo essa música do que em algumas aulas. Recomendo pra quem gosta de letras que fazem pensar.",
+        "curtidas": 12,
+        "views": 40
+      }
+    ]
   },
   {
     "id": "capital-inicial",
@@ -298,9 +490,21 @@
       "Acústico MTV"
     ],
     "resenhas": [
-    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
-    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
-  ]
+      {
+        "usuario": "Ciclaninho",
+        "nota": 4,
+        "texto": "Descobri À Sua Maneira tocando violão com meu primo e fiquei com a música na cabeça por dias. A voz forte do Dinho Ouro Preto combina muito com as letras de amor e de atitude. A banda tem muitos hits, mas confesso que várias letras acabam seguindo a mesma fórmula, então depois de um tempo fica meio repetitivo.",
+        "curtidas": 100,
+        "views": 150
+      },
+      {
+        "usuario": "Amo_música",
+        "nota": 5,
+        "texto": "Primeiros Erros fala sobre errar e aprender na juventude, e a voz do Dinho dá muita força à letra. É uma das primeiras músicas que eu aprendi a tocar no violão, porque os acordes são simples e o refrão é inesquecível. Nem toda a discografia me pega, mas os clássicos são clássicos por um motivo.",
+        "curtidas": 12,
+        "views": 40
+      }
+    ]
   },
   {
     "id": "garotos-podres",
@@ -315,9 +519,21 @@
       "Mais Podres do que Nunca"
     ],
     "resenhas": [
-    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
-    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
-  ]
+      {
+        "usuario": "Ciclaninho",
+        "nota": 4,
+        "texto": "Papai Noel Velho Batuta é engraçada e ao mesmo tempo bem ácida, as letras não tem papas na língua. A voz gritada do Mao combina com o som cru e com guitarras sujas, parece que foi gravado numa garagem, e isso dá personalidade. Algumas letras são muito pesadas e não são pra todo mundo, mas a atitude punk é inegável.",
+        "curtidas": 100,
+        "views": 150
+      },
+      {
+        "usuario": "Amo_música",
+        "nota": 4,
+        "texto": "Anarquia Oi! é uma música rápida, cheia de revolta, e a voz gritada do Mao não deixa dúvida da atitude da banda. A gravação é crua, com guitarras sujas, o que dá um ar de verdade. A parte negativa é que algumas letras são ofensivas e exageradas, e podem incomodar. Mas como punk, cumpre muito bem o papel.",
+        "curtidas": 12,
+        "views": 40
+      }
+    ]
   },
   {
     "id": "skank",
@@ -334,9 +550,21 @@
       "Cosmotron"
     ],
     "resenhas": [
-    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
-    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
-  ]
+      {
+        "usuario": "Ciclaninho",
+        "nota": 5,
+        "texto": "Resposta e Tanto são músicas que grudam na cabeça e não saem mais. A voz suave do Samuel Rosa combina perfeitamente com a batida de reggae, e dá uma sensação de calma. As letras falam de amor de um jeito leve, sem exagero. É o tipo de banda que dá pra ouvir com os pais sem ninguém reclamar.",
+        "curtidas": 100,
+        "views": 150
+      },
+      {
+        "usuario": "Amo_música",
+        "nota": 4,
+        "texto": "Garota Nacional é uma música muito bem produzida, com um refrão que gruda e uma voz suave do Samuel Rosa. A letra é simples, mas passa uma imagem leve e divertida. Confesso que algumas músicas da banda ficam parecidas com as que tocavam muito no rádio, e perdem um pouco a novidade. Mesmo assim, é boa pra relaxar.",
+        "curtidas": 12,
+        "views": 40
+      }
+    ]
   },
   {
     "id": "titas",
@@ -353,9 +581,21 @@
       "Õ Blésq Blom"
     ],
     "resenhas": [
-    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
-    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
-  ]
+      {
+        "usuario": "Ciclaninho",
+        "nota": 5,
+        "texto": "Comida tem uma letra genial, que mistura fome, desejo e tudo que a gente quer na vida. Adoro como os Titãs têm vários vocalistas, cada música ganha uma cor diferente. Cabeça Dinossauro é crítico e direto, e mesmo tendo sido lançado há décadas parece que fala dos problemas de hoje. Um disco obrigatório.",
+        "curtidas": 100,
+        "views": 150
+      },
+      {
+        "usuario": "Amo_música",
+        "nota": 5,
+        "texto": "Epitáfio é uma das letras mais pesadas e bonitas que já ouvi. Fala de arrependimento e de viver com mais coragem, e a voz do Sérgio Britto é tão calma que faz tudo parecer ainda mais sincero. Chorei um pouco na primeira vez. Se alguém acha que rock brasileiro é só barulho, essa música prova o contrário.",
+        "curtidas": 12,
+        "views": 40
+      }
+    ]
   },
   {
     "id": "barao-vermelho",
@@ -372,9 +612,21 @@
       "Declare Guerra"
     ],
     "resenhas": [
-    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
-    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
-  ]
+      {
+        "usuario": "Ciclaninho",
+        "nota": 4,
+        "texto": "Pro Dia Nascer Feliz tem uma letra romântica e rebelde ao mesmo tempo, e a voz rouca e intensa do Cazuza faz parecer que ele está cantando só pra você. Gosto bastante dos primeiros discos. Dou 4 porque, depois que ele saiu, senti que a banda perdeu um pouco da emoção, mas a fase com ele é incrível.",
+        "curtidas": 100,
+        "views": 150
+      },
+      {
+        "usuario": "Amo_música",
+        "nota": 4,
+        "texto": "Maior Abandonado tem uma letra sobre solidão que o Cazuza canta com tanta entrega que dá pra sentir cada palavra. A guitarra do Frejat é marcante e dá um tom sofrido à música. Algumas faixas do álbum soam muito anos 80 e eu não me conectei tanto, mas essa faixa em especial vale cada segundo.",
+        "curtidas": 12,
+        "views": 40
+      }
+    ]
   },
   {
     "id": "os-mutantes",
@@ -391,9 +643,21 @@
       "A Divina Comédia ou Ando Meio Desligado"
     ],
     "resenhas": [
-    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
-    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
-  ]
+      {
+        "usuario": "Ciclaninho",
+        "nota": 4,
+        "texto": "No começo estranhei bastante, porque Panis et Circenses não parece com nada que eu ouvia. Mas com a segunda audição entendi a loucura: guitarras psicodélicas, efeitos esquisitos e letras coloridas e cheias de humor. A voz da Rita Lee é doce e divertida em A Minha Menina. Não é fácil de ouvir de primeira, mas é muito criativo.",
+        "curtidas": 100,
+        "views": 150
+      },
+      {
+        "usuario": "Amo_música",
+        "nota": 4,
+        "texto": "Ando Meio Desligado tem uma guitarra com efeito esquisito que me chamou atenção logo de cara, e a letra simples fala de estar fora do ar de um jeito divertido. As vozes se misturam de um jeito delicado. O lado negativo é que a gravação é bem antiga e pode soar estranha pra quem está acostumado com som mais moderno. Mas é criativo demais.",
+        "curtidas": 12,
+        "views": 40
+      }
+    ]
   },
   {
     "id": "raimundos",
@@ -410,9 +674,21 @@
       "Só no Forévis"
     ],
     "resenhas": [
-    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
-    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
-  ]
+      {
+        "usuario": "Ciclaninho",
+        "nota": 4,
+        "texto": "Mulher de Fases é divertida demais, a mistura de forró com guitarra pesada é uma ideia maluca que funciona. A letra é debochada e a voz do Rodolfo tem muita pegada. Só que algumas músicas da banda são meio vulgares, e depois de um tempo o humor cansa um pouco. Mesmo assim é diferente de tudo o que existe.",
+        "curtidas": 100,
+        "views": 150
+      },
+      {
+        "usuario": "Amo_música",
+        "nota": 4,
+        "texto": "I Saw You Saying é hilária, a letra mistura português com inglês de um jeito engraçado e a banda toca tudo muito rápido e pesado. A voz do Rodolfo tem bastante energia. Minha crítica é que o humor de algumas músicas fica forçado, mas essa faixa é pura diversão e boa de ouvir com amigos.",
+        "curtidas": 12,
+        "views": 40
+      }
+    ]
   },
   {
     "id": "cpm-22",
@@ -428,9 +704,21 @@
       "Felicidade Instantânea"
     ],
     "resenhas": [
-    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
-    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
-  ]
+      {
+        "usuario": "Ciclaninho",
+        "nota": 4,
+        "texto": "Regina Let's Go é rápida, tem guitarra animada e refrão pra cantar pulando. A voz do Badauí é potente e as letras falam de superação e amor sem complicação, o que combina com o estilo. Dou 4 porque, no álbum todo, muitas faixas soam parecidas entre si. Mas pra ouvir indo pra escola, é perfeito.",
+        "curtidas": 100,
+        "views": 150
+      },
+      {
+        "usuario": "Amo_música",
+        "nota": 4,
+        "texto": "Um Minuto Para o Fim do Mundo tem uma letra sobre aproveitar a vida enquanto dá, e o refrão é daqueles que a gente grita sem perceber. A guitarra é rápida e a voz do Badauí passa urgência. Mas, como disse antes, várias músicas da banda seguem o mesmo molde, então depois de um tempo parece tudo igual.",
+        "curtidas": 12,
+        "views": 40
+      }
+    ]
   },
   {
     "id": "jota-quest",
@@ -446,9 +734,21 @@
       "Oxigênio"
     ],
     "resenhas": [
-    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
-    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
-  ]
+      {
+        "usuario": "Ciclaninho",
+        "nota": 4,
+        "texto": "Dias Melhores tem uma letra otimista que me anima quando estou desanimado, e a voz limpa do Rogério Flausino passa muita positividade. O groove misturando funk e pop deixa tudo dançante. Só que muitas letras são sobre romance do mesmo jeito, então depois de várias músicas parece que já ouvi aquilo. Mas é sempre agradável de ouvir.",
+        "curtidas": 100,
+        "views": 150
+      },
+      {
+        "usuario": "Amo_música",
+        "nota": 3,
+        "texto": "Fácil é uma música gostosa de ouvir, com a voz limpa e a batida dançante, mas a letra de amor é muito parecida com a de tantas outras músicas pop. Eu queria algo com um pouco mais de profundidade ou de ousadia. Funciona bem numa festa, mas não é a banda que eu escolheria pra ouvir no fone quando estou pensando na vida.",
+        "curtidas": 12,
+        "views": 40
+      }
+    ]
   },
   {
     "id": "pato-fu",
@@ -465,9 +765,21 @@
       "Ruído Rosa"
     ],
     "resenhas": [
-    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
-    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
-  ]
+      {
+        "usuario": "Ciclaninho",
+        "nota": 4,
+        "texto": "Sobre o Tempo é uma das músicas mais bonitas que já ouvi, a letra é sensível e fala de como tudo passa. A voz suave da Fernanda Takai parece um abraço, e os arranjos têm sons diferentes, quase de brinquedo. É delicado e criativo. Só não é um som pra quem quer algo mais pesado ou agitado.",
+        "curtidas": 100,
+        "views": 150
+      },
+      {
+        "usuario": "Amo_música",
+        "nota": 4,
+        "texto": "Made in Japan tem uma letra bem-humorada e criativa, e os arranjos cheios de sons diferentes deixam a música com cara de brinquedo. A voz da Fernanda Takai é doce e combina muito. Não é uma banda pra quem quer algo pesado, mas é cheia de detalhes que a gente só percebe depois de ouvir várias vezes.",
+        "curtidas": 12,
+        "views": 40
+      }
+    ]
   },
   {
     "id": "nacao-zumbi",
@@ -483,9 +795,21 @@
       "Afrociberdelia"
     ],
     "resenhas": [
-    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
-    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
-  ]
+      {
+        "usuario": "Ciclaninho",
+        "nota": 4,
+        "texto": "Os tambores de A Cidade batem tão pesado que parece que o chão vai tremer. A letra fala da vida urbana e das contradições de Recife, e o jeito falado e rimado do Chico Science é bem único. Às vezes não entendo tudo por causa do sotaque e das gírias, mas isso faz a gente querer pesquisar mais. Muito original.",
+        "curtidas": 100,
+        "views": 150
+      },
+      {
+        "usuario": "Amo_música",
+        "nota": 4,
+        "texto": "Da Lama ao Caos junta guitarras com tambores de um jeito que eu nunca tinha escutado, e a letra fala do mangue e do povo de Recife com muita identidade. O som é meio cru e às vezes difícil de acompanhar de primeira. Mas é uma banda que mostra que o Brasil tem uma musicalidade única, e isso me deixou orgulhoso.",
+        "curtidas": 12,
+        "views": 40
+      }
+    ]
   },
   {
     "id": "o-rappa",
@@ -502,9 +826,21 @@
       "O Silêncio que Precede o Esporro"
     ],
     "resenhas": [
-    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
-    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
-  ]
+      {
+        "usuario": "Ciclaninho",
+        "nota": 5,
+        "texto": "Minha Alma (A Paz que Eu Não Quero) tem uma letra muito forte sobre violência e desigualdade, que me fez pensar bastante. A voz rouca do Falcão passa uma mistura de revolta e tristeza, e a batida de reggae com baixo pesado dá um clima hipnotizante. É uma banda que faz você ouvir e refletir ao mesmo tempo.",
+        "curtidas": 100,
+        "views": 150
+      },
+      {
+        "usuario": "Amo_música",
+        "nota": 5,
+        "texto": "Pescador de Ilusões tem uma letra poética e crítica, que fala de como as pessoas vivem de aparências. A voz do Falcão é intensa e o baixo dá uma batida que a gente sente no peito. É uma banda que mistura estilos sem perder a identidade. Quando ouço, sempre acabo pesquisando mais sobre o que ele está cantando.",
+        "curtidas": 12,
+        "views": 40
+      }
+    ]
   },
   {
     "id": "ira",
@@ -521,8 +857,20 @@
       "Psicoacústica"
     ],
     "resenhas": [
-    { "usuario": "Ciclaninho", "nota": 5, "texto": "Roots mudou o metal brasileiro.", "curtidas": 100, "views": 150 },
-    { "usuario": "Amo_música", "nota": 4, "texto": "Beneath the Remains é perfeito.", "curtidas": 12, "views": 40 }
-  ]
+      {
+        "usuario": "Ciclaninho",
+        "nota": 4,
+        "texto": "Envelheço na Cidade tem uma letra que fala do cotidiano e do tempo passando de um jeito que me deixou pensativo, mesmo sendo adolescente. A voz rasgada e teatral do Nasi dá muita personalidade. Só acho que o som, em alguns momentos, soa muito anos 80 e meio datado pros meus ouvidos, mas as letras compensam.",
+        "curtidas": 100,
+        "views": 150
+      },
+      {
+        "usuario": "Amo_música",
+        "nota": 4,
+        "texto": "Flores em Você é mais pop e romântica, com um refrão fácil de cantar, e a voz do Nasi tem uma teatralidade que dá charme. A letra é simples, mas bonita. Não acho que seja tão profunda quanto outras músicas deles, e o som tem muita cara dos anos 80, mas pra mim é uma ótima porta de entrada pra banda.",
+        "curtidas": 12,
+        "views": 40
+      }
+    ]
   }
 ]
