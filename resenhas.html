@@ -700,52 +700,39 @@
                 <div class="principal">
                     <div class="card-principal">
 
-                        <div class="musica-info">
-                            <img class="musica-capa" src="capa-musica.jpg" alt="Capa da música">
-                            <div class="musica-desc">
-                                <strong>Nome da música</strong>
-                                Artista · Álbum · Uma mini descrição sobre a música escolhida.
-                            </div>
-                        </div>
+  <div class="musica-info">
+    <img class="musica-capa" id="capaBanda" src="" alt="">
+    <div class="musica-desc">
+      <strong id="nomeBanda">Carregando...</strong>
+      <span id="metaBanda"></span><br>
+      <span id="descBanda"></span>
+    </div>
+  </div>
 
-                        <div class="usuario-info">
-                            <div class="nome-usuario"></div>
-                            <div class="avatar">
-                                <svg viewBox="0 0 24 24">
-                                    <path
-                                        d="M12 12c2.7 0 4.9-2.2 4.9-4.9S14.7 2.2 12 2.2 7.1 4.4 7.1 7.1 9.3 12 12 12zm0 2.5c-3.5 0-10.5 1.8-10.5 5.3v2h21v-2c0-3.5-7-5.3-10.5-5.3z" />
-                                </svg>
-                            </div>
-                            <span class="nome-usuario">Fulano-de-tal</span>
-                        </div>
-                        <div class="nome-usuario">imagina que aqui tem a resenha de uma música</div>
-                        <div class="estrelas">★★★★<span class="vazia">★</span></div>
+  <div class="usuario-info">
+    <div class="avatar">
+      <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.9-2.2 4.9-4.9S14.7 2.2 12 2.2 7.1 4.4 7.1 7.1 9.3 12 12 12zm0 2.5c-3.5 0-10.5 1.8-10.5 5.3v2h21v-2c0-3.5-7-5.3-10.5-5.3z"/></svg>
+    </div>
+    <span class="nome-usuario" id="destUsuario"></span>
+  </div>
 
-                        <div class="texto-resenha">
-                            <p></p>
-                            <p></p>
-                        </div>
+  <div class="estrelas" id="destEstrelas"></div>
+  <div class="texto-resenha"><p id="destTexto"></p></div>
 
-                        <div class="rodape-card">
-                            <span>
-                                <svg viewBox="0 0 24 24">
-                                    <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z" />
-                                    <circle cx="12" cy="12" r="3" />
-                                </svg>
-                                150
-                            </span>
-
-                            <!-- LIKE: clique para curtir e clique de novo para tirar a curtida -->
-                            <button type="button" class="btn-like" id="btnLike" aria-pressed="false" aria-label="Curtir esta resenha">
-                                <svg viewBox="0 0 24 24">
-                                    <path d="M7 10v12" />
-                                    <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z" />
-                                </svg>
-                                <span id="contadorLike">100</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+  <div class="rodape-card">
+    <span>
+      <svg viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>
+      <b id="destViews" style="font-weight:400">0</b>
+    </span>
+    <button type="button" class="btn-like" id="btnLike" aria-pressed="false" aria-label="Curtir esta resenha">
+      <svg viewBox="0 0 24 24">
+        <path d="M7 10v12"/>
+        <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"/>
+      </svg>
+      <span id="contadorLike">0</span>
+    </button>
+  </div>
+</div>
 
                 <div class="lista-resenhas">
                     <div class="nova-resenha">
@@ -771,65 +758,7 @@
                         <button type="button">Publicar</button>
                     </div>
 
-                    <div class="mini-card">
-                        <div class="mini-usuario">
-                            <div class="mini-avatar">
-                                <svg viewBox="0 0 24 24">
-                                    <path
-                                        d="M12 12c2.7 0 4.9-2.2 4.9-4.9S14.7 2.2 12 2.2 7.1 4.4 7.1 7.1 9.3 12 12 12zm0 2.5c-3.5 0-10.5 1.8-10.5 5.3v2h21v-2c0-3.5-7-5.3-10.5-5.3z" />
-                                </svg>
-                            </div>
-                            <span>Ciclaninho</span>
-                        </div>
-                        <div class="mini-estrelas">★★★★<span class="vazia">★</span></div>
-                        <div class="mini-texto">pipipipopopo</div>
-                    </div>
-
-                    <div class="mini-card">
-                        <div class="mini-usuario">
-                            <div class="mini-avatar">
-                                <svg viewBox="0 0 24 24">
-                                    <path
-                                        d="M12 12c2.7 0 4.9-2.2 4.9-4.9S14.7 2.2 12 2.2 7.1 4.4 7.1 7.1 9.3 12 12 12zm0 2.5c-3.5 0-10.5 1.8-10.5 5.3v2h21v-2c0-3.5-7-5.3-10.5-5.3z" />
-                                </svg>
-                            </div>
-                            <span>Amo_música</span>
-                        </div>
-                        <div class="mini-estrelas">★★★★<span class="vazia">★</span></div>
-                        <div class="mini-texto"></div>
-                    </div>
-
-                    <div class="mini-card">
-                        <div class="mini-usuario">
-                            <div class="mini-avatar">
-                                <svg viewBox="0 0 24 24">
-                                    <path
-                                        d="M12 12c2.7 0 4.9-2.2 4.9-4.9S14.7 2.2 12 2.2 7.1 4.4 7.1 7.1 9.3 12 12 12zm0 2.5c-3.5 0-10.5 1.8-10.5 5.3v2h21v-2c0-3.5-7-5.3-10.5-5.3z" />
-                                </svg>
-                            </div>
-                            <span>SuperVinil</span>
-                        </div>
-                        <div class="mini-estrelas">★★★★<span class="vazia">★</span></div>
-                        <div class="mini-texto"></div>
-                    </div>
-
-                    <div class="mini-card">
-                        <div class="mini-usuario">
-                            <div class="mini-avatar">
-                                <svg viewBox="0 0 24 24">
-                                    <path
-                                        d="M12 12c2.7 0 4.9-2.2 4.9-4.9S14.7 2.2 12 2.2 7.1 4.4 7.1 7.1 9.3 12 12 12zm0 2.5c-3.5 0-10.5 1.8-10.5 5.3v2h21v-2c0-3.5-7-5.3-10.5-5.3z" />
-                                </svg>
-                            </div>
-                            <span>MariaJosé</span>
-                        </div>
-                        <div class="mini-estrelas">★★★★★</div>
-                        <div class="mini-texto"></div>
-                    </div>
-
-                </div>
-
-            </div>
+              
         </main>
 
         <footer class="footer">
@@ -850,29 +779,130 @@
 
     <div class="side-panel"></div>
 
-    <script>
-        const btnLike = document.getElementById('btnLike');
-        const contadorLike = document.getElementById('contadorLike');
-        let curtidas = Number(contadorLike.textContent);
+   <script>
+  const AVATAR = '<svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.9-2.2 4.9-4.9S14.7 2.2 12 2.2 7.1 4.4 7.1 7.1 9.3 12 12 12zm0 2.5c-3.5 0-10.5 1.8-10.5 5.3v2h21v-2c0-3.5-7-5.3-10.5-5.3z"/></svg>';
+  const $ = id => document.getElementById(id);
+  const bandaId = new URLSearchParams(location.search).get('id');
+  const chaveLocal = 'resenhas:' + bandaId;
 
-        btnLike.addEventListener('click', () => {
-            const jaCurtiu = btnLike.getAttribute('aria-pressed') === 'true';
-            btnLike.setAttribute('aria-pressed', String(!jaCurtiu));
-            curtidas += jaCurtiu ? -1 : 1;
-            contadorLike.textContent = curtidas;
-        });
+  let banda = null;
+  let resenhas = [];
+  let curtidas = 0;
 
-        const notaTexto = document.getElementById('notaTexto');
+  function estrelasHTML(nota) {
+    const n = Math.max(0, Math.min(5, Math.floor(nota)));
+    return '★'.repeat(n) + '<span class="vazia">' + '★'.repeat(5 - n) + '</span>';
+  }
 
-        document.querySelectorAll('input[name="nota"]').forEach(opcao => {
-            opcao.addEventListener('change', () => {
-                const n = Number(opcao.value);
-                const texto = String(n).replace('.', ',');
-                notaTexto.textContent = 'Você deu ' + texto + (n <= 1 ? ' estrela' : ' estrelas');
-            });
-        });
-    </script>
+  function lerLocais() {
+    try { return JSON.parse(localStorage.getItem(chaveLocal) || '[]'); }
+    catch { return []; }
+  }
 
+  function mostrarDestaque(r) {
+    $('destUsuario').textContent = r.usuario;
+    $('destEstrelas').innerHTML = estrelasHTML(r.nota);
+    $('destTexto').textContent = r.texto;
+    $('destViews').textContent = r.views ?? 0;
+    curtidas = r.curtidas ?? 0;
+    $('contadorLike').textContent = curtidas;
+    $('btnLike').setAttribute('aria-pressed', 'false');
+  }
+
+  function renderLista() {
+    const lista = $('listaResenhas');
+    lista.querySelectorAll('.mini-card').forEach(el => el.remove());
+
+    resenhas.forEach((r, i) => {
+      const card = document.createElement('div');
+      card.className = 'mini-card';
+      card.style.cursor = 'pointer';
+      card.innerHTML =
+        '<div class="mini-usuario"><div class="mini-avatar">' + AVATAR + '</div><span></span></div>' +
+        '<div class="mini-estrelas">' + estrelasHTML(r.nota) + '</div>' +
+        '<div class="mini-texto"></div>';
+      card.querySelector('.mini-usuario span').textContent = r.usuario;
+      card.querySelector('.mini-texto').textContent = r.texto;
+      card.addEventListener('click', () => mostrarDestaque(r)); // clicar abre no card grande
+      lista.appendChild(card);
+    });
+  }
+
+  function mostrarVazio() {
+    $('destUsuario').textContent = '';
+    $('destEstrelas').innerHTML = '';
+    $('destTexto').textContent = 'Ainda não há resenhas para esta banda. Seja o primeiro a escrever!';
+    $('destViews').textContent = 0;
+    $('contadorLike').textContent = 0;
+  }
+
+  async function init() {
+    try {
+      const resp = await fetch('bandas.json');
+      const todas = await resp.json();
+      banda = todas.find(b => b.id === bandaId);
+    } catch (e) { console.error(e); }
+
+    if (!banda) {
+      $('nomeBanda').textContent = 'Banda não encontrada';
+      mostrarVazio();
+      return;
+    }
+
+    // Informações da banda
+    document.title = 'Resenhas - ' + banda.nome;
+    $('capaBanda').src = banda.imagem;
+    $('capaBanda').alt = banda.nome;
+    $('nomeBanda').textContent = banda.nome;
+    $('metaBanda').textContent =
+      [banda.origem, banda.formacao, banda.genero].filter(Boolean).join(' · ');
+    $('descBanda').textContent = banda.descricao +
+      (banda.albuns?.length ? ' Álbuns: ' + banda.albuns.join(', ') + '.' : '');
+
+    // Resenhas só desta banda (as novas do usuário aparecem primeiro)
+    resenhas = [...lerLocais(), ...(banda.resenhas || [])];
+    renderLista();
+    resenhas.length ? mostrarDestaque(resenhas[0]) : mostrarVazio();
+  }
+
+  // Curtir
+  $('btnLike').addEventListener('click', () => {
+    const btn = $('btnLike');
+    const jaCurtiu = btn.getAttribute('aria-pressed') === 'true';
+    btn.setAttribute('aria-pressed', String(!jaCurtiu));
+    curtidas += jaCurtiu ? -1 : 1;
+    $('contadorLike').textContent = curtidas;
+  });
+
+  // Texto da nota
+  document.querySelectorAll('input[name="nota"]').forEach(op => {
+    op.addEventListener('change', () => {
+      const n = Number(op.value);
+      $('notaTexto').textContent =
+        'Você deu ' + String(n).replace('.', ',') + (n <= 1 ? ' estrela' : ' estrelas');
+    });
+  });
+
+  // Publicar nova resenha
+  $('btnPublicar').addEventListener('click', () => {
+    const texto = $('textoNovaResenha').value.trim();
+    const marcada = document.querySelector('input[name="nota"]:checked');
+    if (!texto || !marcada) {
+      alert('Escolha uma nota e escreva a resenha.');
+      return;
+    }
+    const nova = { usuario: 'Você', nota: Number(marcada.value), texto, curtidas: 0, views: 0 };
+    localStorage.setItem(chaveLocal, JSON.stringify([nova, ...lerLocais()]));
+    resenhas.unshift(nova);
+    renderLista();
+    mostrarDestaque(nova);
+    $('textoNovaResenha').value = '';
+    marcada.checked = false;
+    $('notaTexto').textContent = 'Clique nas estrelas para avaliar';
+  });
+
+  init();
+</script>
 </body>
 
 </html>
