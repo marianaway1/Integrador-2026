@@ -882,21 +882,7 @@ const chaveLocal = 'resenhas:' + tipo + ':' + bandaId;
   renderLista();
   resenhas.length ? mostrarDestaque(resenhas[0]) : mostrarVazio();
 }
-    // Informações da banda
-    document.title = 'Resenhas - ' + banda.nome;
-    $('capaBanda').src = banda.imagem;
-    $('capaBanda').alt = banda.nome;
-    $('nomeBanda').textContent = banda.nome;
-    $('metaBanda').textContent =
-      [banda.origem, banda.formacao, banda.genero].filter(Boolean).join(' · ');
-    $('descBanda').textContent = banda.descricao +
-      (banda.albuns?.length ? ' Álbuns: ' + banda.albuns.join(', ') + '.' : '');
-
-    // Resenhas só desta banda (as novas do usuário aparecem primeiro)
-    resenhas = [...lerLocais(), ...(banda.resenhas || [])];
-    renderLista();
-    resenhas.length ? mostrarDestaque(resenhas[0]) : mostrarVazio();
-  }
+   
 
   // Curtir
   $('btnLike').addEventListener('click', () => {
