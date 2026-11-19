@@ -785,13 +785,14 @@
 
     <div class="side-panel"></div>
 
-   <script>
+  <script>
   const AVATAR = '<svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.9-2.2 4.9-4.9S14.7 2.2 12 2.2 7.1 4.4 7.1 7.1 9.3 12 12 12zm0 2.5c-3.5 0-10.5 1.8-10.5 5.3v2h21v-2c0-3.5-7-5.3-10.5-5.3z"/></svg>';
   const $ = id => document.getElementById(id);
+
   const params = new URLSearchParams(location.search);
-const bandaId = params.get('id');
-const tipo = params.get('tipo') === 'musica' ? 'musica' : 'banda';
-const chaveLocal = 'resenhas:' + tipo + ':' + bandaId;
+  const bandaId = params.get('id');
+  const tipo = params.get('tipo') === 'musica' ? 'musica' : 'banda';
+  const chaveLocal = 'resenhas:' + tipo + ':' + bandaId;
 
   let banda = null;
   let resenhas = [];
@@ -821,7 +822,7 @@ const chaveLocal = 'resenhas:' + tipo + ':' + bandaId;
     const lista = $('listaResenhas');
     lista.querySelectorAll('.mini-card').forEach(el => el.remove());
 
-    resenhas.forEach((r, i) => {
+    resenhas.forEach(r => {
       const card = document.createElement('div');
       card.className = 'mini-card';
       card.style.cursor = 'pointer';
@@ -831,7 +832,7 @@ const chaveLocal = 'resenhas:' + tipo + ':' + bandaId;
         '<div class="mini-texto"></div>';
       card.querySelector('.mini-usuario span').textContent = r.usuario;
       card.querySelector('.mini-texto').textContent = r.texto;
-      card.addEventListener('click', () => mostrarDestaque(r)); // clicar abre no card grande
+      card.addEventListener('click', () => mostrarDestaque(r));
       lista.appendChild(card);
     });
   }
@@ -839,50 +840,49 @@ const chaveLocal = 'resenhas:' + tipo + ':' + bandaId;
   function mostrarVazio() {
     $('destUsuario').textContent = '';
     $('destEstrelas').innerHTML = '';
-    $('destTexto').textContent = 'Ainda não há resenhas para esta banda. Seja o primeiro a escrever!';
+    $('destTexto').textContent = 'Ainda não há resenhas. Seja o primeiro a escrever!';
     $('destViews').textContent = 0;
     $('contadorLike').textContent = 0;
   }
 
- async function init() {
-  try {
-    const resp = await fetch(tipo === 'musica' ? 'musicas.json' : 'bandas.json');
-    const todas = await resp.json();
-    banda = todas.find(b => b.id === bandaId);
-  } catch (e) {
-    console.error(e);
-    $('descBanda').textContent = 'Erro: ' + e.message;
+  async function init() {
+    try {
+      const resp = await fetch(tipo === 'musica' ? 'musicas.json' : 'bandas.json');
+      const todas = await resp.json();
+      banda = todas.find(b => b.id === bandaId);
+    } catch (e) {
+      console.error(e);
+      $('descBanda').textContent = 'Erro: ' + e.message;
+    }
+
+    if (!banda) {
+      $('nomeBanda').textContent = tipo === 'musica' ? 'Música não encontrada' : 'Banda não encontrada';
+      mostrarVazio();
+      return;
+    }
+
+    const ok = v => v !== undefined && v !== null && v !== '' && !String(v).startsWith('Preencha aqui');
+
+    document.title = 'Resenhas - ' + banda.nome;
+    $('capaBanda').src = banda.imagem;
+    $('capaBanda').alt = banda.nome;
+    $('nomeBanda').textContent = banda.nome;
+
+    if (tipo === 'musica') {
+      $('metaBanda').textContent =
+        [banda.banda, banda.album, banda.ano, banda.genero].filter(ok).join(' · ');
+      $('descBanda').textContent = ok(banda.descricao) ? banda.descricao : '';
+    } else {
+      $('metaBanda').textContent =
+        [banda.origem, banda.formacao, banda.genero].filter(ok).join(' · ');
+      $('descBanda').textContent = (ok(banda.descricao) ? banda.descricao : '') +
+        (banda.albuns?.length ? ' Álbuns: ' + banda.albuns.join(', ') + '.' : '');
+    }
+
+    resenhas = [...lerLocais(), ...(banda.resenhas || [])];
+    renderLista();
+    resenhas.length ? mostrarDestaque(resenhas[0]) : mostrarVazio();
   }
-
-  if (!banda) {
-    $('nomeBanda').textContent = tipo === 'musica' ? 'Música não encontrada' : 'Banda não encontrada';
-    mostrarVazio();
-    return;
-  }
-
-  const ok = v => v !== undefined && v !== null && v !== '' && !String(v).startsWith('Preencha aqui');
-
-  document.title = 'Resenhas - ' + banda.nome;
-  $('capaBanda').src = banda.imagem;
-  $('capaBanda').alt = banda.nome;
-  $('nomeBanda').textContent = banda.nome;
-
-  if (tipo === 'musica') {
-    $('metaBanda').textContent =
-      [banda.banda, banda.album, banda.ano, banda.genero].filter(ok).join(' · ');
-    $('descBanda').textContent = ok(banda.descricao) ? banda.descricao : '';
-  } else {
-    $('metaBanda').textContent =
-      [banda.origem, banda.formacao, banda.genero].filter(ok).join(' · ');
-    $('descBanda').textContent = banda.descricao +
-      (banda.albuns?.length ? ' Álbuns: ' + banda.albuns.join(', ') + '.' : '');
-  }
-
-  resenhas = [...lerLocais(), ...(banda.resenhas || [])];
-  renderLista();
-  resenhas.length ? mostrarDestaque(resenhas[0]) : mostrarVazio();
-}
-   
 
   // Curtir
   $('btnLike').addEventListener('click', () => {
@@ -922,6 +922,7 @@ const chaveLocal = 'resenhas:' + tipo + ':' + bandaId;
 
   init();
 </script>
+
     <script src="busca.js"></script>
 </body>
 
